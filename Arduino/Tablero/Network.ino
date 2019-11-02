@@ -6,7 +6,7 @@ SimpleTimer tReconnect;
 void setupEthernet()
 {
 	Serial.println(F("Configurando Red"));
-	if (Ethernet.begin(mac,2000) == 0)
+	if (Ethernet.begin(mac,ip) == 0)
 	{
     	Serial.println(F("Failed to configure Ethernet using DHCP"));
   	}

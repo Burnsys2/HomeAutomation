@@ -1,5 +1,5 @@
 byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0x01 };
-//IPAddress ip(192, 168, 2, 41);
+IPAddress ip(192, 168, 2, 41);
 IPAddress mqtt_server(192, 168, 2, 1);
 const String globalTopic = "Arduino";
 const String sector = "PBLiving";
