@@ -16,7 +16,7 @@ void SetupSensores()
 {
 	for (byte index = 0; index < analogInsArraySize; index++) 
 	{
-   		pinMode(analogInsArray[index], INPUT);	
+ //  		pinMode(analogInsArray[index], INPUT);	
 		analogInsValue[index]= 0;
 		analogInsMaxValue[index]= 0;
 		analogInsSamples[index]= 0;
@@ -24,7 +24,7 @@ void SetupSensores()
 
 	for (byte index = 0; index < analogInsOnlineArraySize; index++) 
 	{
-   		pinMode(analogInsOnlineArray[index], INPUT);	
+   	//	pinMode(analogInsOnlineArray[index], INPUT);	
 		analogInsOnlineValue[index] = 0;
 		analogInsOnlineEMA_S[index] = analogRead(analogInsOnlineArray[index]);
 		analogInsOnlineEMA_A[index] = 0.6;
