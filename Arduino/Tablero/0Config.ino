@@ -18,13 +18,15 @@ const byte rf315OutPin = -1;//7;
 //RGB LEDS
 const byte RGBLeds[][3] =
 {
-     {2,4,6}
+ //    {2,4,6}
 } ;
 
 //ws LEDS: Pins, CntLeds
 const byte WSStrips[][2] =
 {
-     {12,8} //STATUSLED
+	//     {9,1}, 
+		// {12,6},
+		 {11,6}
 } ;
 
 

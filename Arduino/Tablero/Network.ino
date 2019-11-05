@@ -6,10 +6,7 @@ SimpleTimer tReconnect;
 void setupEthernet()
 {
 	Serial.println(F("Configurando Red"));
-	if (Ethernet.begin(mac,ip) == 0)
-	{
-    	Serial.println(F("Failed to configure Ethernet using DHCP"));
-  	}
+	Ethernet.begin(mac, ip);
 	Serial.println(F("Configurando Callback Mqtt"));
 	
     mqttClient.setServer(mqtt_server, 1883);

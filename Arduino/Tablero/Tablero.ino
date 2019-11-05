@@ -93,9 +93,9 @@ void setup(void)
 	CurentLedStatus = Starting;
 	SetupStatusLed();
 	SetupRGBLeds();
-	SetupWsStrips();
 	Serial.begin(9600);
 	while (!Serial) {}
+	SetupWsStrips();
 	SetLedStatus();
 	Serial.println(F("Starting..."));
 	setupIR();
