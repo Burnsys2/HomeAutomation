@@ -6,7 +6,7 @@
 
 #include <FastLED.h>
 #include <Ethernet.h>
-
+#include <Encoder.h>
 #define MQTT_SOCKET_TIMEOUT 1
 #define MQTT_KEEPALIVE 1
 #define MQTT_MAX_PACKET_SIZE 1024 //OJO HAY QUE CAMBIAR EN LA LIBRERIA
@@ -105,6 +105,7 @@ void setup(void)
 	setupRF();
 	tSensores.setInterval(5000,TSensoresLentos);
 	setupEthernet();
+	SetupEncoders();
 	wdt_enable(WDTO_8S);
 	CurentLedStatus = Starting;
 	
@@ -141,5 +142,6 @@ void loop() {
 	ProcesarSensores();
 	ProcesarVoltSensor();
 	ProcesarWsStrip();
+	ProcesarEncoders();
 	tSensores.run();
 }

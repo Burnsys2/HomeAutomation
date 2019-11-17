@@ -114,10 +114,10 @@ void ProcesarComandoWSLedsStrip(String topic, String valor)
     if (Mode == F("BPM"))  {WsStripeMode[nro] = AnimationBpm;}
     if (Mode == F("JUGGLE"))  {WsStripeMode[nro] = AnimationJuggle;}
   
-    Serial.print(F("WSStrip Command: "));
+ /*   Serial.print(F("WSStrip Command: "));
     Serial.print(Mode);
     Serial.print(F(" - Strip: "));
-    Serial.println(nro);
+    Serial.println(nro);*/
     
     FastLED.show();  
 }

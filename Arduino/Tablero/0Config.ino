@@ -8,7 +8,7 @@ const byte IrRecPin = 9;//2;
 
 //RF433  //		
 //interrupts pins: 2, 3, 18, 19, 20, 21	
-const byte rf433InPin = 19; //2
+const byte rf433InPin = 2; //2
 const byte rf433OutPin = -1;
 const byte rf315InPin = -1
 
@@ -24,11 +24,14 @@ const byte RGBLeds[][3] =
 //ws LEDS: Pins, CntLeds
 const byte WSStrips[][2] =
 {
-	//     {9,1}, 
-		// {12,6},
 		 {11,6}
 } ;
 
+//ws LEDS: Pins, CntLeds
+const byte EncodersPins[][2] =
+{
+		 {18,19}
+};
 
 #define DHT_PIN 25
 #define DHT_TYPE DHT22

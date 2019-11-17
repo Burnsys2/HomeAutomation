@@ -81,6 +81,7 @@ typedef void *__builtin_va_list;
 #include "Tablero.ino"
 #include "0Config.ino"
 #include "BotonesYRelays.ino"
+#include "Encoders.ino"
 #include "Functions.ino"
 #include "IR.ino"
 #include "Network.ino"
