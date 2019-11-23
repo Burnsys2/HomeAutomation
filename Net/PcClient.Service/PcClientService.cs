@@ -51,11 +51,15 @@ namespace PcClientService
         }
         private static MQTTClient client = new MQTTClient("192.168.2.1", 1883);
         System.Timers.Timer timer = new System.Timers.Timer();
+        private AudioSwitcher.AudioApi.CoreAudio.CoreAudioDevice AudioDevice;
+        //private AudioSwitcher.AudioApi.CoreAudio.CoreAudioController AudioControl;
         protected override void OnStart(string[] args)
         {
             _handler += new EventHandler(Handler);
             SetConsoleCtrlHandler(_handler, true);
-
+            OnTimer(null, null);
+            AudioDevice = new AudioSwitcher.AudioApi.CoreAudio.CoreAudioController().DefaultPlaybackDevice;
+    //        AudioControl.DefaultPlaybackDevice
             timer.Interval = 1000; // 60 seconds
             timer.Enabled = true;
             timer.Elapsed += new System.Timers.ElapsedEventHandler(this.OnTimer);
@@ -84,6 +88,12 @@ namespace PcClientService
                                 psi.UseShellExecute = false;
                                 Process.Start(psi);
                                 break;
+                            case "VOLUME":
+                                AudioDevice.Volume = int.Parse(payloadst);
+                                break;
+                            case "MUTE":
+                                AudioDevice.ToggleMute();
+                                break;
                         }
                     };
                     client.Connect(System.Environment.MachineName);
@@ -98,7 +108,12 @@ namespace PcClientService
             }
 
             // publish on our own subscribed topic to see if we hear what we send
-            client.Publish(System.Environment.MachineName + "/lastseen/epoch", DateTime.Now.ToEpochMilliseconds().ToString(), QoS.FireAndForget, false);
+            client.Publish(System.Environment.MachineName + "/out/lastseen/epoch", DateTime.Now.ToEpochMilliseconds().ToString(), QoS.FireAndForget, false);
+            if (AudioDevice != null)
+            {
+                client.Publish(System.Environment.MachineName + "/out/volume", AudioDevice.Volume.ToString(), QoS.FireAndForget, false);
+                client.Publish(System.Environment.MachineName + "/out/Mute", (AudioDevice.IsMuted ? 1:0).ToString(), QoS.FireAndForget, false);
+            }
         }
 
         protected override void OnStop()
