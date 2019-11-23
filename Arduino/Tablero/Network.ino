@@ -154,7 +154,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
 	{
 		ProcesarComandoLedsRgb(topic,valor);
 	}
-		if (topico == F("WSSTRIP"))
+	if (topico == F("WSSTRIP"))
 	{
 		ProcesarComandoWSLedsStrip(topic,valor);
 	}
@@ -171,9 +171,13 @@ void callback(char* topic, byte* payload, unsigned int length) {
 	{
 		softReset();
 	}
-		if (topico == F("SENSORES"))
+	if (topico == F("SENSORES"))
 	{
 		ProcesarComandoSensores(topic,valor);
+	}
+	if (topico == F("ENCODER"))
+	{
+		ProcesarComandoEncloders(topic, valor);
 	}
 
 }

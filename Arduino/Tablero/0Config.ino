@@ -1,66 +1,67 @@
-byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0x01 };
-IPAddress ip(192, 168, 2, 41);
+byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0x02 };
+IPAddress ip(192, 168, 2, 42);
 IPAddress mqtt_server(192, 168, 2, 1);
 const String globalTopic = "Arduino";
-const String sector = "PBLiving";
+const String sector = "PBTablero";
 
-const byte IrRecPin = 9;//2;
+const byte IrRecPin = 0; //  CUALQUIER PIN;
 
 //RF433  //		
 //interrupts pins: 2, 3, 18, 19, 20, 21	
-const byte rf433InPin = 2; //2
-const byte rf433OutPin = -1;
-const byte rf315InPin = -1
-
-; //3
-const byte rf315OutPin = -1;//7;
+const byte rf433InPin = 21; //2
+const byte rf433OutPin = 6;
+const byte rf315InPin = 0; //3
+const byte rf315OutPin = 7;//7;
 
 //RGB LEDS
 const byte RGBLeds[][3] =
 {
- //    {2,4,6}
+ //    {9,11,13}
 } ;
-
-//ws LEDS: Pins, CntLeds
-const byte WSStrips[][2] =
-{
-		 {11,6}
-} ;
-
-//ws LEDS: Pins, CntLeds
 const byte EncodersPins[][2] =
 {
-		 {18,19}
+	
 };
-
-#define DHT_PIN 25
-#define DHT_TYPE DHT22
-//LUZ
-//RGB LED STATUS
-const byte LED_STATUS_RED_PIN = 0;
-const byte LED_STATUS_GREEN_PIN = 0;
-const byte LED_STATUS_BLUE_PIN = 0;
 const byte WSLedStatus = 0;
 
-const byte LED_ACTION_RED_PIN =0;
-const byte LED_ACTION_GREEN_PIN =0;
-const byte LED_ACTION_BLUE_PIN = 0;
- 
-const byte analogInsArray[] = {9,11,12,15};
-const byte analogInsOnlineArray[] = {14,13};
+//RGB LEDS
+const byte WSStrips[][4] =
+{
+	 {11,14},
+     {12,14},	
+     {13,11}
+};
 
-const byte buttonArray[] = {29,33,35,37,39,41,45,47,49} ;
-const byte buttonIgnoreNoiseFilterArray[] = {5} ;
-const byte RelaysArray[] = {22,24,26,28} ;
+
+#define DHT_PIN 6
+#define DHT_TYPE DHT22
+
+//RGB LED STATUS
+const byte LED_STATUS_RED_PIN = 17;
+const byte LED_STATUS_GREEN_PIN = 16;
+const byte LED_STATUS_BLUE_PIN = 15;
+
+const byte LED_ACTION_RED_PIN =20;
+const byte LED_ACTION_GREEN_PIN =19;
+const byte LED_ACTION_BLUE_PIN = 18;
+const byte analogInsArray[] = {3} ;
+const byte analogInsOnlineArray[] = {};
+
+
+const byte buttonArray[] = {49,47,45,43,41,39,37,35,33} ;
+const byte RelaysArray[] = {22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,4,5};
+const byte RelaysInvertedArray[] = {40,4} ;
 const byte RelaysManualMap[][2] =
 {
-     {45,24},
-     {33,22},
-     {39,26},
-     {37,28},
-} ;
-const byte RelaysInvertedArray[] = {28,26} ;
-
-const byte BuzzerPin = 0;
-
-const int VoltSensorPin = 8;
+     {33,34}, // VESTIDOR
+     {43,30}, //escritorio
+     {45,32}, // patio
+     {49,28}, // Distribuidor
+     {39,26}, //  comedor
+     {41,48}, //  living
+     {37,48}, //  living
+     {35,34}, //  living
+     {47,42} //  escalera
+};
+const byte buttonIgnoreNoiseFilterArray[] = {} ;
+const int VoltSensorPin = 0;
