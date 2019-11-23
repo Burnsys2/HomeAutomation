@@ -13,93 +13,117 @@ byte WsDelayMilis = 100/Fps;
 
 void SetupWsStrips()
 {
-    Serial.println(F("Cionfigurando WSStrips"));
+	Serial.println(F("Cionfigurando WSStrips"));
+	Serial.println(WSStripsSize);
 // FastLED.addLeds<WS2812B, 9,BRG>(ledsbug, 1);
 	for (byte index = 0; index < WSStripsSize; index++) {
         byte Pin =WSStrips[index][0];
-        int cntleds = WSStrips[index][1];
+        byte cntleds = WSStrips[index][1];
         Serial.print(F("WSStrip - Pin: "));
         Serial.print(Pin);
-        Serial.print(F(" - Leds: "));
-        Serial.println(cntleds);
+		Serial.print(F(" - Leds: "));
+	       Serial.println(cntleds);
         WsStripeMode[index]  = AnimationStatic;
-
         switch (Pin)
         {
           //PIN 10 NO ANDA
    //    case 9:
  //           FastLED.addLeds<WS2812B, 9,BRG>(leds[index], cntleds);break;
        case 13:
-            FastLED.addLeds<WS2812B, 13,GRB>(leds[index], cntleds);break;
+            FastLED.addLeds<WS2812B, 13,BRG>(leds[index], cntleds);break;
         case 11:
             FastLED.addLeds<WS2812B, 11,BRG>(leds[index], cntleds);break;
-        case 12:
+		case 12:
             FastLED.addLeds<WS2812B, 12,BRG>(leds[index], cntleds);break;
        default:
             break;
         }
     }
-    FastLED.show();
+  //  FastLED.show();
 
 }
 
 void ProcesarComandoWSLedsStrip(String topic, String valor)
 {
+
     byte nro = getValue(topic,'/',4).toInt();
-    String Mode = getValue(topic,'/',5);
-    Mode.toUpperCase();
-    WsStripeParam1[nro] = 0;
-    WsStripeParam2[nro] = 0;
+	char NrosLeds[25];
+	getValue(topic, '/', 4).toCharArray(NrosLeds, 25);
+	byte cnt = 0;
+	char* ptr = strtok(NrosLeds, ",");
+
+	while (ptr != NULL) {
+		unsigned int nro = atoi(ptr);
+
+		String Mode = getValue(topic,'/',5);
+		Mode.toUpperCase();
+		WsStripeParam1[nro] = 0;
+		WsStripeParam2[nro] = 0;
 
 
-    if (Mode == F("FILL"))
-    {
-        WsStripeMode[nro] = AnimationStatic;
-        CRGB Color = GetCrgbFromPayload(valor);
-        //memset(leds[nro],Color,sizeof(leds[nro]));
-        FILLARRAY(leds[nro],Color);
-       // for (int NroLed = 0; NroLed < WSStrips[nro][1]; NroLed++) {
-        //    leds[nro][NroLed] =  Color;
-        //}
-    }
-    if (Mode == F("LED"))
-    {
-        WsStripeMode[nro] = AnimationStatic;
-        int NroLed =  getValue(valor,',',0).toInt();
-        leds[nro][NroLed] = GetCrgbFromPayload(valor);
-    }
-    if (Mode == F("FADETO"))  {
-        WsStripeMode[nro] = AnimationFadeTo;
-     
-    }
+		if (Mode == F("FILL"))
+		{
+			WsStripeMode[nro] = AnimationStatic;
+			CRGB Color = GetCrgbFromPayload(valor);
+			FILLARRAY(leds[nro],Color);
+		}
+		if (Mode == F("LED"))
+		{
+			WsStripeMode[nro] = AnimationStatic;
+			int NroLed =  getValue(valor,',',0).toInt();
+			leds[nro][NroLed] = GetCrgbFromPayload(valor);
+		}
+		if (Mode == F("FADETO"))  {
+			WsStripeMode[nro] = AnimationFadeTo;     
+		}
 
+		if (Mode == F("RAINBOW")) 
+		{
+			WsStripeParam1[nro] = gHue;
+			WsStripeParam2[nro] = 7;
 
-    if (Mode == F("RAINBOW"))  {WsStripeMode[nro] = AnimationRainbow;}
-    if (Mode == F("RAINBOWGLITTER"))  {WsStripeMode[nro] = AnimationRainbowWithGlitter;}
-    if (Mode == F("CONFETTI"))  {WsStripeMode[nro] = AnimationConfetti;}
-    if (Mode == F("SINELON"))  {
-      WsStripeMode[nro] = AnimationSinelon;
-      WsStripeParam1[nro] =  13;
+			WsStripeMode[nro] = AnimationRainbow;
+			if (valor != "")
+			{
+				String hue = getValue(valor, ',', 0);
+				if (hue != "")
+				{
+					WsStripeParam1[nro] = hue.toInt();
+				}
+				String delta = getValue(valor, ',', 1);
+				if (delta != "")
+				{
+					WsStripeParam2[nro] = delta.toInt();
+				}
+			}
+		}
+		if (Mode == F("RAINBOWGLITTER"))  {WsStripeMode[nro] = AnimationRainbowWithGlitter;}
+		if (Mode == F("CONFETTI"))  {WsStripeMode[nro] = AnimationConfetti;}
+		if (Mode == F("SINELON"))  {
+		  WsStripeMode[nro] = AnimationSinelon;
+		  WsStripeParam1[nro] =  13;
 
-      WsStripeParamColor[nro] = CHSV( gHue, 255, 192);
-      if (valor != "")
-      {
-        WsStripeParamColor[nro] = GetCrgbFromPayload(valor);
-        String bpm = getValue(valor,',',3);
-        if (bpm != "")
-        {
-          WsStripeParam1[nro] =  bpm.toInt();
-        }
-      }
-    }
-    if (Mode == F("BPM"))  {WsStripeMode[nro] = AnimationBpm;}
-    if (Mode == F("JUGGLE"))  {WsStripeMode[nro] = AnimationJuggle;}
- /* 
-    Serial.print(F("WSStrip Command: "));
+		  WsStripeParamColor[nro] = CHSV( gHue, 255, 192);
+		  if (valor != "")
+		  {
+			WsStripeParamColor[nro] = GetCrgbFromPayload(valor);
+			String bpm = getValue(valor,',',3);
+			if (bpm != "")
+			{
+			  WsStripeParam1[nro] =  bpm.toInt();
+			}
+		  }
+		}
+		if (Mode == F("BPM"))  {WsStripeMode[nro] = AnimationBpm;}
+		if (Mode == F("JUGGLE"))  {WsStripeMode[nro] = AnimationJuggle;}
+
+		ptr = strtok(NULL, ",");
+	}
+
+ /*   Serial.print(F("WSStrip Command: "));
     Serial.print(Mode);
     Serial.print(F(" - Strip: "));
-    Serial.println(nro);
-    */
+    Serial.println(nro);*/
     FastLED.show();  
 }
 
@@ -132,7 +156,7 @@ CRGB GetCrgbFromPayload(String payload)
 void rainbow(byte index) 
 {
   // FastLED's built-in rainbow generator
-  fill_rainbow( leds[index], WSStrips[index][1], gHue, 7);
+  fill_rainbow( leds[index], WSStrips[index][1], WsStripeParam1[index], WsStripeParam2[index]);
 }
 
 void rainbowWithGlitter(byte index) 

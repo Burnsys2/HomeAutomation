@@ -6,10 +6,7 @@ SimpleTimer tReconnect;
 void setupEthernet()
 {
 	Serial.println(F("Configurando Red"));
-	if (Ethernet.begin(mac,ip) == 0)
-	{
-    	Serial.println(F("Failed to configure Ethernet using DHCP"));
-  	}
+	Ethernet.begin(mac, ip);
 	Serial.println(F("Configurando Callback Mqtt"));
 	
     mqttClient.setServer(mqtt_server, 1883);
@@ -157,7 +154,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
 	{
 		ProcesarComandoLedsRgb(topic,valor);
 	}
-		if (topico == F("WSSTRIP"))
+	if (topico == F("WSSTRIP"))
 	{
 		ProcesarComandoWSLedsStrip(topic,valor);
 	}
@@ -174,9 +171,13 @@ void callback(char* topic, byte* payload, unsigned int length) {
 	{
 		softReset();
 	}
-		if (topico == F("SENSORES"))
+	if (topico == F("SENSORES"))
 	{
 		ProcesarComandoSensores(topic,valor);
+	}
+	if (topico == F("ENCODER"))
+	{
+		ProcesarComandoEncloders(topic, valor);
 	}
 
 }

@@ -29,7 +29,8 @@
     <None Include="ZStatusLed.ino" />
     <None Include="WSLed.ino" />
     <None Include="VoiltsSensor.ino" />
-    <None Include="0Config.inotab" />
+    <None Include="Encoders.ino" />
+    <None Include="0Config.inoliv" />
     <None Include="0Config.ino" />
   </ItemGroup>
   <ItemGroup>
