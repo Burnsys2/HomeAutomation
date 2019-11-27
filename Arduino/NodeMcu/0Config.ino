@@ -1,7 +1,7 @@
 
 //IPAddress ip(192, 168, 2, 41);
 const String Mqtt = "192.168.2.1";
-const String globalTopic = "Arduino";
+const String globalTopic = "NodeMcu";
 const String sector = "NodeTest";
 const char* ssid = "Casa"; // Rellena con el nombre de tu red WiFi
 const char* password = "casanueva"; // Rellena con la contraseña de tu red WiFi
@@ -24,10 +24,11 @@ const byte RGBLeds[][3] =
 	 {2,4,6}
 };
 
-//ws LEDS: Pins, CntLeds
+//ws LEDS: Pins, CntLeds MISMO PIN QUE EL INDICADO
 const byte WSStrips[][2] =
 {
-	 {3,7} //STATUSLED
+//	 {3,7}, //STATUSLED
+	//	 {4,7} //STATUSLED
 };
 
 

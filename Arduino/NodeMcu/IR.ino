@@ -1,4 +1,4 @@
-IRsend irsend(2); // usar pin 9 en mega
+IRsend irsend(4); // usar pin 9 en mega
 
 void setupIR()
 {

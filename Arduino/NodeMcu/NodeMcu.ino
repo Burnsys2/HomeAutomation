@@ -5,7 +5,6 @@
 */
 //#define FASTLED_ESP8266_RAW_PIN_ORDER
 
-#include "Functions.h"
 #include <Arduino.h>
 #define FASTLED_ESP8266_NODEMCU_PIN_ORDER
 //#define FASTLED_ESP8266_D1_PIN_ORDER
@@ -13,6 +12,7 @@
 FASTLED_USING_NAMESPACE
 #include <IRremoteESP8266.h>
 #include <IRsend.h>
+const uint16_t kIrLed = 4;
 //para que funcione fastled comentar https://github.com/FastLED/FastLED/blob/403464a499a8feffa48f6f85d205550b9bc9c89b/platforms/esp/8266/led_sysdefs_esp8266.h#L15
 #define MQTT_SOCKET_TIMEOUT 1
 #define MQTT_KEEPALIVE 1
@@ -27,6 +27,8 @@ extern char* __brkval;
 #include <PubSubClient.h>
 #include <DHT.h>
 #include <SimpleTimer.h>
+#include <ArduinoOTA.h>
+
 //#include <IRsend.h>
 
 //#define NUM_LEDS 60
