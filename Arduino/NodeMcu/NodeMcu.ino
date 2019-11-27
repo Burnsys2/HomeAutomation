@@ -12,7 +12,6 @@
 FASTLED_USING_NAMESPACE
 #include <IRremoteESP8266.h>
 #include <IRsend.h>
-const uint16_t kIrLed = 4;
 //para que funcione fastled comentar https://github.com/FastLED/FastLED/blob/403464a499a8feffa48f6f85d205550b9bc9c89b/platforms/esp/8266/led_sysdefs_esp8266.h#L15
 #define MQTT_SOCKET_TIMEOUT 1
 #define MQTT_KEEPALIVE 1
@@ -75,6 +74,7 @@ void setup() {
 	Serial.begin(115200);
 	while (!Serial) {}
 	SetupWsStrips();
+	setupIR();
 	setupEthernet();
 	//pinMode(6, OUTPUT);
 	//digitalWrite(6, HIGH);
@@ -90,10 +90,9 @@ void TSensoresLentos()
 	//	sendMqttf("FreeRam",freeMemory(),false);
 }
 
-void loop() {
+void loop(){
 
 	OffLineMode = !ProcesarRed();
-//	digitalWrite(6, LOW);
 	if (OffLineMode) {
 		CurentLedStatus = OffLine;
 	}

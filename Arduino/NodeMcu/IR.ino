@@ -1,7 +1,7 @@
-IRsend irsend(4); // usar pin 9 en mega
-
+IRsend irsend(4); // usar D2
 void setupIR()
 {
+	irsend.begin();
 }
 void ProcesarComandoIR(String topic, byte* payload, unsigned int length)
 {
