@@ -5,7 +5,6 @@
 */
 //#define FASTLED_ESP8266_RAW_PIN_ORDER
 
-#include "Functions.h"
 #include <Arduino.h>
 #define FASTLED_ESP8266_NODEMCU_PIN_ORDER
 //#define FASTLED_ESP8266_D1_PIN_ORDER
@@ -27,6 +26,8 @@ extern char* __brkval;
 #include <PubSubClient.h>
 #include <DHT.h>
 #include <SimpleTimer.h>
+#include <ArduinoOTA.h>
+
 //#include <IRsend.h>
 
 //#define NUM_LEDS 60
@@ -73,6 +74,7 @@ void setup() {
 	Serial.begin(115200);
 	while (!Serial) {}
 	SetupWsStrips();
+	setupIR();
 	setupEthernet();
 	//pinMode(6, OUTPUT);
 	//digitalWrite(6, HIGH);
@@ -88,10 +90,9 @@ void TSensoresLentos()
 	//	sendMqttf("FreeRam",freeMemory(),false);
 }
 
-void loop() {
+void loop(){
 
 	OffLineMode = !ProcesarRed();
-//	digitalWrite(6, LOW);
 	if (OffLineMode) {
 		CurentLedStatus = OffLine;
 	}

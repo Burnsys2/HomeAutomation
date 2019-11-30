@@ -17,9 +17,11 @@ void setupEthernet()
 }
 bool ProcesarRed()
 {
-	tReconnect.run();
+	tReconnect.run();	
 	if (!mqttClient.connected()) return false;
 	mqttClient.loop();
+	ArduinoOTA.handle();
+
 	return mqttClient.connected();
 }
 void Reconnect()
@@ -32,6 +34,12 @@ void Reconnect()
 		delay(500);
 		Serial.print(".");
 	}
+
+	char buffers[50];
+	sector.toCharArray(buffers, 50);
+
+	ArduinoOTA.setHostname(buffers);
+	ArduinoOTA.begin();
 
 	Serial.println("");
 	Serial.println("WiFi connected");
