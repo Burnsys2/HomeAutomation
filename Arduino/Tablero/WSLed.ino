@@ -27,8 +27,8 @@ void SetupWsStrips()
         switch (Pin)
         {
           //PIN 10 NO ANDA
-   //    case 9:
- //           FastLED.addLeds<WS2812B, 9,BRG>(leds[index], cntleds);break;
+       case 8:
+            FastLED.addLeds<WS2812B, 8,BRG>(leds[index], cntleds);break;
        case 13:
             FastLED.addLeds<WS2812B, 13,BRG>(leds[index], cntleds);break;
         case 11:
