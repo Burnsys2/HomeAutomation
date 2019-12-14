@@ -9,9 +9,9 @@ const byte IrRecPin = 0; //  CUALQUIER PIN;
 //RF433  //		
 //interrupts pins: 2, 3, 18, 19, 20, 21	
 const byte rf433InPin = 21; //2
-const byte rf433OutPin = 6;
+const byte rf433OutPin = 7;
 const byte rf315InPin = 0; //3
-const byte rf315OutPin = 7;//7;
+const byte rf315OutPin = 0;//7;
 
 //RGB LEDS
 const byte RGBLeds[][3] =
@@ -28,10 +28,9 @@ const byte WSLedStatus = 0;
 const byte WSStrips[][4] =
 {
 	 {11,14},
-     {12,14},	
+     {12,57},	
 	 {13,11},
-	 {8,57},
-	 {3,57}
+	 {8,14}
 };
 
 
@@ -39,20 +38,20 @@ const byte WSStrips[][4] =
 #define DHT_TYPE DHT22
 
 //RGB LED STATUS
-const byte LED_STATUS_RED_PIN = 17;
-const byte LED_STATUS_GREEN_PIN = 16;
-const byte LED_STATUS_BLUE_PIN = 15;
+const byte LED_STATUS_RED_PIN = -1;
+const byte LED_STATUS_GREEN_PIN = -1;
+const byte LED_STATUS_BLUE_PIN = -1;
 
-const byte LED_ACTION_RED_PIN =20;
-const byte LED_ACTION_GREEN_PIN =19;
-const byte LED_ACTION_BLUE_PIN = 18;
-const byte analogInsArray[] = {3} ;
+const byte LED_ACTION_RED_PIN =-1;
+const byte LED_ACTION_GREEN_PIN =-1;
+const byte LED_ACTION_BLUE_PIN = -1;
+const byte analogInsArray[] = {3,5} ;
 const byte analogInsOnlineArray[] = {};
 
 
-const byte buttonArray[] = {49,47,45,43,41,39,37,35,33} ;
+const byte buttonArray[] = {49,47,45,43,41,39,37,35,33,17} ;
 const byte RelaysArray[] = {22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,4,5};
-const byte RelaysInvertedArray[] = {40,4} ;
+const byte RelaysInvertedArray[] = {40,5} ;
 const byte RelaysManualMap[][2] =
 {
      {33,34}, // VESTIDOR

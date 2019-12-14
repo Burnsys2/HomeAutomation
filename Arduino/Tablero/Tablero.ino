@@ -55,12 +55,12 @@ enum eLedAction {
 enum eWsStripMode {
   AnimationStatic,
   AnimationRainbowWithGlitter,
-	AnimationRainbow,
-	AnimationConfetti,
+  AnimationRainbow,
+  AnimationConfetti,
   AnimationSinelon,
   AnimationBpm,
   AnimationJuggle,
-	AnimationFadeTo
+  AnimationFadeTo
 };
 
 eLedStatus CurentLedStatus;

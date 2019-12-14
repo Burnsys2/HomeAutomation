@@ -15,18 +15,18 @@ void SetupWsStrips()
         {
             //PIN 10 NO ANDA
 		case 3:
-			FastLED.addLeds<WS2812B, 3, BRG>(leds[index], cntleds); break;
+			WScontrollers[index] = &FastLED.addLeds<WS2812B, 3, BRG>(leds[index], cntleds); break;
 		case 8:
-              FastLED.addLeds<WS2812B, 8,BRG>(leds[index], cntleds);break;
+			WScontrollers[index] = &FastLED.addLeds<WS2812B, 8, BRG>(leds[index], cntleds);break;
         case 13:
-            FastLED.addLeds<WS2812B, 13, BRG>(leds[index], cntleds); break;
+			WScontrollers[index] = &FastLED.addLeds<WS2812B, 13, BRG>(leds[index], cntleds); break;
         case 11:
-            FastLED.addLeds<WS2812B, 11, BRG>(leds[index], cntleds); break;
+			WScontrollers[index] = &FastLED.addLeds<WS2812B, 11, BRG>(leds[index], cntleds); break;
         case 12:
-            FastLED.addLeds<WS2812B, 12, BRG>(leds[index], cntleds); break;
+			WScontrollers[index] = &FastLED.addLeds<WS2812B, 12, BRG>(leds[index], cntleds); break;
         default:
             break;
-        }
+        }	
     }
     //  FastLED.show();
 
