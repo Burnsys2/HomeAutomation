@@ -22,7 +22,9 @@ void ProcesarComandoWSLedsStrip(String topic, String valor)
 		WsDelayMilis = 1000 / Fps;
 		return;
 	}
-//	byte nro = getValue(topic,'/',4).toInt();
+
+
+	//	byte nro = getValue(topic,'/',4).toInt();
 	char NrosLeds[25];
 	getValue(topic, '/', 4).toCharArray(NrosLeds, 25);
 	byte cnt = 0;
@@ -31,10 +33,15 @@ void ProcesarComandoWSLedsStrip(String topic, String valor)
 	while (ptr != NULL) {
 		unsigned int nro = atoi(ptr);
 
+		Serial.print(F("Strip: "));
+		Serial.print(nro);
+
 		String Mode = getValue(topic,'/',5);
 		Mode.toUpperCase();
 		WsStripeParam1[nro] = 0;
 		WsStripeParam2[nro] = 0;
+		Serial.print(F(" - WSStrip Command: "));
+		Serial.println(Mode);
 
 		if (Mode == F("FILL"))
 		{
@@ -103,12 +110,9 @@ void ProcesarComandoWSLedsStrip(String topic, String valor)
 		WScontrollers[nro]->showLeds();
 		ptr = strtok(NULL, ",");
 	}
+	Serial.println("Exit");
 
- /*   Serial.print(F("WSStrip Command: "));
-    Serial.print(Mode);
-    Serial.print(F(" - Strip: "));
-    Serial.println(nro);*/
-//    FastLED.show();  
+   // FastLED.show();  
 }
 
 void ProcesarWsStrip()

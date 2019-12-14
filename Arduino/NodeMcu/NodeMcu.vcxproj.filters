@@ -21,10 +21,10 @@
     </None>
     <None Include="Network.ino" />
     <None Include="0Config.ino" />
-    <None Include="Functions.ino" />
     <None Include="IR.ino" />
     <None Include="WSLedSetup.ino" />
     <None Include="..\Tablero\WSLed.ino" />
+    <None Include="..\Tablero\Functions.ino" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="__vm\.NodeMcu.vsarduino.h">

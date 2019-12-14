@@ -1,6 +1,6 @@
 void SetupWsStrips()
 {
-    Serial.println(F("Cionfigurando WSStrips"));
+    Serial.println(F("Configurando WSStrips"));
     // FastLED.addLeds<WS2812B, 9,BRG>(ledsbug, 1);
     for (byte index = 0; index < WSStripsSize; index++) {
         byte Pin = WSStrips[index][0];
@@ -14,9 +14,9 @@ void SetupWsStrips()
         switch (Pin)
         {
         case 3:
-            FastLED.addLeds<WS2812B, 3, BRG>(leds[index], cntleds); break;
+            WScontrollers[index] = &FastLED.addLeds<WS2812B, 3, BRG>(leds[index], cntleds); break;
         case 4:
-            FastLED.addLeds<WS2812B, 4, GRB>(leds[index], cntleds); break;
+            WScontrollers[index] = &FastLED.addLeds<WS2812B, 4, GRB>(leds[index], cntleds); break;
 
         default:
             break;
