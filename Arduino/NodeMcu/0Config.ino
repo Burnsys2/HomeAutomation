@@ -27,18 +27,9 @@ const byte RGBLeds[][3] =
 //ws LEDS: Pins, CntLeds MISMO PIN QUE EL INDICADO
 const byte WSStrips[][2] =
 {
-	 {3,57}
+	 {3,10} //57
 };
 
 
 #define DHT_PIN 0
 #define DHT_TYPE DHT22
-//LUZ
-//RGB LED STATUS
-const byte LED_STATUS_RED_PIN = 0;
-const byte LED_STATUS_GREEN_PIN = 0;
-const byte LED_STATUS_BLUE_PIN = 0;
-
-const byte LED_ACTION_RED_PIN = 0;
-const byte LED_ACTION_GREEN_PIN = 0;
-const byte LED_ACTION_BLUE_PIN = 0;
