@@ -33,6 +33,7 @@
     <None Include="0Config.inoliv" />
     <None Include="0Config.ino" />
     <None Include="WSLedSetup.ino" />
+    <None Include="FunctionsArduino.ino" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="__vm\.Tablero.vsarduino.h">

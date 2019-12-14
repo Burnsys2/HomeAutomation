@@ -114,6 +114,7 @@
       <FileType>CppCode</FileType>
     </None>
     <None Include="Functions.ino" />
+    <None Include="FunctionsArduino.ino" />
     <None Include="IR.ino" />
     <None Include="Network.ino" />
     <None Include="RF.ino" />

@@ -83,6 +83,7 @@ typedef void *__builtin_va_list;
 #include "BotonesYRelays.ino"
 #include "Encoders.ino"
 #include "Functions.ino"
+#include "FunctionsArduino.ino"
 #include "IR.ino"
 #include "Network.ino"
 #include "RF.ino"

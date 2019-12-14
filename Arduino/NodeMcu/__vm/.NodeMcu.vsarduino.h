@@ -88,7 +88,7 @@ typedef void *__builtin_va_list;
 
 #include "NodeMcu.ino"
 #include "0Config.ino"
-#include "Functions.ino"
+#include "..\Tablero\Functions.ino"
 #include "IR.ino"
 #include "Network.ino"
 #include "..\Tablero\WSLed.ino"

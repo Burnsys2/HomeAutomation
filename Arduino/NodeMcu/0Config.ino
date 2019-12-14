@@ -27,7 +27,8 @@ const byte RGBLeds[][3] =
 //ws LEDS: Pins, CntLeds MISMO PIN QUE EL INDICADO
 const byte WSStrips[][2] =
 {
-	 {3,10} //57
+	 {3,15}, //57
+	 {4,15} //57
 };
 
 
