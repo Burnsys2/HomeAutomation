@@ -22,8 +22,8 @@ void ProcesarComandoIR(String topic, byte* payload, unsigned int length)
 		while (pch != NULL)
 		{
 			pch = strtok(NULL, ",");
-			if (pch == NULL) break;
 			cnt++;
+			if (pch == NULL) break;
 			rawCodes[cnt] = atoi(pch);
 		}
 

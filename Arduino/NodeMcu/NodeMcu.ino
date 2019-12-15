@@ -76,10 +76,7 @@ void setup() {
 	SetupWsStrips();
 	setupIR();
 	setupEthernet();
-	//pinMode(6, OUTPUT);
-	//digitalWrite(6, HIGH);
 	setupButtonsRelays();
-
 	tSensores.setInterval(5000, TSensoresLentos);
 }
 void TSensoresLentos()
@@ -87,21 +84,20 @@ void TSensoresLentos()
 	sendMqttf("LastSeen", 1, false);
 	// reportIp();
 	BlinkLedStatus = Send;
-
 	//	sendMqttf("FreeRam",freeMemory(),false);
 }
-
-void loop(){
+void loop()
+{
 
 	OffLineMode = !ProcesarRed();
-	if (OffLineMode) {
+	if (OffLineMode != true) {
 		CurentLedStatus = OffLine;
 	}
 	else
 	{
 		CurentLedStatus = Ok;
 	}
-	ProcesarRed();
+	//ProcesarRed();
 	DetectarBotones();
 	ProcesarWsStrip();
 	tSensores.run();

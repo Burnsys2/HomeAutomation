@@ -122,6 +122,14 @@ void callback(char* topic, byte* payload, unsigned int length) {
 	{
 		ProcesarComandoWSLedsStrip(topic,valor);
 	}
+	if (topico == F("RESET"))
+	{
+		resetFunc();  //call reset
+	}
+	if (topico == F("SOFTRESET"))
+	{
+		ESP.reset();
+	}
 	/*
 	if (topico == F("RELAY"))
 	{
@@ -140,14 +148,6 @@ void callback(char* topic, byte* payload, unsigned int length) {
 		ProcesarComandoRF(topic,valor);
 	}
 
-	if (topico == F("RESET"))
-	{
-		resetFunc();  //call reset
-	}
-	if (topico == F("SOFTRESET"))
-	{
-		softReset();
-	}
 		if (topico == F("SENSORES"))
 	{
 		ProcesarComandoSensores(topic,valor);

@@ -2,7 +2,7 @@
 //IPAddress ip(192, 168, 2, 41);
 const String Mqtt = "192.168.2.1";
 const String globalTopic = "NodeMcu";
-const String sector = "NodeTest";
+const String sector = "PiezaNuestra";
 const char* ssid = "Casa"; // Rellena con el nombre de tu red WiFi
 const char* password = "casanueva"; // Rellena con la contraseña de tu red WiFi
 const char* mqtt_server = "192.168.2.1";

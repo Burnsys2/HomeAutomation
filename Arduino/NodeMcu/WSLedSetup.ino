@@ -14,9 +14,9 @@ void SetupWsStrips()
         switch (Pin)
         {
         case 3:
-            WScontrollers[index] = &FastLED.addLeds<WS2812B, 3, BRG>(leds[index], cntleds); break;
+            WScontrollers[index] = &FastLED.addLeds<WS2812B, 3, GRB>(leds[index], cntleds); break;
         case 4:
-            WScontrollers[index] = &FastLED.addLeds<WS2812B, 4, GRB>(leds[index], cntleds); break;
+            WScontrollers[index] = &FastLED.addLeds<WS2812B, 4, RGB>(leds[index], cntleds); break;
 
         default:
             break;
