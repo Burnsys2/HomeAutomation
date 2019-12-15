@@ -78,6 +78,7 @@ void setup() {
 	setupEthernet();
 	//pinMode(6, OUTPUT);
 	//digitalWrite(6, HIGH);
+	setupButtonsRelays();
 
 	tSensores.setInterval(5000, TSensoresLentos);
 }
@@ -100,6 +101,8 @@ void loop(){
 	{
 		CurentLedStatus = Ok;
 	}
+	ProcesarRed();
+	DetectarBotones();
 	ProcesarWsStrip();
 	tSensores.run();
 }

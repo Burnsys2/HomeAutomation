@@ -1,4 +1,6 @@
+//https://github.com/crankyoldgit/IRremoteESP8266
 IRsend irsend(4); // usar D2
+
 void setupIR()
 {
 	irsend.begin();

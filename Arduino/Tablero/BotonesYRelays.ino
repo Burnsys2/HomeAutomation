@@ -12,7 +12,7 @@ int relayForced[RelaysArraySize];
 
 const byte RelaysManualMapSize = sizeof(RelaysManualMap)/sizeof(RelaysManualMap[0]);
 const byte RelaysInvertedArraySize = sizeof(RelaysInvertedArray)/sizeof(RelaysInvertedArray[0]);
-
+	
 void setupButtonsRelays()
 {
 	Serial.println(F("setupButtonsRelays"));

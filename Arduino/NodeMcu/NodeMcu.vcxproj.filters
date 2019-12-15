@@ -25,6 +25,7 @@
     <None Include="WSLedSetup.ino" />
     <None Include="..\Tablero\WSLed.ino" />
     <None Include="..\Tablero\Functions.ino" />
+    <None Include="..\Tablero\BotonesYRelays.ino" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="__vm\.NodeMcu.vsarduino.h">
