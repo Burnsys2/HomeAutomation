@@ -27,7 +27,6 @@ const byte buttonIgnoreNoiseFilterArray[] = {};
 //RGB LEDS
 const byte RGBLeds[][3] =
 {
-	 {2,4,6}
 };
 
 //ws LEDS: Pins, CntLeds MISMO PIN QUE EL INDICADO

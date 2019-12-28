@@ -69,8 +69,13 @@ void(*resetFunc) (void) = 0; //declare reset function @ address 0
 
 void setup() {
 	CurentLedStatus = Starting;
-		//SetupStatusLed();
-	//	SetLedStatus();
+	//SetupStatusLed();
+//	SetLedStatus();
+	pinMode(0, OUTPUT);
+	digitalWrite(0, HIGH);
+	pinMode(4, OUTPUT);
+	digitalWrite(2, HIGH);
+
 	Serial.begin(115200);
 	while (!Serial) {}
 	SetupWsStrips();
@@ -97,7 +102,7 @@ void loop()
 	{
 		CurentLedStatus = Ok;
 	}
-	//ProcesarRed();
+	ProcesarRed();
 	DetectarBotones();
 	ProcesarWsStrip();
 	tSensores.run();
