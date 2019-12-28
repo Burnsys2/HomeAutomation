@@ -30,7 +30,8 @@ FASTLED_USING_NAMESPACE
 */
 #include <IRremote.h>
 #include <boarddefs.h>
-#include "DHT.h"
+//#include "DHT.h"
+#include <dht_nonblocking.h>
 #include <RCSwitch.h>
 
 enum eLedStatus {
@@ -103,6 +104,7 @@ void setup(void)
 	SetupVoltSensor();
 	setupButtonsRelays();
 	setupRF();
+	SetupDHT();
 	tSensores.setInterval(5000,TSensoresLentos);
 	setupEthernet();
 	SetupEncoders();
@@ -139,6 +141,7 @@ void loop() {
 	ProcesarRF();
 	SetLedStatus();
 	SetLedAction();
+	ProcesarDht();
 	ProcesarSensores();
 	ProcesarVoltSensor();
 	ProcesarWsStrip();
