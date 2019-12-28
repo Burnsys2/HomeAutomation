@@ -25,7 +25,7 @@ const byte EncodersPins[][2] =
 const byte WSLedStatus = 0;
 
 //RGB LEDS
-const byte WSStrips[][4] =
+const byte WSStrips[][2] =
 {
 	 {11,14},
      {12,57},	
@@ -33,9 +33,15 @@ const byte WSStrips[][4] =
 	 {8,14}
 };
 
+//PIN , TYPE (11 = DHT11, 22= DHT22)
+const byte DHTArray[][2] =
+{
+     {6,22},
+     {3,11}
+};
 
-#define DHT_PIN 6
-#define DHT_TYPE DHT22
+//#define DHT_PIN 6
+//#define DHT_TYPE DHT22
 
 //RGB LED STATUS
 const byte LED_STATUS_RED_PIN = -1;
@@ -49,7 +55,7 @@ const byte analogInsArray[] = {3,5} ;
 const byte analogInsOnlineArray[] = {};
 
 
-const byte buttonArray[] = {49,47,45,43,41,39,37,35,33,17} ;
+const byte buttonArray[] = {49,47,45,43,41,39,37,35,33,31,29,27,17} ;
 const byte RelaysArray[] = {22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,4,5};
 const byte RelaysInvertedArray[] = {40,5} ;
 const byte RelaysManualMap[][2] =
