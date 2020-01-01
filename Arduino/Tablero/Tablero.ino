@@ -128,13 +128,10 @@ void loop() {
  	wdt_reset();
   	OffLineMode = !ProcesarRed();
 
-	if (OffLineMode) {
+	if (OffLineMode) 
 		CurentLedStatus = OffLine;
-	}
 	else
-	{
-		CurentLedStatus = Ok;
-	}		
+		CurentLedStatus = Ok;	
 
 	DetectarBotones();
 	ProcesarIR();

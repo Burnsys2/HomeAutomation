@@ -9,28 +9,27 @@ const byte IrRecPin = 0; //  CUALQUIER PIN;
 //RF433  //		
 //interrupts pins: 2, 3, 18, 19, 20, 21	
 const byte rf433InPin = 21; //2
-const byte rf433OutPin = 7;
+const byte rf433OutPin = 20;
 const byte rf315InPin = 0; //3
 const byte rf315OutPin = 0;//7;
 
 //RGB LEDS
 const byte RGBLeds[][3] =
 {
- //    {9,11,13}
 } ;
 const byte EncodersPins[][2] =
 {
-	
 };
 const byte WSLedStatus = 0;
 
 //RGB LEDS
 const byte WSStrips[][2] =
 {
-	 {11,14},
-     {12,57},	
-	 {13,11},
-	 {8,14}
+	  {11,14},
+	  {12,57},   //techo
+	  {13,11},   //central
+	  {8,14},
+	  {7,3}      //tablero
 };
 
 //PIN , TYPE (11 = DHT11, 22= DHT22)
@@ -40,17 +39,14 @@ const byte DHTArray[][2] =
      {3,11}
 };
 
-//#define DHT_PIN 6
-//#define DHT_TYPE DHT22
-
 //RGB LED STATUS
 const byte LED_STATUS_RED_PIN = -1;
 const byte LED_STATUS_GREEN_PIN = -1;
 const byte LED_STATUS_BLUE_PIN = -1;
-
 const byte LED_ACTION_RED_PIN =-1;
 const byte LED_ACTION_GREEN_PIN =-1;
 const byte LED_ACTION_BLUE_PIN = -1;
+
 const byte analogInsArray[] = {3,5} ;
 const byte analogInsOnlineArray[] = {};
 

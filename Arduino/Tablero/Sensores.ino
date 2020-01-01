@@ -1,4 +1,3 @@
-//DHT dht(DHT_PIN, DHT_TYPE);
 int analogInsOnlineMaxDev = 50;
 int analogInsOnlineMilis = 100;
 const byte analogInsArraySize = sizeof(analogInsArray)/sizeof(analogInsArray[0]);
@@ -16,7 +15,6 @@ void SetupSensores()
 {
 	for (byte index = 0; index < analogInsArraySize; index++) 
 	{
- //  		pinMode(analogInsArray[index], INPUT);	
 		analogInsValue[index]= 0;
 		analogInsMaxValue[index]= 0;
 		analogInsSamples[index]= 0;
@@ -24,17 +22,11 @@ void SetupSensores()
 
 	for (byte index = 0; index < analogInsOnlineArraySize; index++) 
 	{
-   	//	pinMode(analogInsOnlineArray[index], INPUT);	
 		analogInsOnlineValue[index] = 0;
 		analogInsOnlineEMA_S[index] = analogRead(analogInsOnlineArray[index]);
 		analogInsOnlineEMA_A[index] = 0.6;
 		analogInsOnlineLastReport[index] = millis();
 	 	}
-
-	//if (DHT_PIN > 0)
-	//{
-	//	pinMode(DHT_PIN, INPUT);
-	//}
 }
 
 void ProcesarSensores()
@@ -82,16 +74,7 @@ void ProcesarComandoSensores(String topic, String valor)
 }
 void InformarSensores()
 {
-
-	Serial.println("InformarSensores");
-   /* if (DHT_PIN > 0)
-	{
-		float h = dht.readHumidity();
-		float t = dht.readTemperature();
-		sendMqttf(F("Sensores/Temperatura"),t,true);
-		sendMqttf(F("Sensores/Humedad"),h,true);
-	}*/
-
+//	Serial.println("InformarSensores");
 	for (byte index = 0; index < analogInsArraySize; index++) 
 	{
 		if (analogInsSamples[index] > 0)
