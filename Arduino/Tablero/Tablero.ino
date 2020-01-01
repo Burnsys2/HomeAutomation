@@ -59,6 +59,7 @@ enum eWsStripMode {
   AnimationRainbow,
   AnimationConfetti,
   AnimationSinelon,
+  AnimationStrobe,
   AnimationBpm,
   AnimationJuggle,
   AnimationFadeTo

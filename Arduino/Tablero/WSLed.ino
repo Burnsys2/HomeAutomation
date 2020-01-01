@@ -4,6 +4,7 @@ eWsStripMode WsStripeMode[WSStripsSize];
 CLEDController *WScontrollers[WSStripsSize];
 int WsStripeParam1[WSStripsSize];
 int WsStripeParam2[WSStripsSize];
+long WsStripeMillis[WSStripsSize];
 CRGB WsStripeParamColor[WSStripsSize];
 CRGB leds[WSStripsSize][100];
 uint8_t gHue = 0; 
@@ -40,8 +41,8 @@ void ProcesarComandoWSLedsStrip(String topic, String valor)
 		Mode.toUpperCase();
 		WsStripeParam1[nro] = 0;
 		WsStripeParam2[nro] = 0;
-		Serial.print(F(" - WSStrip Command: "));
-		Serial.println(Mode);
+	//	Serial.print(F(" - WSStrip Command: "));
+		//Serial.println(Mode);
 
 		if (Mode == F("FILL"))
 		{
@@ -98,6 +99,18 @@ void ProcesarComandoWSLedsStrip(String topic, String valor)
 			if (bpm != "") WsStripeParam1[nro] =  bpm.toInt();
 		  }
 		}
+		if (Mode == F("STROBE")) {
+			WsStripeMode[nro] = AnimationStrobe;
+			WsStripeParam1[nro] = 13;
+
+			WsStripeParamColor[nro] = CRGB(255, 255, 255);
+			if (valor != "")
+			{
+				WsStripeParamColor[nro] = GetCrgbFromPayload(valor);
+				String bpm = getValue(valor, ',', 3);
+				if (bpm != "") WsStripeParam1[nro] = bpm.toInt();
+			}
+		}
 		if (Mode == F("BPM"))  WsStripeMode[nro] = AnimationBpm;
 		if (Mode == F("JUGGLE"))
 
@@ -126,7 +139,8 @@ void ProcesarWsStrip()
            //     if (WsStripeMode[nro] == AnimationRainbow)  {rainbow(nro);}
                 if (WsStripeMode[nro] == AnimationRainbowWithGlitter)  {rainbowWithGlitter(nro);}
                 if (WsStripeMode[nro] == AnimationConfetti)  {confetti(nro);}
-                if (WsStripeMode[nro] == AnimationSinelon)  {sinelon(nro);}
+				if (WsStripeMode[nro] == AnimationSinelon) { sinelon(nro); }
+				if (WsStripeMode[nro] == AnimationStrobe)  { strobe(nro);}
                 if (WsStripeMode[nro] == AnimationBpm)  {bpm(nro);}
                 if (WsStripeMode[nro] == AnimationJuggle)  {juggle(nro);}
                 if (WsStripeMode[nro] == AnimationFadeTo)  {fadeToColor(nro);}
@@ -165,7 +179,10 @@ void confetti(byte index)
   // random colored speckles that blink in and fade smoothly
   fadeToBlackBy( leds[index], WSStrips[index][1], WsStripeParam1[index]);
   int pos = random16(WSStrips[index][1]);
-  leds[index][pos] += CHSV( gHue + random8(32), 200, 255);
+  if (random8() < WsStripeParam2[index]) {
+	leds[index][pos] += CHSV(random8(255), 200, 255);
+	  
+  }
 }
 
 void sinelon(byte index)
@@ -174,6 +191,25 @@ void sinelon(byte index)
   fadeToBlackBy( leds[index], WSStrips[index][1], 20);
   int pos = beatsin16(WsStripeParam1[index] , 0, WSStrips[index][1]-1 );
   leds[index][pos] += WsStripeParamColor[index];
+}
+
+void strobe(byte index)
+{
+
+	if (millis() - WsStripeMillis[index] > WsStripeParam1[index])
+	{
+		WsStripeMillis[index] = millis();
+		if (WsStripeParam2[index] = 0)
+		{ 
+			fill_solid(leds[index], WSStrips[index][1], WsStripeParamColor[index]);
+			WsStripeParam2[index] = 1;
+		}
+		else
+		{
+			fill_solid(leds[index], WSStrips[index][1], CRGB::Black);
+			WsStripeParam2[index] = 0;
+		}
+	}
 }
 
 void bpm(byte index)
