@@ -11,7 +11,7 @@ uint8_t gHue = 0;
 int Fps = 120;
 unsigned long WsStartMilis;
 unsigned long WsCurrentMilis;
-byte WsDelayMilis = 1000;
+int WsDelayMilis = 1000;
 
 void ProcesarComandoWSLedsStrip(String topic, String valor)
 {
@@ -66,7 +66,15 @@ void ProcesarComandoWSLedsStrip(String topic, String valor)
 			String speed = getValue(valor, ',', 3);
 			if (speed != "") WsStripeParam1[nro] = speed.toInt();
 		}
-
+		if (Mode == F("FADETOF"))
+		{
+			if (valor == "") return;
+			WsStripeMode[nro] = AnimationFadeTo;
+			WsStripeParam1[nro] = 13; //speed
+			WsStripeParamColor[nro] = GetCrgbFromPayload(valor);
+			String speed = getValue(valor, ',', 3);
+			if (speed != "") WsStripeParam1[nro] = speed.toInt();
+		}
 		if (Mode == F("RAINBOW")) 
 		{
 			WsStripeParam1[nro] = gHue;
@@ -83,9 +91,12 @@ void ProcesarComandoWSLedsStrip(String topic, String valor)
 		if (Mode == F("CONFETTI"))
 		{
 			WsStripeParam1[nro] = 10;
+			WsStripeParam2[nro] = 80; //chances de que aparezca
 			WsStripeMode[nro] = AnimationConfetti;
 			String speed = getValue(valor, ',', 0);
 			if (speed != "")	WsStripeParam1[nro] = speed.toInt();
+			String chances = getValue(valor, ',', 1);
+			if (chances != "")	WsStripeParam2[nro] = chances.toInt();
 		}
 		if (Mode == F("SINELON"))  {
 		  WsStripeMode[nro] = AnimationSinelon;
@@ -101,8 +112,8 @@ void ProcesarComandoWSLedsStrip(String topic, String valor)
 		}
 		if (Mode == F("STROBE")) {
 			WsStripeMode[nro] = AnimationStrobe;
-			WsStripeParam1[nro] = 13;
-
+			WsStripeParam1[nro] = 13; // velocidad
+			WsStripeParam2[nro] = 0; //estado
 			WsStripeParamColor[nro] = CRGB(255, 255, 255);
 			if (valor != "")
 			{
@@ -143,7 +154,7 @@ void ProcesarWsStrip()
 				if (WsStripeMode[nro] == AnimationStrobe)  { strobe(nro);}
                 if (WsStripeMode[nro] == AnimationBpm)  {bpm(nro);}
                 if (WsStripeMode[nro] == AnimationJuggle)  {juggle(nro);}
-                if (WsStripeMode[nro] == AnimationFadeTo)  {fadeToColor(nro);}
+                if (WsStripeMode[nro] == AnimationFadeTo)  {fadeToColorf(nro);}
                 if (WsStripeMode[nro] != AnimationStatic && WsStripeMode[nro] != AnimationRainbow)  {WScontrollers[nro]->showLeds();}
             }
   	}
@@ -199,7 +210,7 @@ void strobe(byte index)
 	if (millis() - WsStripeMillis[index] > WsStripeParam1[index])
 	{
 		WsStripeMillis[index] = millis();
-		if (WsStripeParam2[index] = 0)
+		if (WsStripeParam2[index] == 0)
 		{ 
 			fill_solid(leds[index], WSStrips[index][1], WsStripeParamColor[index]);
 			WsStripeParam2[index] = 1;
@@ -233,6 +244,25 @@ void juggle(byte index) {
   }
 }
 
+
+void fadeToColorf(byte index)
+{
+	bool Done = true;
+	for (int i = 0; i < WSStrips[index][1]; i++)
+	{
+		if (leds[index][i] != WsStripeParamColor[index])
+		{
+			fadeTowardColor(leds[index][i], WsStripeParamColor[index], WsStripeParam1[index]);
+			Done = false;
+		}
+	}
+	if (Done)
+	{
+		WsStripeMode[index] = AnimationStatic;
+		WScontrollers[index]->showLeds();
+	}
+}
+
 // Fade an entire array of CRGBs toward a given background color by a given amount
 // This function modifies the pixel array in place.
 void fadeToColor(byte index)
@@ -248,7 +278,6 @@ void fadeToColor(byte index)
 	  WsStripeMode[index] = AnimationStatic;
 	  WScontrollers[index]->showLeds();
   }
-  
 }
 // Blend one CRGB color toward another CRGB color by a given amount.
 // Blending is linear, and done in the RGB color space.
