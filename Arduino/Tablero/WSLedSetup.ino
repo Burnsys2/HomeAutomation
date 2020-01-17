@@ -12,18 +12,17 @@ void SetupWsStrips()
         Serial.println(cntleds);
         WsStripeMode[index] = AnimationStatic;
         switch (Pin)
-        {
-            //PIN 10 NO ANDA
+        { //PIN 10 NO ANDA
 		case 3:
 			WScontrollers[index] = &FastLED.addLeds<WS2812B, 3, BRG>(leds[index], cntleds); break;
 		case 8:
-			WScontrollers[index] = &FastLED.addLeds<WS2812B, 8, BRG>(leds[index], cntleds);break;
+			WScontrollers[index] = &FastLED.addLeds<WS2812B, 8, BRG>(leds[index], cntleds); break;
         case 13:
 			WScontrollers[index] = &FastLED.addLeds<WS2812B, 13, BRG>(leds[index], cntleds); break;
-        case 11:
-			WScontrollers[index] = &FastLED.addLeds<WS2812B, 11, BRG>(leds[index], cntleds); break;
         case 12:
 			WScontrollers[index] = &FastLED.addLeds<WS2812B, 12, BRG>(leds[index], cntleds); break;
+        case 11:
+			WScontrollers[index] = &FastLED.addLeds<WS2812B, 11, BRG>(leds[index], cntleds); break;
         default:
             break;
         }	

@@ -4,6 +4,8 @@ eWsStripMode WsStripeMode[WSStripsSize];
 CLEDController *WScontrollers[WSStripsSize];
 int WsStripeParam1[WSStripsSize];
 int WsStripeParam2[WSStripsSize];
+int WsStripeAux1[WSStripsSize];
+
 long WsStripeMillis[WSStripsSize];
 CRGB WsStripeParamColor[WSStripsSize];
 CRGB leds[WSStripsSize][100];
@@ -39,11 +41,16 @@ void ProcesarComandoWSLedsStrip(String topic, String valor)
 
 		String Mode = getValue(topic,'/',5);
 		Mode.toUpperCase();
+		if (Mode == F("REFRESH"))
+		{
+			WScontrollers[nro]->showLeds();
+			return;
+		}
 		WsStripeParam1[nro] = 0;
 		WsStripeParam2[nro] = 0;
+
 	//	Serial.print(F(" - WSStrip Command: "));
 		//Serial.println(Mode);
-
 		if (Mode == F("FILL"))
 		{
 			WsStripeMode[nro] = AnimationStatic;
@@ -66,27 +73,38 @@ void ProcesarComandoWSLedsStrip(String topic, String valor)
 			String speed = getValue(valor, ',', 3);
 			if (speed != "") WsStripeParam1[nro] = speed.toInt();
 		}
-		if (Mode == F("FADETOF"))
+		if (Mode == F("HUESWIPE"))  
 		{
 			if (valor == "") return;
-			WsStripeMode[nro] = AnimationFadeTo;
+			WsStripeMode[nro] = AnimationHueSwipe;     
 			WsStripeParam1[nro] = 13; //speed
-			WsStripeParamColor[nro] = GetCrgbFromPayload(valor);
-			String speed = getValue(valor, ',', 3);
+			WsStripeParam2[nro] = 255; //brillo
+			WsStripeAux1[nro] = gHue; // colorInicial
+			String speed = getValue(valor, ',', 0);
 			if (speed != "") WsStripeParam1[nro] = speed.toInt();
 		}
 		if (Mode == F("RAINBOW")) 
 		{
-			WsStripeParam1[nro] = gHue;
 			WsStripeParam2[nro] = 7;
+			WsStripeAux1[nro] = gHue; // colorInicial
 
 			WsStripeMode[nro] = AnimationRainbow;
+			String delta = getValue(valor, ',', 0);
+			if (delta != "") WsStripeParam2[nro] = delta.toInt();
+			rainbow(nro);
+		}
+			if (Mode == F("RAINBOWSPIN")) 
+		{
+			WsStripeParam2[nro] = 7; //speed
+			WsStripeAux1[nro] = gHue;
+			WsStripeMode[nro] = AnimationRainbowSpin;
 			String hue = getValue(valor, ',', 0);
 			if (hue != "") WsStripeParam1[nro] = hue.toInt();
 			String delta = getValue(valor, ',', 1);
 			if (delta != "") WsStripeParam2[nro] = delta.toInt();
 			rainbow(nro);
 		}
+		
 		if (Mode == F("RAINBOWGLITTER"))  WsStripeMode[nro] = AnimationRainbowWithGlitter;
 		if (Mode == F("CONFETTI"))
 		{
@@ -155,7 +173,9 @@ void ProcesarWsStrip()
                 if (WsStripeMode[nro] == AnimationBpm)  {bpm(nro);}
                 if (WsStripeMode[nro] == AnimationJuggle)  {juggle(nro);}
                 if (WsStripeMode[nro] == AnimationFadeTo)  {fadeToColorf(nro);}
-                if (WsStripeMode[nro] != AnimationStatic && WsStripeMode[nro] != AnimationRainbow)  {WScontrollers[nro]->showLeds();}
+                if (WsStripeMode[nro] == AnimationHueSwipe)  {HueSwipe(nro);}
+                if (WsStripeMode[nro] == AnimationRainbowSpin)  {rainbowSpin(nro);}
+                if (WsStripeMode[nro] != AnimationStatic && WsStripeMode[nro] != AnimationRainbow && WsStripeMode[nro] != AnimationRainbowSpin && WsStripeMode[nro] != AnimationHueSwipe)  {WScontrollers[nro]->showLeds();}
             }
   	}
 }
@@ -206,7 +226,6 @@ void sinelon(byte index)
 
 void strobe(byte index)
 {
-
 	if (millis() - WsStripeMillis[index] > WsStripeParam1[index])
 	{
 		WsStripeMillis[index] = millis();
@@ -220,6 +239,7 @@ void strobe(byte index)
 			fill_solid(leds[index], WSStrips[index][1], CRGB::Black);
 			WsStripeParam2[index] = 0;
 		}
+		WScontrollers[index]->showLeds();
 	}
 }
 
@@ -262,7 +282,31 @@ void fadeToColorf(byte index)
 		WScontrollers[index]->showLeds();
 	}
 }
-
+// Fade an entire array of CRGBs toward a given background color by a given amount
+// This function modifies the pixel array in place.
+void HueSwipe(byte index)
+{
+	if (millis() - WsStripeMillis[index] > WsStripeParam1[index])
+	{
+		WsStripeMillis[index] = millis();
+		WsStripeAux1[index] = WsStripeAux1[index] + 1;
+		if (WsStripeAux1[index] > 256) WsStripeAux1[index] -=256;	
+		fill_solid(leds[index], WSStrips[index][1], CHSV(WsStripeAux1[index], 255, WsStripeParam2[index]));
+		WScontrollers[index]->showLeds();
+	}
+}
+void rainbowSpin(byte index) 
+{
+  // FastLED's built-in rainbow generator
+	if (millis() - WsStripeMillis[index] > WsStripeParam1[index])
+	{
+		WsStripeMillis[index] = millis();
+		WsStripeAux1[index] = WsStripeAux1[index] + 1;
+		if (WsStripeAux1[index] > 256) WsStripeAux1[index] -=256;	
+	    fill_rainbow( leds[index], WSStrips[index][1], WsStripeAux1[index], WsStripeParam2[index]);
+		WScontrollers[index]->showLeds();
+	}
+}
 // Fade an entire array of CRGBs toward a given background color by a given amount
 // This function modifies the pixel array in place.
 void fadeToColor(byte index)

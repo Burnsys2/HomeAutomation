@@ -62,7 +62,9 @@ enum eWsStripMode {
   AnimationStrobe,
   AnimationBpm,
   AnimationJuggle,
-  AnimationFadeTo
+  AnimationFadeTo,
+  AnimationHueSwipe,
+  AnimationRainbowSpin
 };
 
 eLedStatus CurentLedStatus;
