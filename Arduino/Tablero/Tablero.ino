@@ -59,9 +59,12 @@ enum eWsStripMode {
   AnimationRainbow,
   AnimationConfetti,
   AnimationSinelon,
+  AnimationStrobe,
   AnimationBpm,
   AnimationJuggle,
-  AnimationFadeTo
+  AnimationFadeTo,
+  AnimationHueSwipe,
+  AnimationRainbowSpin
 };
 
 eLedStatus CurentLedStatus;
@@ -128,13 +131,10 @@ void loop() {
  	wdt_reset();
   	OffLineMode = !ProcesarRed();
 
-	if (OffLineMode) {
+	if (OffLineMode) 
 		CurentLedStatus = OffLine;
-	}
 	else
-	{
-		CurentLedStatus = Ok;
-	}		
+		CurentLedStatus = Ok;	
 
 	DetectarBotones();
 	ProcesarIR();
