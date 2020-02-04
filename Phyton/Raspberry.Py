@@ -5,6 +5,9 @@ import paho.mqtt.client as mqtt
 import RPi.GPIO as GPIO
 import alsaaudio
 
+class HaltException(Exception):
+    pass
+
 def getRAMinfo():
     p = os.popen('free')
     i = 0
@@ -19,49 +22,52 @@ def measure_temp():
         return (temp.replace("temp=","").replace("'C",""))
 
 def on_message(client, userdata, message):
-    topics = message.topic.split("/")
-    if topics[2].upper() == "VOLUME":
-        audioDevice.setvolume(int(message.payload.decode("utf-8")))
-    if topics[2].upper() == "MUTE":
-        audioDevice.setvolume(int(not audioDevice.getmute()))
+    global MustEnd
+    try:
+        topics = message.topic.split("/")
+        if topics[2].upper() == "VOLUME":
+            audioDevice.setvolume(int(message.payload.decode("utf-8")))
+        if topics[2].upper() == "MUTE":
+            audioDevice.setvolume(int(not audioDevice.getmute()))
+        if topics[2].upper() == "FAIL":
+            print "FAIL"
+            raise HaltException("We decided we want to halt the script")
+    except Exception as ex:
+        print ex
+        MustEnd = True
+        raise HaltException("We decided we want to halt the script")
 
 
 # Data capture and upload interval in seconds. Less interval will eventually hang the DHT22.
 INTERVAL=2
-
+global MustEnd
+os.path.expanduser('~pi')
 sensor_data = {'temperature': 0, 'humidity': 0}
 print "Iniciando..."
 next_reading = time.time() 
-
-client = mqtt.Client()
-
-# Set access token
-
-# Connect to ThingsBoard using default MQTT port and 60 seconds keepalive interval
-client.connect("192.168.2.1", 1883, 60)
-client.reconnect_delay_set(2, 10)
-client.subscribe("RPI/in/#")
-client.on_message=on_message
-
-GPIO.setmode(GPIO.BCM)
-GPIO.setwarnings(False)
-GPIO.setup(5,GPIO.OUT)
-GPIO.setup(3,GPIO.OUT)
-GPIO.output(5,GPIO.HIGH)
-GPIO.output(3,GPIO.HIGH)
-GPIO.output(5,GPIO.LOW)
-GPIO.output(3,GPIO.LOW)
-
-GPIO.cleanup()
-client.loop_start()
-#sudo apt-get install python-alsaaudio
-audioDevice = alsaaudio.Mixer("PCM") #
-
-#current_volume = m.getvolume() # Get the current Volume
-#m.setvolume(70) # Set the volume to 70%.
-
-
+MustEnd = False
 try:
+    client = mqtt.Client()
+
+    client.connect("mqtt.burnsys.ddns.net", 1883, 60)
+    client.reconnect_delay_set(2, 10)
+    client.subscribe("RPI/in/#")
+    client.on_message=on_message
+
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setwarnings(False)
+    GPIO.setup(5,GPIO.OUT)
+    GPIO.setup(3,GPIO.OUT)
+    GPIO.output(5,GPIO.HIGH)
+    GPIO.output(3,GPIO.HIGH)
+    GPIO.output(5,GPIO.LOW)
+    GPIO.output(3,GPIO.LOW)
+
+    GPIO.cleanup()
+    client.loop_start()
+    #sudo apt-get install python-alsaaudio
+    audioDevice = alsaaudio.Mixer("PCM") #
+
     while True:
         # Sending humidity and temperature data to ThingsBoard
         client.publish('RPI/out/Temp', measure_temp(), 0)
@@ -75,8 +81,11 @@ try:
         sleep_time = next_reading-time.time()
         if sleep_time > 0:
             time.sleep(sleep_time)
-except KeyboardInterrupt:
-    pass
+        if MustEnd == True:
+            sys.exit(os.EX_SOFTWARE) 
+            
+except HaltException as ex:
+    sys.exit(os.EX_SOFTWARE) 
 
 client.loop_stop()
 client.disconnect()
