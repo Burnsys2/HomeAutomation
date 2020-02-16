@@ -30,20 +30,12 @@ void ProcesarRF()
 void ProcesarComandoRF(String topic, String valor)
 {
 	String tipo = getValue(topic, '/', 3);
+	int nroPin = getValue(topic, '/', 4).toInt();
 	char buffert[25];
 	valor.toCharArray(buffert, 25);
-
-	if (tipo == F("RF433"))
-	{
-		mySwitch433.send(buffert);
-	}
-
-	if (tipo == F("RF315"))
-	{
-		mySwitch433.send(buffert);
-	}
-
-	//  Serial.print("RF >>> ");
-  //    Serial.print(valor);
-  //    Serial.println(buffert);
+	if (nroPin > 0)
+		mySwitch433.enableTransmit(nroPin);
+	else
+		mySwitch433.enableTransmit(rf433OutPin);
+	mySwitch433.send(buffert);
 }
