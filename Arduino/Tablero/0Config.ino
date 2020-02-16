@@ -66,7 +66,7 @@ const byte RelaysManualMap[][2] =
      {39,26},
      {37,28},
 } ;
-const byte RelaysInvertedArray[] = {28,26} ;
+const byte RelaysInvertedArray[] = {28} ;
 
 const byte BuzzerPin = 0;
 
