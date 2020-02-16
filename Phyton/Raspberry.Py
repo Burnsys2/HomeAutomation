@@ -37,6 +37,12 @@ def on_message(client, userdata, message):
         MustEnd = True
         raise HaltException("We decided we want to halt the script")
 
+def on_connect(client, userdata, flags, rc):
+     # Subscribing in on_connect() means that if we lose the connection and
+    # reconnect then subscriptions will be renewed.
+    client.subscribe("RPI/in/#")
+
+
 
 # Data capture and upload interval in seconds. Less interval will eventually hang the DHT22.
 INTERVAL=2
@@ -51,7 +57,7 @@ try:
 
     client.connect("mqtt.burnsys.ddns.net", 1883, 60)
     client.reconnect_delay_set(2, 10)
-    client.subscribe("RPI/in/#")
+    client.on_connect = on_connect
     client.on_message=on_message
 
     GPIO.setmode(GPIO.BCM)
