@@ -30,7 +30,6 @@
     <None Include="WSLed.ino" />
     <None Include="VoiltsSensor.ino" />
     <None Include="Encoders.ino" />
-    <None Include="0Config.inoliv" />
     <None Include="0Config.ino" />
     <None Include="WSLedSetup.ino" />
     <None Include="FunctionsArduino.ino" />
