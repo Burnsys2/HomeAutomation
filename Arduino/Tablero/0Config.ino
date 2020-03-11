@@ -9,7 +9,7 @@ const byte IrRecPin = 9;//2;
 //RF433  //		
 //interrupts pins: 2, 3, 18, 19, 20, 21	
 const byte rf433InPin = 2; //2
-const byte rf433OutPin = -1;
+const byte rf433OutPin = 3;
 const byte rf315InPin = -1
 
 ; //3
@@ -57,7 +57,7 @@ const byte analogInsArray[] = {9,11,12,15};
 const byte analogInsOnlineArray[] = {};
 
 const byte buttonArray[] = {29,33,35,37,39,41,45,47,49} ;
-const byte buttonIgnoreNoiseFilterArray[] = {5} ;
+const byte buttonIgnoreNoiseFilterArray[] = {5} ; 
 const byte RelaysArray[] = {22,24,26,28} ;
 const byte RelaysManualMap[][2] =
 {

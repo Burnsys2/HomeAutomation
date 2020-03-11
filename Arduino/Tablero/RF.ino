@@ -5,6 +5,7 @@ void setupRF()
 	{
 		mySwitch433 = RCSwitch();
 		mySwitch433.setProtocol(1);
+		mySwitch433.setRepeatTransmit(15);
 		if (rf433InPin >= 1) {
 			mySwitch433.enableReceive(digitalPinToInterrupt(rf433InPin));
 			Serial.print(F("R RF433 ON "));
@@ -29,6 +30,7 @@ void ProcesarRF()
 
 void ProcesarComandoRF(String topic, String valor)
 {
+	Serial.println(topic);
 	String tipo = getValue(topic, '/', 3);
 	int nroPin = getValue(topic, '/', 4).toInt();
 	char buffert[25];
@@ -38,4 +40,5 @@ void ProcesarComandoRF(String topic, String valor)
 	else
 		mySwitch433.enableTransmit(rf433OutPin);
 	mySwitch433.send(buffert);
+	
 }

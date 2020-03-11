@@ -152,7 +152,6 @@ void ProcesarComandoWSLedsStrip(String topic, String valor)
 		WScontrollers[nro]->showLeds();
 		ptr = strtok(NULL, ",");
 	}
-	Serial.println("Exit");
 
    // FastLED.show();  
 }
