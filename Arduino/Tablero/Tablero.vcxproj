@@ -108,6 +108,7 @@
   </PropertyGroup>
   <ItemGroup>
     <None Include="0Config.ino" />
+    <None Include="0Config.inotab" />
     <None Include="BotonesYRelays.ino" />
     <None Include="DhtSensors.ino">
       <FileType>CppCode</FileType>
