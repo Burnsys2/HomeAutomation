@@ -39,7 +39,7 @@ void PushButtonLongPressStart() { sendMqttf("Button/" + String(currentPushButton
 void PushButtonLongPressStop(){sendMqttf("Button/" + String(currentPushButton),"LONGPRESSSTOP", false);}
 
 
-void ProcesarComandoRelays(String topic, String valor)
+void ProcesarComandoButtons(String topic, String valor)
 {
 	if (getValue(topic, '/', 4) == F("PRESSMILIS"))
 		PressMilis = valor.toInt();

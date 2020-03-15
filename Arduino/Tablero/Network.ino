@@ -1,4 +1,4 @@
-// Incluimos librer�a
+// Incluimos librera
 // Enter a MAC address and IP address for your controller below.
 EthernetClient ethClient;
 PubSubClient mqttClient(ethClient);
