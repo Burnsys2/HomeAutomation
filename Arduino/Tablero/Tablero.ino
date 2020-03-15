@@ -6,7 +6,7 @@
 
 #include <FastLED.h>
 #include <Ethernet.h>
-#define ENCODER_OPTIMIZE_INTERRUPTS
+//#define ENCODER_OPTIMIZE_INTERRUPTS
 #include <Encoder.h>
 #define MQTT_SOCKET_TIMEOUT 1
 #define MQTT_KEEPALIVE 1
