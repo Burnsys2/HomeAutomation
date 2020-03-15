@@ -146,6 +146,10 @@ void callback(char* topic, byte* payload, unsigned int length) {
 	{
 		ProcesarComandoRelays(topic,valor);
 	}
+	if (topico == F("BUTTONS"))
+	{
+		ProcesarComandoRelays(topic, valor);
+	}
 	if (topico == F("PING"))
 	{
 		sendMqttf(F("PONG") ,1 ,false);

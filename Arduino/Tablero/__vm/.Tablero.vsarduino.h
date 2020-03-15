@@ -95,6 +95,7 @@ typedef void *__builtin_va_list;
 #include "FunctionsArduino.ino"
 #include "IR.ino"
 #include "Network.ino"
+#include "PushButtons.ino"
 #include "RF.ino"
 #include "RGBLeds.ino"
 #include "Sensores.ino"

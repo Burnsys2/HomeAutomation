@@ -35,6 +35,7 @@
     <None Include="FunctionsArduino.ino" />
     <None Include="DhtSensors.ino" />
     <None Include="0Config.inotab" />
+    <None Include="PushButtons.ino" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="__vm\.Tablero.vsarduino.h">

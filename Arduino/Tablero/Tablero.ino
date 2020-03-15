@@ -24,6 +24,7 @@ FASTLED_USING_NAMESPACE
 #include <Event.h>
 #include <PubSubClient.h>
 #include <Filters.h> //Easy library to do the calculations
+#include "OneButton.h"
 
 /*
 #include <ir_Lego_PF_BitStreamEncoder.h>
@@ -107,6 +108,7 @@ void setup(void)
 	SetupSensores();
 	SetupVoltSensor();
 	setupButtonsRelays();
+	setupPushButtons();
 	setupRF();
 	SetupDHT();
 	tSensores.setInterval(5000,TSensoresLentos);
@@ -138,6 +140,7 @@ void loop() {
 		CurentLedStatus = Ok;	
 
 	DetectarBotones();
+	ProcesarPushButtons();
 	ProcesarIR();
 	ProcesarRF();
 	SetLedStatus();
