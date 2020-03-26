@@ -9,6 +9,8 @@ void SetupEncoders()
 	Serial.println("Encoders");
 	for (byte index = 0; index < EncodersSize; index++) {
 		Encoders[index] = new Encoder(EncodersPins[index][0], EncodersPins[index][1]);
+   		pinMode(EncodersPins[index][0], INPUT);	
+   		pinMode(EncodersPins[index][1], INPUT);	
 		LastEncPosition[index] = -999;
 		EncMin[index] = -999;
 		EncMax[index] = 999;

@@ -179,5 +179,9 @@ void callback(char* topic, byte* payload, unsigned int length) {
 	{
 		ProcesarComandoEncloders(topic, valor);
 	}
+	if (topico == F("BUTTONS"))
+	{
+		ProcesarComandoButtons(topic, valor);
+	}
 
 }

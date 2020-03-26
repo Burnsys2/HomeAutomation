@@ -53,8 +53,8 @@ const byte analogInsArray[] = {3,5} ;
 const byte analogInsOnlineArray[] = {};
 
 
-const byte buttonArray[] = {49,47,45,43,41,39,37,35,33,31,29,27,17} ;
-const byte buttonAray[] = {49,47,45,43,41,39,37,35,33,31,29,27,17} ;
+const byte buttonArray[] = {49,47,45,43,41,39,35,33,17} ;
+const byte PushbuttonArray[] = {31,37,27,29} ;
 const byte RelaysArray[] = {22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,4,5};
 const byte RelaysInvertedArray[] = {40,5} ;
 const byte RelaysManualMap[][2] =
