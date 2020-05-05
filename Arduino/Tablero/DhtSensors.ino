@@ -26,7 +26,8 @@ void ProcesarDht()
 		   true, then a measurement is available. */
 		if (LeerDht(index, &temperature, &humidity) == true)
 		{
-			sendMqttf("DHT/" + String(index) + "/Temperatura", temperature, true);
+		//	Serial.println(temperature);
+			sendMqttfPrec("DHT/" + String(index) + "/Temperatura", temperature,true);
 			sendMqttf("DHT/" + String(index) + "/Humedad", humidity, true);
 		}
 	}

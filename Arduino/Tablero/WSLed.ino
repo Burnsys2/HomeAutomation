@@ -8,7 +8,7 @@ int WsStripeAux1[WSStripsSize];
 
 long WsStripeMillis[WSStripsSize];
 CRGB WsStripeParamColor[WSStripsSize];
-CRGB leds[WSStripsSize][100];
+CRGB leds[WSStripsSize][60];
 uint8_t gHue = 0; 
 int Fps = 120;
 unsigned long WsStartMilis;
@@ -19,7 +19,7 @@ void ProcesarComandoWSLedsStrip(String topic, String valor)
 {
 	String param = getValue(topic, '/', 4);
 	param.toUpperCase();
-	if (param == "FPS")
+	if (param == F("FPS"))
 	{
 		Fps = getValue(valor, ',', 0).toInt();
 		WsDelayMilis = 1000 / Fps;
@@ -28,16 +28,13 @@ void ProcesarComandoWSLedsStrip(String topic, String valor)
 
 
 	//	byte nro = getValue(topic,'/',4).toInt();
-	char NrosLeds[25];
-	getValue(topic, '/', 4).toCharArray(NrosLeds, 25);
+	char NrosLeds[20];
+	getValue(topic, '/', 4).toCharArray(NrosLeds, 20);
 	byte cnt = 0;
 	char* ptr = strtok(NrosLeds, ",");
 
 	while (ptr != NULL) {
 		unsigned int nro = atoi(ptr);
-
-		Serial.print(F("Strip: "));
-		Serial.print(nro);
 
 		String Mode = getValue(topic,'/',5);
 		Mode.toUpperCase();

@@ -9,13 +9,12 @@ int noiseMillis = 100;
 const byte RelaysArraySize = sizeof(RelaysArray)/sizeof(RelaysArray[0]);
 int relayForced[RelaysArraySize];
 
-
 const byte RelaysManualMapSize = sizeof(RelaysManualMap)/sizeof(RelaysManualMap[0]);
 const byte RelaysInvertedArraySize = sizeof(RelaysInvertedArray)/sizeof(RelaysInvertedArray[0]);
 	
 void setupButtonsRelays()
 {
-	Serial.println(F("setupButtonsRelays"));
+	//Serial.println(F("setupButtonsRelays"));
 
 	for (byte index = 0; index < buttonArraySize; index++) {
    		 pinMode(buttonArray[index], INPUT);	
@@ -32,7 +31,7 @@ void setupButtonsRelays()
 void InformarBotonesYRelays()
 {
 	for (byte index = 0; index < buttonArraySize; index++) {
-   		sendMqttf("Button/" + String(buttonArray[index]), digitalRead(buttonArray[index]),true);
+   		sendMqttf(strButton + "/" + String(buttonArray[index]), digitalRead(buttonArray[index]),true);
   	}
     
     for (byte index = 0; index < RelaysArraySize; index++) {
@@ -40,7 +39,7 @@ void InformarBotonesYRelays()
 //   		sendMqttf("Relay/Forced/" + String(RelaysArray[index]), relayForced[index] ,true);
   	}
 }
-void InformarRelay(int index)
+void InformarRelay(byte index)
 {
 	int estado = digitalRead(RelaysArray[index]);
 	//invertir estado si es inverted
@@ -65,7 +64,7 @@ void DetectarBotones()
 
 			if (buttonState[index] != currPin) //delay para evitar ruido
 			{
-				BlinkLedStatus = ButtonDetected;
+			//	BlinkLedStatus = ButtonDetected;
 				if (buttonStateMilis[index] == 0)
 				{
 					buttonStateMilis[index] = millis();
@@ -78,7 +77,7 @@ void DetectarBotones()
 				buttonState[index] = currPin;
                 if (OffLineMode)
                 {
-					BlinkLedStatus = ManualAction;
+					//BlinkLedStatus = ManualAction;
                     for ( byte i = 0; i < RelaysManualMapSize; i++) {
                         if ( RelaysManualMap[i][0] == buttonArray[index] )  //ES EL BOTON
                         {
@@ -87,7 +86,7 @@ void DetectarBotones()
                         }
                     }
                 }
-				sendMqttf("Button/" + String(buttonArray[index]) + "/toggle", currPin,false);
+				sendMqttf(strButton + "/" + String(buttonArray[index]) + "/toggle", currPin,false);
 				InformarBotonesYRelays(); //informar solo actual
 			}
   		}
@@ -101,8 +100,8 @@ void ProcesarComandoRelays(String topic, String valor)
 		return;
 	}
 
-	int nro = getValue(topic,'/',4).toInt();
-    int index = FindIndex(RelaysArray,nro,RelaysArraySize);
+	byte nro = getValue(topic,'/',4).toInt();
+    byte index = FindIndex(RelaysArray,nro,RelaysArraySize);
     
 	if (valor == F("FORCE-1") || valor == F("FORCE-ON"))
         {relayForced[index] = 1;	}
@@ -117,7 +116,7 @@ void ProcesarComandoRelays(String topic, String valor)
         {setRelayState(nro,String(relayForced[index]));}
 }
 
-void setRelayState(int nro, String estado)
+void setRelayState(byte nro, String estado)
 {
 	int estadoTmp = -1;
 	if (estado == "0" || estado == F("OFF") || estado == F("FALSE"))	{estadoTmp = HIGH;}

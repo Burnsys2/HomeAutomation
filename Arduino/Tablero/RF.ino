@@ -22,9 +22,9 @@ void ProcesarRF()
 {
 	if (rf433InPin >= 1 && mySwitch433.available())
 	{
-		sendMqttf("Sensores/RF433", mySwitch433.getReceivedValue(), false);
+		sendMqttf(strSensores + "/RF433", mySwitch433.getReceivedValue(), false);
 		mySwitch433.resetAvailable();
-		BlinkLedStatus = RFDetected;
+	//	BlinkLedStatus = RFDetected;
 	}
 }
 

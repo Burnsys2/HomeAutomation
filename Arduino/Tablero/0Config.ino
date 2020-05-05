@@ -8,16 +8,16 @@ const byte IrRecPin = 0; //  CUALQUIER PIN;
 
 //RF433  //		
 //interrupts pins: 2, 3, 18, 19, 20, 21	
-const byte rf433InPin = 21; //2+++++++++++++++++++++++++++++
+const byte rf433InPin = 19; //21
+const byte rf433OutPin = 16;// 20;
 
-const byte rf433OutPin = 20;
-const byte rf315InPin = 0; //3
-const byte rf315OutPin = 0;//7;
 
 //RGB LEDS
+/*
 const byte RGBLeds[][3] =
 {
 } ;
+*/
 const byte EncodersPins[][2] =
 {
 	{25,23}
@@ -42,13 +42,14 @@ const byte DHTArray[][2] =
 };
 
 //RGB LED STATUS
+/*
 const byte LED_STATUS_RED_PIN = -1;
 const byte LED_STATUS_GREEN_PIN = -1;
 const byte LED_STATUS_BLUE_PIN = -1;
 const byte LED_ACTION_RED_PIN =-1;
 const byte LED_ACTION_GREEN_PIN =-1;
 const byte LED_ACTION_BLUE_PIN = -1;
-
+*/
 const byte analogInsArray[] = {3,5} ;
 const byte analogInsOnlineArray[] = {};
 
@@ -70,4 +71,4 @@ const byte RelaysManualMap[][2] =
      {47,42} //  escalera
 };
 const byte buttonIgnoreNoiseFilterArray[] = {} ;
-const int VoltSensorPin = 0;
+//const int VoltSensorPin = 0;

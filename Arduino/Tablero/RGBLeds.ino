@@ -1,3 +1,4 @@
+/*
 const byte RGBLedsSize = sizeof(RGBLeds)/sizeof(RGBLeds[0]);
 
 void SetupRGBLeds()
@@ -16,3 +17,4 @@ void ProcesarComandoLedsRgb(String topic, String valor)
         analogWrite(RGBLeds[nro][i],255 - getValue(valor,',',i).toInt()) ;
     }
 }
+*/

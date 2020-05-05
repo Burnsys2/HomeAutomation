@@ -1,9 +1,10 @@
-unsigned long LedBlinkMillis;
-eLedStatus LastStatus;
+//unsigned long LedBlinkMillis;
+//eLedStatus LastStatus;
 
 
 void SetupStatusLed()
 {
+	/*
 	LastStatus = Ok;
 	if (LED_STATUS_RED_PIN > 0)
 	{
@@ -32,16 +33,17 @@ void SetupStatusLed()
 	}
 	//SetLedStatus();
 	SetLedBlink(0, 0, 0);
-
+*/
 }
 void SetLedActionWS()
 {
 	//     leds[0][0] = CRGB(2,2,2);
 }
-bool ActionLedPrendido;
-eLedStatus LastStatusBlink;
+//bool ActionLedPrendido;
+//eLedStatus LastStatusBlink;
 void SetLedAction()
 {
+/*
 	if (LED_ACTION_RED_PIN <= 0)
 	{
 		return;
@@ -93,12 +95,13 @@ void SetLedAction()
 		SetLedBlink(0, 1, 1);
 		break;
 	}
+*/
 }
 
 void SetLedStatus()
 {
 
-	if (LastStatus == CurentLedStatus)
+/*	if (LastStatus == CurentLedStatus)
 	{
 		return;
 	}
@@ -127,11 +130,12 @@ void SetLedStatus()
 		leds[WSLedStatus][0] = Color;
 		FastLED.show();
 	}
-
+*/
 }
 
 void SetLedBlink(bool red, bool green, bool blue)
 {
+/*
 	if (red)
 	{
 		digitalWrite(LED_ACTION_RED_PIN, LOW);
@@ -158,5 +162,7 @@ void SetLedBlink(bool red, bool green, bool blue)
 	{
 		digitalWrite(LED_ACTION_BLUE_PIN, HIGH);
 	}
+*/
 }
+
 

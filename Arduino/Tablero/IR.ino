@@ -14,7 +14,7 @@ void ProcesarIR()
      if (IrRecPin < 0) {return;}
 
     if (irrecv.decode(&results)) {
-        BlinkLedStatus = IrDetected;
+     //   BlinkLedStatus = IrDetected;
     //    Serial.print("HEX:");
       //  Serial.println(results.value, HEX);
        // Serial.println(results.value);

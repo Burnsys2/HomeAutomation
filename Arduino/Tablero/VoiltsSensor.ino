@@ -1,3 +1,4 @@
+/*
 float intercept = -0.04; // to be adjusted based on calibration testing
 float slope = 0.0405; // to be adjusted based on calibration testing
 float testFrequency = 60;                     // test signal frequency (Hz)
@@ -28,3 +29,4 @@ void ProcesarVoltSensor()
 		sendMqttf(F("Sensores/Volts/sigma"), inputStats.sigma() , false);
 	}
 }
+*/

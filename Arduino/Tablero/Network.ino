@@ -72,8 +72,8 @@ void Reconnect()
 	Serial.print(F(" - mqtt Conecting: "));
 	Serial.println(mqtt_server);
 	String Topicrelays = globalTopic + "/" + sector + "/in/#";
-	char buffert[50];
-	Topicrelays.toCharArray(buffert,50);
+	char buffert[30];
+	Topicrelays.toCharArray(buffert,30);
 	mqttClient.connect(buffert);
 	mqttClient.subscribe(buffert);
 	Serial.print(millis());
@@ -87,21 +87,26 @@ void sendMqttf(String topic, String value, bool retained)
 {
 	if (!mqttClient.connected()) return;
     char buffert[50];
-    char buffer[50];
+    char buffer[20];
 
-	value.toCharArray(buffer,50);
+	value.toCharArray(buffer,20);
 	String topicFinal = globalTopic + "/" + sector + "/out/" + topic;	
 	topicFinal.toCharArray(buffert,50);
     mqttClient.publish(buffert, buffer,retained);
 }
 
-//void sendMqttfAsBool(String topic, float value, bool retained)
-//{
-//	String valueTmp = "false";
-//	if (value == 1)	{valueTmp = "true";	}
-//	sendMqttf(topic,valueTmp,retained);
-//}
 
+void sendMqttfPrec(String topic, float value, bool retained)
+{
+
+	if (!mqttClient.connected()) return;
+	char buffert[50];
+    char buffer[10];
+    dtostrf(value, 0, 2, buffer);
+	String topicFinal = globalTopic + "/" + sector + "/out/" + topic;	
+	topicFinal.toCharArray(buffert,50);
+    mqttClient.publish(buffert, buffer,retained);
+}
 void sendMqttf(String topic, float value, bool retained)
 {
   //  Serial.println("aa");
@@ -117,19 +122,19 @@ void sendMqttf(String topic, float value, bool retained)
 }
 void reportIp()
 {
-	sendMqttf("IP",IpAddress2String(Ethernet.localIP()),true);
+	sendMqttf(F("IP"),IpAddress2String(Ethernet.localIP()),true);
 }
 
 void callback(char* topic, byte* payload, unsigned int length) {
     
+ //   Serial.print(" - Message arrived [");
    /* Serial.print(millis());
-    Serial.print(" - Message arrived [");
     Serial.print(topic);
     Serial.print("] ");
     Serial.println("");
     */
  //  	setLedAction(ReceiveAction);
-	BlinkLedStatus = ReceiveAction;
+	//BlinkLedStatus = ReceiveAction;
  	String topico = getValue(topic,'/',3);
 	topico.toUpperCase();
  	if (topico == F("IR"))
@@ -152,7 +157,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
 	}
 	if (topico == F("LEDSRGB"))
 	{
-		ProcesarComandoLedsRgb(topic,valor);
+	//	ProcesarComandoLedsRgb(topic,valor);
 	}
 	if (topico == F("WSSTRIP"))
 	{
@@ -183,5 +188,4 @@ void callback(char* topic, byte* payload, unsigned int length) {
 	{
 		ProcesarComandoButtons(topic, valor);
 	}
-
 }

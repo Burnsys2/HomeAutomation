@@ -53,7 +53,7 @@ void ProcesarSensores()
 		if (abs(analogInsOnlineValue[index] - analogR) < analogInsOnlineMaxDev && analogR != 0 && analogR < 1023) {continue;}
 		if (abs(millis() - analogInsOnlineLastReport[index]) < analogInsOnlineMilis) {continue;}
 	
-		sendMqttf("Sensores/Analog/" + String(analogInsOnlineArray[index]) ,analogR,true);
+		sendMqttf(strSensores + "/Analog/" + String(analogInsOnlineArray[index]) ,analogR,true);
 		analogInsOnlineValue[index] = analogR;
 		analogInsOnlineLastReport[index] = millis();
 	}
@@ -79,8 +79,8 @@ void InformarSensores()
 	{
 		if (analogInsSamples[index] > 0)
 		{
-			sendMqttf("Sensores/Analog/" + String(analogInsArray[index]) ,analogInsValue[index] / analogInsSamples[index],true);
-			sendMqttf("Sensores/Analog/Max/" + String(analogInsArray[index]) ,analogInsMaxValue[index] ,true);
+			sendMqttf(strSensores + "/Analog/" + String(analogInsArray[index]) ,analogInsValue[index] / analogInsSamples[index],true);
+			sendMqttf(strSensores + "/Analog/Max/" + String(analogInsArray[index]) ,analogInsMaxValue[index] ,true);
 	//		sendMqttf("Sensores/Analog/Samples/" + String(analogInsArray[index]) ,analogInsSamples[index],true);
 	//		sendMqttf("Sensores/Analog/Total/" + String(analogInsArray[index]) ,analogInsValue[index],true);
 		}
@@ -93,7 +93,7 @@ void InformarSensores()
 	{
 	   	int analogR = analogRead(analogInsOnlineArray[index]);
 		if (analogR == analogInsOnlineValue[index]) {continue;}
-		sendMqttf("Sensores/Analog/" + String(analogInsOnlineArray[index]) ,analogR,true);
+		sendMqttf(strSensores + "/Analog/" + String(analogInsOnlineArray[index]) ,analogR,true);
 		analogInsOnlineValue[index] = analogR;
 		analogInsOnlineLastReport[index] = millis();
 	}

@@ -3,6 +3,7 @@
  Created:	12/25/2018 6:19:05 PM
  Author:	LIVING
 */
+#define SERIAL_BUFFER_SIZE 32
 
 #include <FastLED.h>
 #include <Ethernet.h>
@@ -23,18 +24,23 @@ FASTLED_USING_NAMESPACE
 #include <SimpleTimer.h>
 #include <Event.h>
 #include <PubSubClient.h>
-#include <Filters.h> //Easy library to do the calculations
+//#include <Filters.h> //Easy library to do the calculations
 #include "OneButton.h"
 /*
 #include <ir_Lego_PF_BitStreamEncoder.h>
 #include <IRremoteInt.h>
 */
+#include <Adafruit_Sensor.h>
+#include "Adafruit_BMP280.h"
+
+#define INA3221_ADDRESS                         (0x41)   
+#include "SDL_Arduino_INA3221.h"
 #include <IRremote.h>
 #include <boarddefs.h>
 //#include "DHT.h"
 #include <dht_nonblocking.h>
 #include <RCSwitch.h>
-
+/*
 enum eLedStatus {
   Starting,
   Ok,
@@ -54,6 +60,13 @@ enum eLedAction {
   AnalogOnlineAction,
 };
 
+eLedStatus CurentLedStatus;
+eLedAction BlinkLedStatus;
+*/
+
+bool OffLineMode = true;
+String strSensores, strButton;
+
 enum eWsStripMode {
   AnimationStatic,
   AnimationRainbowWithGlitter,
@@ -67,12 +80,6 @@ enum eWsStripMode {
   AnimationHueSwipe,
   AnimationRainbowSpin
 };
-
-eLedStatus CurentLedStatus;
-eLedAction BlinkLedStatus;
-bool OffLineMode = true;
-
-
 
 //IR
 //https://forum.arduino.cc/index.php?topic=320732.0
@@ -93,11 +100,13 @@ asm volatile ("  jmp 0");
 SimpleTimer tReconnect2; //no tiene razon de ser
 void setup(void)
 {
+	strSensores = F("Sensores");
+	strButton = F("Button");
 	wdt_disable();
 	
-	CurentLedStatus = Starting;
+//	CurentLedStatus = Starting;
 	SetupStatusLed();
-	SetupRGBLeds();
+//	SetupRGBLeds();
 	Serial.begin(9600);
 	while (!Serial) {}
 	SetupWsStrips();
@@ -105,7 +114,7 @@ void setup(void)
 	Serial.println(F("Starting..."));
 	setupIR();
 	SetupSensores();
-	SetupVoltSensor();
+//	SetupVoltSensor();
 	setupButtonsRelays();
 	setupPushButtons();
 	setupRF();
@@ -113,10 +122,13 @@ void setup(void)
 	tSensores.setInterval(5000,TSensoresLentos);
 	setupEthernet();
 	SetupEncoders();
+	SetupINA();
+	SetupBMP();
 	wdt_enable(WDTO_8S);
-	CurentLedStatus = Starting;
-	
+//	CurentLedStatus = Starting;
+
 	Serial.println(F("Fin Setup"));
+
 }
 
 void TSensoresLentos()
@@ -125,19 +137,21 @@ void TSensoresLentos()
    // reportIp();
 	InformarSensores();
 	InformarBotonesYRelays();
-   	BlinkLedStatus = Send;
+ //  	BlinkLedStatus = Send;
 	sendMqttf("FreeRam",freeMemory(),false);
+	ProcesarINA();
+	ProcesarBMP();
 }
 
 void loop() {
  	wdt_reset();
   	OffLineMode = !ProcesarRed();
-
+/*
 	if (OffLineMode) 
 		CurentLedStatus = OffLine;
 	else
 		CurentLedStatus = Ok;	
-
+*/
 	DetectarBotones();
 	ProcesarIR();
 	ProcesarRF();
@@ -146,7 +160,7 @@ void loop() {
 	ProcesarDht();
 	ProcesarSensores();
 	ProcesarPushButtons();
-	ProcesarVoltSensor();
+	//ProcesarVoltSensor();
 	ProcesarWsStrip();
 	ProcesarEncoders();
 	tSensores.run();

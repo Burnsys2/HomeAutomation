@@ -1,12 +1,12 @@
 const byte EncodersSize = sizeof(EncodersPins) / sizeof(EncodersPins[0]);
 Encoder *Encoders[EncodersSize];
-long LastEncPosition[EncodersSize];
-long EncMax[EncodersSize];
-long EncMin[EncodersSize];
+int LastEncPosition[EncodersSize];
+int EncMax[EncodersSize];
+int EncMin[EncodersSize];
 bool EncLoop[EncodersSize];
 void SetupEncoders()
 {
-	Serial.println("Encoders");
+	//Serial.println("Encoders");
 	for (byte index = 0; index < EncodersSize; index++) {
 		Encoders[index] = new Encoder(EncodersPins[index][0], EncodersPins[index][1]);
    		pinMode(EncodersPins[index][0], INPUT);	
@@ -21,7 +21,7 @@ void SetupEncoders()
 void ProcesarEncoders()
 {
 	for (byte index = 0; index < EncodersSize; index++) {
-		long NewValue = 0;
+		int NewValue = 0;
 		Encoder *Enc = Encoders[index];
 		NewValue = Enc->read();
 		if (NewValue == LastEncPosition[index]) continue;

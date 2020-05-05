@@ -2,7 +2,6 @@ const byte PushbuttonArraySize = sizeof(PushbuttonArray) / sizeof(PushbuttonArra
 OneButton* buttons[PushbuttonArraySize];
 int LongPressMilis = 1000;
 int PressMilis= 200;
-//byte currentPushButton = 0;
 void setupPushButtons()
 {
 	for (byte index = 0; index < PushbuttonArraySize; index++) {
@@ -10,7 +9,6 @@ void setupPushButtons()
 		buttons[index] = new OneButton(currPin,false);
 		buttons[index]->attachClick(PushButtonClick,currPin);
 		buttons[index]->attachDoubleClick(PushButtonDoubleClick,currPin);
-	//	buttons[index]->attachDuringLongPress(PushButtonDuringLongPress);
 		buttons[index]->attachLongPressStart(PushButtonLongPressStart,currPin);
 		buttons[index]->attachLongPressStop(PushButtonLongPressStop,currPin);
 	}
@@ -28,15 +26,14 @@ void ConfigurePushButtons()
 void ProcesarPushButtons()
 {
 	for (byte index = 0; index < PushbuttonArraySize; index++) {
-	//	currentPushButton = PushbuttonArray[index];
 		buttons[index]->tick();
 	}
 }
-void PushButtonClick(byte currPin) { sendMqttf("Button/" + String(currPin), "CLICK", false); }
-void PushButtonDoubleClick(byte currPin) { sendMqttf("Button/" + String(currPin), "DOUBLECLICK", false); }
-void PushButtonDuringLongPress(byte currPin) { sendMqttf("Button/" + String(currPin), "DURINGLONGPRESS", false); }
-void PushButtonLongPressStart(byte currPin) { sendMqttf("Button/" + String(currPin), "LONGPRESSSTART", false); }
-void PushButtonLongPressStop(byte currPin){sendMqttf("Button/" + String(currPin),"LONGPRESSSTOP", false);}
+void PushButtonClick(byte currPin) { sendMqttf(strButton + "/" + String(currPin), F("CLICK"), false); }
+void PushButtonDoubleClick(byte currPin) { sendMqttf(strButton + "/" + String(currPin), F("DOUBLECLICK"), false); }
+void PushButtonDuringLongPress(byte currPin) { sendMqttf(strButton + "/" + String(currPin), F("DURINGLONGPRESS"), false); }
+void PushButtonLongPressStart(byte currPin) { sendMqttf(strButton + "/" + String(currPin), F("LONGPRESSSTART"), false); }
+void PushButtonLongPressStop(byte currPin){sendMqttf(strButton + "/" + String(currPin),F("LONGPRESSSTOP"), false);}
 
 
 void ProcesarComandoButtons(String topic, String valor)
