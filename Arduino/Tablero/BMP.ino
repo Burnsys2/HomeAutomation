@@ -6,13 +6,15 @@ void SetupBMP()
 }
 void ProcesarBMP()
 {
-  Serial.println("bMPB");
+  return;
+ // Serial.println("bMPB");
 
-    presion = bmp.readPressure()/100;
-  Serial.println("bMPE");
+  /*  presion = bmp.readPressure()/100;
+ //Serial.println("bMPE");
 
     if (presion <= 0) return;
 
     sendMqttf("Sensores/BMP/Presion", presion, false);
     sendMqttfPrec("Sensores/BMP/Temperatura", bmp.readTemperature(), false);
+    */
 }

@@ -2,7 +2,7 @@ SDL_Arduino_INA3221 ina3221;
 int MID;
 void SetupINA()
 {
-    
+   
   ina3221.begin();
   MID = ina3221.getManufID();
   Serial.println("IN:" + String(MID));

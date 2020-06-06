@@ -128,6 +128,7 @@ void setRelayState(byte nro, String estado)
 		if (FindIndex(RelaysInvertedArray,nro,RelaysInvertedArraySize) != -1)
 			{if (estadoTmp == HIGH)	{estadoTmp = LOW; } else {estadoTmp = HIGH;}}	
 		digitalWrite(nro,estadoTmp);
+		Serial.println(nro);
 	}
 
 	if (estado == F("TOGGLE"))

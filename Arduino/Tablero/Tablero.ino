@@ -9,6 +9,8 @@
 #include <Ethernet.h>
 //#define ENCODER_OPTIMIZE_INTERRUPTS
 #include <Encoder.h>
+#include <RFControl.h>
+
 #define MQTT_SOCKET_TIMEOUT 1
 #define MQTT_KEEPALIVE 1
 #define MQTT_MAX_PACKET_SIZE 1024 //OJO HAY QUE CAMBIAR EN LA LIBRERIA
@@ -126,6 +128,7 @@ void setup(void)
 	SetupBMP();
 	wdt_enable(WDTO_8S);
 //	CurentLedStatus = Starting;
+ProcesarRed();
 
 	Serial.println(F("Fin Setup"));
 
@@ -133,6 +136,7 @@ void setup(void)
 
 void TSensoresLentos()
 {
+\
     sendMqttf("LastSeen",1,false);
    // reportIp();
 	InformarSensores();
@@ -144,7 +148,7 @@ void TSensoresLentos()
 }
 
 void loop() {
- 	wdt_reset();
+	wdt_reset();
   	OffLineMode = !ProcesarRed();
 /*
 	if (OffLineMode) 
@@ -152,6 +156,7 @@ void loop() {
 	else
 		CurentLedStatus = Ok;	
 */
+	ProcesarEncoders();
 	DetectarBotones();
 	ProcesarIR();
 	ProcesarRF();
@@ -162,6 +167,5 @@ void loop() {
 	ProcesarPushButtons();
 	//ProcesarVoltSensor();
 	ProcesarWsStrip();
-	ProcesarEncoders();
 	tSensores.run();
 }
