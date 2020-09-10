@@ -1,8 +1,8 @@
-Adafruit_BMP280 bmp; // I2C
+//Adafruit_BMP280 bmp; // I2C
 float presion; 
 void SetupBMP()
 {
-    bmp.begin(); // Inicia el sensor
+ //   bmp.begin(); // Inicia el sensor
 }
 void ProcesarBMP()
 {

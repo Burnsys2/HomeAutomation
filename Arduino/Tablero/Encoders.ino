@@ -43,6 +43,7 @@ void ProcesarEncoders()
 				NewValue = EncMin[index];
 		}
 		Enc->write(NewValue);
+	//	Serial.println("-");
 		if (NewValue > LastEncPosition[index]) 	sendMqttf("Encoder/" + String(index), "+", false);
 		if (NewValue < LastEncPosition[index])	sendMqttf("Encoder/" + String(index) , "-", false);
 		sendMqttf("Encoder/" + String(index) + "/value", NewValue, true);

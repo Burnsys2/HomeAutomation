@@ -30,8 +30,8 @@ const byte WSStrips[][2] =
 //ws LEDS: Pins, CntLeds
 const byte EncodersPins[][2] =
 {
-		// {16,17},
-		// {14,15}
+		 {30,32},
+		 {34,36}
 };
 
 //PIN , TYPE (11 = DHT11, 22= DHT22)

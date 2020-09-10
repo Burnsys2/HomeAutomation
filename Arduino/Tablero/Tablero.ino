@@ -32,8 +32,8 @@ FASTLED_USING_NAMESPACE
 #include <ir_Lego_PF_BitStreamEncoder.h>
 #include <IRremoteInt.h>
 */
-#include <Adafruit_Sensor.h>
-#include "Adafruit_BMP280.h"
+//#include <Adafruit_Sensor.h>
+//#include "Adafruit_BMP280.h"
 
 #define INA3221_ADDRESS                         (0x41)   
 #include "SDL_Arduino_INA3221.h"
@@ -107,26 +107,28 @@ void setup(void)
 	wdt_disable();
 	
 //	CurentLedStatus = Starting;
-	SetupStatusLed();
 //	SetupRGBLeds();
 	Serial.begin(9600);
 	while (!Serial) {}
+//	SetupStatusLed();
 	SetupWsStrips();
-	SetLedStatus();
+//	SetLedStatus();
 	Serial.println(F("Starting..."));
+
 	setupIR();
 	SetupSensores();
-//	SetupVoltSensor();
 	setupButtonsRelays();
 	setupPushButtons();
 	setupRF();
 	SetupDHT();
 	tSensores.setInterval(5000,TSensoresLentos);
+
 	setupEthernet();
 	SetupEncoders();
 	SetupINA();
-	SetupBMP();
+//	SetupBMP();
 	wdt_enable(WDTO_8S);
+//	SetupVoltSensor();
 //	CurentLedStatus = Starting;
 ProcesarRed();
 
@@ -136,7 +138,7 @@ ProcesarRed();
 
 void TSensoresLentos()
 {
-\
+
     sendMqttf("LastSeen",1,false);
    // reportIp();
 	InformarSensores();
@@ -144,7 +146,7 @@ void TSensoresLentos()
  //  	BlinkLedStatus = Send;
 	sendMqttf("FreeRam",freeMemory(),false);
 	ProcesarINA();
-	ProcesarBMP();
+//	ProcesarBMP();
 }
 
 void loop() {
@@ -167,5 +169,6 @@ void loop() {
 	ProcesarPushButtons();
 	//ProcesarVoltSensor();
 	ProcesarWsStrip();
+
 	tSensores.run();
 }
