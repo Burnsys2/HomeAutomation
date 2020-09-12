@@ -2,22 +2,22 @@
 //IPAddress ip(192, 168, 2, 41);
 const String Mqtt = "192.168.2.1";
 const String globalTopic = "NodeMcu";
-const String sector = "PiezaNuestra";
+const String sector = "PruebaNode";
 const char* ssid = "Casa"; // Rellena con el nombre de tu red WiFi
-const char* password = "casanueva"; // Rellena con la contraseña de tu red WiFi
+const char* password = "casanueva"; // Rellena con la contraseï¿½a de tu red WiFi
 const char* mqtt_server = "192.168.2.1";
 
 
-const byte IrRecPin = 9;//2;
+const byte IrRecPin = 0;//2;
 
 //RF433  //		
 //interrupts pins: 2, 3, 18, 19, 20, 21	
+const int Serialbps = 115200;
 const byte rf433InPin = -1; //2
 const byte rf433OutPin = -1;
-const byte rf315InPin = -1
-; //3
+const byte rf315InPin = -1; //3
 const byte rf315OutPin = -1;//7;
-const byte buttonArray[] = {16};
+const byte buttonArray[] = {};
 const byte RelaysArray[] = {};
 const byte RelaysInvertedArray[] = {};
 const byte RelaysManualMap[][2] =
@@ -32,13 +32,11 @@ const byte RGBLeds[][3] =
 //ws LEDS: Pins, CntLeds MISMO PIN QUE EL INDICADO
 const byte WSStrips[][2] =
 {
-	 {3,4}, //57
-	 {4,15} //57
+	 {12,144}
 };
 
-
-#define DHT_PIN 0
-#define DHT_TYPE DHT22
+const byte analogInsArray[] = {0};
+const byte analogInsOnlineArray[] = {};
 
 // D0 = 16;
 // D1 = 5;

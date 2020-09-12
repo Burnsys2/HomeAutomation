@@ -4,10 +4,13 @@
  Author:	LIVING
 */
 //#define FASTLED_ESP8266_RAW_PIN_ORDER
-
 #include <Arduino.h>
-#define FASTLED_ESP8266_NODEMCU_PIN_ORDER
+//#define FASTLED_ESP8266_NODEMCU_PIN_ORDER
 //#define FASTLED_ESP8266_D1_PIN_ORDER
+#define FASTLED_INTERRUPT_RETRY_COUNT 0 
+#define FASTLED_ALLOW_INTERRUPTS 0
+#define INTERRUPT_THRESHOLD 1
+//#define FASTLED_INTERNAL
 #include "FastLED.h"
 FASTLED_USING_NAMESPACE
 #include <IRremoteESP8266.h>
@@ -48,15 +51,19 @@ enum eLedAction {
 };
 
 enum eWsStripMode {
-	AnimationStatic,
-	AnimationRainbowWithGlitter,
-	AnimationRainbow,
-	AnimationConfetti,
-	AnimationSinelon,
-	AnimationBpm,
-	AnimationJuggle,
-	AnimationFadeTo
+  AnimationStatic,
+  AnimationRainbowWithGlitter,
+  AnimationRainbow,
+  AnimationConfetti,
+  AnimationSinelon,
+  AnimationStrobe,
+  AnimationBpm,
+  AnimationJuggle,
+  AnimationFadeTo,
+  AnimationHueSwipe,
+  AnimationRainbowSpin
 };
+String strSensores, strButton;
 
 eLedStatus CurentLedStatus;
 eLedAction BlinkLedStatus;
@@ -68,19 +75,18 @@ SimpleTimer tSensores;
 void(*resetFunc) (void) = 0; //declare reset function @ address 0
 
 void setup() {
-	CurentLedStatus = Starting;
+//	CurentLedStatus =
+		strSensores = F("Sensores");
+	strButton = F("Button"); Starting;
 	//SetupStatusLed();
 //	SetLedStatus();
-	pinMode(0, OUTPUT);
-	digitalWrite(0, HIGH);
-	pinMode(4, OUTPUT);
-	digitalWrite(2, HIGH);
 
 	Serial.begin(115200);
 	while (!Serial) {}
 	SetupWsStrips();
 	setupIR();
 	setupEthernet();
+	SetupSensores();
 	setupButtonsRelays();
 	tSensores.setInterval(5000, TSensoresLentos);
 }
@@ -88,6 +94,9 @@ void TSensoresLentos()
 {
 	sendMqttf("LastSeen", 1, false);
 	// reportIp();
+	//ProcesarSensores();
+	//InformarSensores();
+	//	 Serial.println(analogRead(0));
 	BlinkLedStatus = Send;
 	//	sendMqttf("FreeRam",freeMemory(),false);
 }
@@ -104,6 +113,8 @@ void loop()
 	}
 	ProcesarRed();
 	DetectarBotones();
+	ProcesarSensores();
+	
 	ProcesarWsStrip();
 	tSensores.run();
 }

@@ -1,6 +1,3 @@
-﻿// Incluimos librer�a
-// Enter a MAC address and IP address for your controller below.
-
 WiFiClient ethClient;
 PubSubClient mqttClient(ethClient);
 SimpleTimer tReconnect;
@@ -148,9 +145,9 @@ void callback(char* topic, byte* payload, unsigned int length) {
 		ProcesarComandoRF(topic,valor);
 	}
 
-		if (topico == F("SENSORES"))
+*/
+	if (topico == F("SENSORES"))
 	{
 		ProcesarComandoSensores(topic,valor);
 	}
-*/
 }
