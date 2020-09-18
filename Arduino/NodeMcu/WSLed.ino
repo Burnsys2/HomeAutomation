@@ -4,11 +4,12 @@ eWsStripMode WsStripeMode[WSStripsSize];
 CLEDController *WScontrollers[WSStripsSize];
 int WsStripeParam1[WSStripsSize];
 int WsStripeParam2[WSStripsSize];
+int WsStripeBrightness[WSStripsSize];
 int WsStripeAux1[WSStripsSize];
-
+static const uint8_t prefix[] = {'A', 'd', 'a'};
 long WsStripeMillis[WSStripsSize];
 CRGB WsStripeParamColor[WSStripsSize];
-CRGB leds[WSStripsSize][60];
+CRGB leds[WSStripsSize][300];
 uint8_t gHue = 0; 
 int Fps = 120;
 unsigned long WsStartMilis;
@@ -38,9 +39,18 @@ void ProcesarComandoWSLedsStrip(String topic, String valor)
 
 		String Mode = getValue(topic,'/',5);
 		Mode.toUpperCase();
+		if (Mode == F("BRIGHTNESS"))
+		{
+			String bright = getValue(valor, ',', 0);
+		//	FastLED.setBrightness( bright.toInt() );
+			WsStripeBrightness[nro] = bright.toInt();
+			return;
+
+		//	FILLARRAY(leds[nro],Color);
+		}
 		if (Mode == F("REFRESH"))
 		{
-			WScontrollers[nro]->showLeds();
+			WScontrollers[nro]->showLeds(WsStripeBrightness[nro]);
 			return;
 		}
 		WsStripeParam1[nro] = 0;
@@ -146,16 +156,78 @@ void ProcesarComandoWSLedsStrip(String topic, String valor)
 			if (speed != "")	WsStripeParam1[nro] = speed.toInt();
 
 		}
-		WScontrollers[nro]->showLeds();
+		if (Mode == F("SERIAL"))
+		{
+		//	String speed = getValue(valor, ',', 0);
+			WsStripeMode[nro] = AnimationSerial;
+			return;
+		}
+		WScontrollers[nro]->showLeds(WsStripeBrightness[nro]);
 		ptr = strtok(NULL, ",");
 	}
 
    // FastLED.show();  
 }
+bool waitingnewFrame =true;
+void ProcesarSerialWs(byte index)
+{
+	//	sendMqttf("/SR1" ,1,false);
+
+      if (waitingnewFrame)
+      {
+         for(int i = 0; i < sizeof(prefix); ++i){
+            if (!waitforSerialData(1,100)) return;
+                  if(prefix[i] != Serial.read()) 
+                  return;
+           }
+           waitingnewFrame=false;
+      }
+      
+      if (!waitforSerialData(3,100)) {waitingnewFrame==true;return;}
+        int highByte = Serial.read();
+      int lowByte  = Serial.read();
+      int checksum = Serial.read();
+      if (checksum != (highByte ^ lowByte ^ 0x55)){
+            return;}
+ 
+      uint16_t ledCount = ((highByte & 0x00FF) << 8 | (lowByte & 0x00FF) ) + 1;
+      if (ledCount > WSStrips[index][1]){
+            ledCount = WSStrips[index][1];}
+           
+      for (int i = 0; i < ledCount; i++){
+            if (!waitforSerialData(3,100)) {waitingnewFrame==true;return;}
+
+            leds[index][i].r = Serial.read();
+            leds[index][i].g = Serial.read();
+            leds[index][i].b = Serial.read();}
+
+		WScontrollers[index]->showLeds(WsStripeBrightness[index]);
+	waitingnewFrame=true;
+
+	//	sendMqttf("/SR5" ,1,false);
+
+}
+bool waitforSerialData(int size, int timeout)
+{
+  long startMillis = millis();
+  while(Serial.available() < size)
+  {
+    if (millis() - startMillis > timeout) return false;
+  }
+  return true;
+}
 
 void ProcesarWsStrip()
 {
   //return;
+
+	for (byte nro = 0; nro < WSStripsSize; nro++) {
+
+		if (WsStripeMode[nro] == AnimationSerial)  {
+			ProcesarSerialWs(nro);
+			return;
+		}
+	}
     WsCurrentMilis  = millis();
 	if (WsCurrentMilis - WsStartMilis >= WsDelayMilis)  //test whether the period has elapsed
   	{
@@ -171,7 +243,7 @@ void ProcesarWsStrip()
                 if (WsStripeMode[nro] == AnimationFadeTo)  {fadeToColorf(nro);}
                 if (WsStripeMode[nro] == AnimationHueSwipe)  {HueSwipe(nro);}
                 if (WsStripeMode[nro] == AnimationRainbowSpin)  {rainbowSpin(nro);}
-                if (WsStripeMode[nro] != AnimationStatic && WsStripeMode[nro] != AnimationRainbow && WsStripeMode[nro] != AnimationRainbowSpin && WsStripeMode[nro] != AnimationHueSwipe)  {WScontrollers[nro]->showLeds();}
+                if (WsStripeMode[nro] != AnimationStatic && WsStripeMode[nro] != AnimationRainbow && WsStripeMode[nro] != AnimationRainbowSpin && WsStripeMode[nro] != AnimationHueSwipe)  {WScontrollers[nro]->showLeds(WsStripeBrightness[nro]);}
             }
   	}
 }
@@ -235,7 +307,7 @@ void strobe(byte index)
 			fill_solid(leds[index], WSStrips[index][1], CRGB::Black);
 			WsStripeParam2[index] = 0;
 		}
-		WScontrollers[index]->showLeds();
+		WScontrollers[index]->showLeds(WsStripeBrightness[index]);
 	}
 }
 
@@ -275,7 +347,7 @@ void fadeToColorf(byte index)
 	if (Done)
 	{
 		WsStripeMode[index] = AnimationStatic;
-		WScontrollers[index]->showLeds();
+		WScontrollers[index]->showLeds(WsStripeBrightness[index]);
 	}
 }
 // Fade an entire array of CRGBs toward a given background color by a given amount
@@ -288,7 +360,7 @@ void HueSwipe(byte index)
 		WsStripeAux1[index] = WsStripeAux1[index] + 1;
 		if (WsStripeAux1[index] > 256) WsStripeAux1[index] -=256;	
 		fill_solid(leds[index], WSStrips[index][1], CHSV(WsStripeAux1[index], 255, WsStripeParam2[index]));
-		WScontrollers[index]->showLeds();
+		WScontrollers[index]->showLeds(WsStripeBrightness[index]);
 	}
 }
 void rainbowSpin(byte index) 
@@ -300,7 +372,7 @@ void rainbowSpin(byte index)
 		WsStripeAux1[index] = WsStripeAux1[index] + 1;
 		if (WsStripeAux1[index] > 256) WsStripeAux1[index] -=256;	
 	    fill_rainbow( leds[index], WSStrips[index][1], WsStripeAux1[index], WsStripeParam2[index]);
-		WScontrollers[index]->showLeds();
+		WScontrollers[index]->showLeds(WsStripeBrightness[index]);
 	}
 }
 // Fade an entire array of CRGBs toward a given background color by a given amount
@@ -316,7 +388,7 @@ void fadeToColor(byte index)
   if (Done) 
   {  
 	  WsStripeMode[index] = AnimationStatic;
-	  WScontrollers[index]->showLeds();
+	  WScontrollers[index]->showLeds(WsStripeBrightness[index]);
   }
 }
 // Blend one CRGB color toward another CRGB color by a given amount.

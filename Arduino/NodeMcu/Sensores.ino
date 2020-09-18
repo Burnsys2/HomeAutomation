@@ -83,7 +83,7 @@ void ProcesarComandoSensores(String topic, String valor)
 	}
 		if (getValue(topic,'/',4) == F("REPORTMILIS"))
 	{
-		analogInsOnlineMilis = valor.toInt();
+		analogInsReportMilis = valor.toInt();
 		return;
 	}
 }

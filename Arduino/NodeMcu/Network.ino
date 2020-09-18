@@ -8,7 +8,7 @@ void setupEthernet()
 	mqttClient.setServer(mqtt_server, 1883);
 	mqttClient.setCallback(callback);
 	//EthernetClient client = server.available();
-	tReconnect.setInterval(10000, Reconnect);
+    tReconnect.setInterval(10000, Reconnect);
 	Serial.println(F("Fin Configurar red"));
 	Reconnect();
 }
@@ -94,13 +94,13 @@ void sendMqttf(String topic, float value, bool retained)
 }
 
 void callback(char* topic, byte* payload, unsigned int length) {
-
+/*
 	 Serial.print(millis());
 	 Serial.print(" - Message arrived [");
 	 Serial.print(topic);
 	 Serial.print("] ");
 	 Serial.println("");
-	 
+*/	 
 	BlinkLedStatus = ReceiveAction;
 	String topico = getValue(topic, '/', 3);
 	topico.toUpperCase();
@@ -127,15 +127,12 @@ void callback(char* topic, byte* payload, unsigned int length) {
 	{
 		ESP.reset();
 	}
-	/*
+	
 	if (topico == F("RELAY"))
 	{
 		ProcesarComandoRelays(topic,valor);
 	}
-	if (topico == F("PING"))
-	{
-		sendMqttf(F("PONG") ,1 ,false);
-	}
+	/*
 	if (topico == F("LEDSRGB"))
 	{
 		ProcesarComandoLedsRgb(topic,valor);
@@ -146,6 +143,10 @@ void callback(char* topic, byte* payload, unsigned int length) {
 	}
 
 */
+	if (topico == F("PING"))
+	{
+		sendMqttf(F("PONG") ,1 ,false);
+	}
 	if (topico == F("SENSORES"))
 	{
 		ProcesarComandoSensores(topic,valor);

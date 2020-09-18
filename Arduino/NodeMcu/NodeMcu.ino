@@ -27,9 +27,10 @@ extern char* __brkval;
 #endif  // __arm__
 #include <ESP8266WiFi.h> 
 #include <PubSubClient.h>
-#include <DHT.h>
 #include <SimpleTimer.h>
+#include <DHT.h>
 #include <ArduinoOTA.h>
+#include <SimpleTimer.h>
 
 //#include <IRsend.h>
 
@@ -61,7 +62,8 @@ enum eWsStripMode {
   AnimationJuggle,
   AnimationFadeTo,
   AnimationHueSwipe,
-  AnimationRainbowSpin
+  AnimationRainbowSpin,
+  AnimationSerial
 };
 String strSensores, strButton;
 
@@ -76,7 +78,7 @@ void(*resetFunc) (void) = 0; //declare reset function @ address 0
 
 void setup() {
 //	CurentLedStatus =
-		strSensores = F("Sensores");
+	strSensores = F("Sensores");
 	strButton = F("Button"); Starting;
 	//SetupStatusLed();
 //	SetLedStatus();
