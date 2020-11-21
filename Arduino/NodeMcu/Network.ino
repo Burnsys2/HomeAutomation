@@ -1,6 +1,8 @@
 WiFiClient ethClient;
 PubSubClient mqttClient(ethClient);
-SimpleTimer tReconnect;
+//SimpleTimer tReconnect;
+long NetpreviousMillis = 0;
+long Netinterval = 10000;
 
 void setupEthernet()
 {
@@ -8,17 +10,20 @@ void setupEthernet()
 	mqttClient.setServer(mqtt_server, 1883);
 	mqttClient.setCallback(callback);
 	//EthernetClient client = server.available();
-    tReconnect.setInterval(10000, Reconnect);
 	Serial.println(F("Fin Configurar red"));
 	Reconnect();
 }
 bool ProcesarRed()
 {
-	tReconnect.run();	
+	ArduinoOTA.handle();
+	unsigned long currentMillis = millis();
+   if(currentMillis - NetpreviousMillis > Netinterval) {
+		NetpreviousMillis = currentMillis;   
+		Reconnect();
+ 	 }
+
 	if (!mqttClient.connected()) return false;
 	mqttClient.loop();
-	ArduinoOTA.handle();
-
 	return mqttClient.connected();
 }
 void Reconnect()

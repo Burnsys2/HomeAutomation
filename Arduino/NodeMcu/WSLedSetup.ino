@@ -13,13 +13,17 @@ void SetupWsStrips()
         WsStripeBrightness[index] = 255;
 
         switch (Pin)
-        {
+        {  
+        case 0:
+            WScontrollers[index] = &FastLED.addLeds<WS2812B, 0, GRB>(leds[index], cntleds); break;
+        case 2:
+            WScontrollers[index] = &FastLED.addLeds<WS2812B, 2, GRB>(leds[index], cntleds); break;
         case 12:
             WScontrollers[index] = &FastLED.addLeds<WS2811, 12, GRB>(leds[index], cntleds); break;
         case 13:
             WScontrollers[index] = &FastLED.addLeds<WS2811, 13, GRB>(leds[index], cntleds); break;
        case 14:
-            WScontrollers[index] = &FastLED.addLeds<WS2811, 14, GRB>(leds[index], cntleds); break;
+            WScontrollers[index] = &FastLED.addLeds<WS2812B, 14, GRB>(leds[index], cntleds); break;
         case 15:
             WScontrollers[index] = &FastLED.addLeds<WS2811, 15, GRB>(leds[index], cntleds); break;
     

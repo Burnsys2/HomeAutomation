@@ -68,7 +68,7 @@ void ProcesarComandoWSLedsStrip(String topic, String valor)
 		if (Mode == F("LED"))
 		{
 			WsStripeMode[nro] = AnimationStatic;
-			int NroLed =  getValue(valor,',',0).toInt();
+			int NroLed =  getValue(valor,',',3).toInt();
 			leds[nro][NroLed] = GetCrgbFromPayload(valor);
 		}
 		if (Mode == F("FADETO"))  

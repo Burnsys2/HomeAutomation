@@ -1,12 +1,14 @@
+
 //IPAddress ip(192, 168, 2, 41);
+const String Mqtt = "192.168.2.1";
 const String globalTopic = "NodeMcu";
-const String sector = "RPILeds";
+const String sector = "PiezaNenes";
 const char* ssid = "Casa"; // Rellena con el nombre de tu red WiFi
 const char* password = "casanueva"; // Rellena con la contrase�a de tu red WiFi
 const char* mqtt_server = "192.168.2.1";
 
 
-const byte IrRecPin = 0;//2;
+const byte IrRecPin = 9;//2;
 
 //RF433  //		
 //interrupts pins: 2, 3, 18, 19, 20, 21	
@@ -15,8 +17,9 @@ const byte rf433InPin = -1; //2
 const byte rf433OutPin = -1;
 const byte rf315InPin = -1; //3
 const byte rf315OutPin = -1;//7;
+const byte PushbuttonArray[] = {16} ;
 const byte buttonArray[] = {};
-const byte RelaysArray[] = {};
+const byte RelaysArray[] = {0};
 const byte RelaysInvertedArray[] = {};
 const byte RelaysManualMap[][2] =
 {
@@ -30,7 +33,8 @@ const byte RGBLeds[][3] =
 //ws LEDS: Pins, CntLeds MISMO PIN QUE EL INDICADO
 const byte WSStrips[][2] =
 {
-     {0,6} //57
+     {0,4}, //57
+	 {2,98} //57
 };
 
 const byte analogInsArray[] = {};

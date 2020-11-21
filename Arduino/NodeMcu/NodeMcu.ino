@@ -14,6 +14,7 @@
 #include "FastLED.h"
 FASTLED_USING_NAMESPACE
 #include <IRremoteESP8266.h>
+#include "OneButton.h"
 #include <IRsend.h>
 //para que funcione fastled comentar https://github.com/FastLED/FastLED/blob/403464a499a8feffa48f6f85d205550b9bc9c89b/platforms/esp/8266/led_sysdefs_esp8266.h#L15
 #define MQTT_SOCKET_TIMEOUT 1
@@ -72,10 +73,11 @@ eLedAction BlinkLedStatus;
 bool OffLineMode = true;
 
 //TIMERS
-SimpleTimer tSensores;
+//SimpleTimer tSensores;
 
 void(*resetFunc) (void) = 0; //declare reset function @ address 0
-
+long previousMillis = 0;
+long interval = 5000;
 void setup() {
 //	CurentLedStatus =
 	strSensores = F("Sensores");
@@ -87,21 +89,28 @@ void setup() {
 	while (!Serial) {}
 	SetupWsStrips();
 	setupIR();
+//	setupPushButtons();
 	setupEthernet();
 	SetupSensores();
 	setupButtonsRelays();
-	tSensores.setInterval(5000, TSensoresLentos);
+	//tSensores.setInterval(5000, TSensoresLentos);
 }
 void TSensoresLentos()
 {
+  unsigned long currentMillis = millis();
+   if(currentMillis - previousMillis > interval) {
+    previousMillis = currentMillis;   
+
+	BlinkLedStatus = Send;
 	sendMqttf("LastSeen", 1, false);
+  }
 	// reportIp();
 	//ProcesarSensores();
 	//InformarSensores();
 	//	 Serial.println(analogRead(0));
-	BlinkLedStatus = Send;
 	//	sendMqttf("FreeRam",freeMemory(),false);
 }
+
 void loop()
 {
 
@@ -113,10 +122,11 @@ void loop()
 	{
 		CurentLedStatus = Ok;
 	}
-	ProcesarRed();
+	//ProcesarRed();
 	DetectarBotones();
 	ProcesarSensores();
+//	ProcesarPushButtons();
 	
 	ProcesarWsStrip();
-	tSensores.run();
+	TSensoresLentos();
 }
