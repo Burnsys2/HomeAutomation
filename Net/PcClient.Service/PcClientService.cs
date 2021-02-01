@@ -82,6 +82,15 @@ namespace PcClientService
                         var payloadst = Encoding.UTF8.GetString(payload, 0, payload.Length);
                         switch (command)
                         {
+                            case "RUN":
+                                try
+                                {
+                                    System.Diagnostics.Process.Start(payloadst);
+                                }
+                                catch (Exception)
+                                {
+                                }
+                                break;
                             case "SHUTDOWN":
                                 var psi = new ProcessStartInfo("shutdown", "/p /f");
                                 psi.CreateNoWindow = true;
