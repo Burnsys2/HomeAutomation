@@ -15,12 +15,11 @@ const byte rf433InPin = -1; //2
 const byte rf433OutPin = -1;
 const byte rf315InPin = -1; //3
 const byte rf315OutPin = -1;//7;
-const byte buttonArray[] = {3};
+const byte buttonArray[] = {1};
 const byte RelaysArray[] = {0};
 const byte RelaysInvertedArray[] = {};
 const byte RelaysManualMap[][2] =
 {
-    {3,0}
 };
 const byte buttonIgnoreNoiseFilterArray[] = {};
 //RGB LEDS
