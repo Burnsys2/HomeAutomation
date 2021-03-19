@@ -8,7 +8,7 @@ int WsStripeAux1[WSStripsSize];
 
 long WsStripeMillis[WSStripsSize];
 CRGB WsStripeParamColor[WSStripsSize];
-CRGB leds[WSStripsSize][60];
+CRGB leds[WSStripsSize][57];
 uint8_t gHue = 0; 
 int Fps = 120;
 unsigned long WsStartMilis;

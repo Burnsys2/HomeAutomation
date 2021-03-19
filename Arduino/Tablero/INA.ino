@@ -1,4 +1,4 @@
-SDL_Arduino_INA3221 ina3221;
+/*SDL_Arduino_INA3221 ina3221;
 int MID;
 void SetupINA()
 {
@@ -18,3 +18,4 @@ void ProcesarINA()
     }
 }
 
+*/

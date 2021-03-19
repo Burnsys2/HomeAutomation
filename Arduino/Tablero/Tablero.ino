@@ -36,7 +36,7 @@ FASTLED_USING_NAMESPACE
 //#include "Adafruit_BMP280.h"
 
 #define INA3221_ADDRESS                         (0x41)   
-#include "SDL_Arduino_INA3221.h"
+//#include "SDL_Arduino_INA3221.h"
 #include <IRremote.h>
 #include <boarddefs.h>
 //#include "DHT.h"
@@ -125,7 +125,7 @@ void setup(void)
 
 	setupEthernet();
 	SetupEncoders();
-	SetupINA();
+//	SetupINA();
 //	SetupBMP();
 	wdt_enable(WDTO_8S);
 //	SetupVoltSensor();
@@ -145,7 +145,7 @@ void TSensoresLentos()
 	InformarBotonesYRelays();
  //  	BlinkLedStatus = Send;
 	sendMqttf("FreeRam",freeMemory(),false);
-	ProcesarINA();
+//	ProcesarINA();
 //	ProcesarBMP();
 }
 
@@ -162,12 +162,11 @@ void loop() {
 	DetectarBotones();
 	ProcesarIR();
 	ProcesarRF();
-	SetLedStatus();
-	SetLedAction();
-	ProcesarDht();
+//	SetLedStatus();
+//	SetLedAction();
+//	ProcesarDht();
 	ProcesarSensores();
 	ProcesarPushButtons();
-	//ProcesarVoltSensor();
 	ProcesarWsStrip();
 
 	tSensores.run();

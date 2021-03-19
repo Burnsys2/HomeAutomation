@@ -7,7 +7,10 @@ const String sector = "PBLiving";
 const byte IrRecPin = 9;//2;
 
 //RF433  //		
-//interrupts pins: 2, 3, 18, 19, 20, 21	
+
+
+//interrupts pins: 0, 1, 2,  3,  4,  5	
+//interrupts pins: 2, 3, 21, 20, 19, 18
 const byte rf433InPin = 2; //2
 const byte rf433OutPin = 3;
 const byte rf315InPin = -1
