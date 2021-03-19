@@ -1,0 +1,55 @@
+version: '2'
+services:
+
+  maria-db:
+    image: jsurf/rpi-mariadb
+    container_name: mariadb
+    environment:
+      - MYSQL_ROOT_PASSWORD=Jst4kix741
+      - MYSQL_DATABASE=npm
+      - MYSQL_USER=npm
+      - MYSQL_PASSWORD=npm
+    volumes:
+      - ./mysql-data:/var/lib/mysql
+    ports:
+      - 3306:3306
+    restart: unless-stopped
+
+  cloudflare:
+    image: oznu/cloudflare-ddns:armhf
+    container_name: cloudflare
+    restart: always 
+    environment:
+      - API_KEY=jrhNGM52OOaVJtCdDUldY4_sO6wXkzKe6nczQFcN
+      - ZONE=burnsys.net.ar
+      - PROXIED=true
+
+  nginx-proxy:
+    image: jc21/nginx-proxy-manager:2.8.0
+    container_name: nginx-proxy
+    ports:
+      - 80:80
+      - 81:81
+      - 443:443
+    volumes:
+      - ./nginx-proxy/data:/data
+      - ./nginx-proxy/letsencrypt:/etc/letsencrypt
+    environment:
+      DB_MYSQL_HOST: "maria-db"
+      DB_MYSQL_PORT: 3306
+      DB_MYSQL_USER: "npm"
+      DB_MYSQL_PASSWORD: "npm"
+      DB_MYSQL_NAME: "npm"
+    depends_on:
+      - maria-db
+
+
+networks:
+  lan:
+    driver: macvlan
+    driver_opts:
+      parent: eth0
+    ipam:
+      config:
+        - subnet: "192.168.2.0/24"
+          gateway: "192.168.2.1"
