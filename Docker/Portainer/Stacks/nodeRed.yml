@@ -1,0 +1,14 @@
+version: '3'
+services:
+
+   node-red:
+    image: burnsys/nodered
+    container_name: node-red
+    environment:
+       - TZ=America/Argentina/Buenos_Aires
+    ports:
+       - 1880:1880
+    user: root:root
+    volumes:
+       - ../nodered-data:/data
+    restart: unless-stopped
