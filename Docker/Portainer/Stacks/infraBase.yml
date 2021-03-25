@@ -11,13 +11,15 @@ services:
         - PROXIED=true
 
   samba:
-    image: dperson/samba:rpi
+    image: dperson/samba
     container_name: samba
     deploy:
       mode: global
     command: '-p -u "pi;Jst4kix741" -s "home;/home;yes;no;no"'
     stdin_open: true
     tty: true
+    environment:
+        - WORKGROUP=CASA
     ports:
       - 139:139
       - 445:445
