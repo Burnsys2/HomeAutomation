@@ -6,9 +6,13 @@ services:
     container_name: node-red
     environment:
        - TZ=America/Argentina/Buenos_Aires
+       - LD_LIBRARY_PATH=/opt/vc/lib
     ports:
        - 1880:1880
+    devices:
+       - /dev/vchiq
     user: root:root
     volumes:
        - ../nodered-data:/data
+       - /opt/vc:/opt/vc:ro
     restart: unless-stopped
