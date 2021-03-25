@@ -13,7 +13,8 @@ services:
   samba:
     image: dperson/samba:rpi
     container_name: samba
-    mode: global
+    deploy:
+      mode: global
     command: '-p -u "pi;Jst4kix741" -s "home;/home;yes;no;no"'
     stdin_open: true
     tty: true
