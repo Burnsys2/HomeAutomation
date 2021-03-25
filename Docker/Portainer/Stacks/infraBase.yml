@@ -15,7 +15,7 @@ services:
     container_name: samba
     deploy:
       mode: global
-    command: '-p -u "pi;Jst4kix741" -s "home;/home;yes;no;no"'
+    command: '-p -u "pi;Jst4kix741" -s "home;/home;yes;no;no" -w "CASA"'
     stdin_open: true
     tty: true
     environment:
