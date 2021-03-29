@@ -64,4 +64,3 @@ USER root
 RUN apk update
 RUN apk add vlc --no-cache
 RUN apk add ffmpeg --no-cache
-RUN apk add --no-cache raspberrypi

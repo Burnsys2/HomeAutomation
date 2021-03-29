@@ -64,4 +64,9 @@ USER root
 RUN apk update
 RUN apk add vlc --no-cache
 RUN apk add ffmpeg --no-cache
+<<<<<<< HEAD
+||||||| merged common ancestors
+
+=======
 RUN apk add --no-cache raspberrypi
+>>>>>>> 3473b0615ceb827723b87e097e452dc1d1d58756

@@ -103,6 +103,7 @@ void TSensoresLentos()
 
 	BlinkLedStatus = Send;
 	sendMqttf("LastSeen", 1, false);
+  	InformarBotonesYRelays();
   }
 	// reportIp();
 	//ProcesarSensores();
