@@ -60,7 +60,3 @@ RUN npm install node-red-contrib-telegrambot-home
 RUN npm install node-red-contrib-whatsapp-cmb
 RUN npm install node-red-contrib-azure-blob-storage
 RUN npm install node-red-node-pi-gpiod
-USER root
-RUN apk update
-RUN apk add vlc --no-cache
-RUN apk add ffmpeg --no-cache
