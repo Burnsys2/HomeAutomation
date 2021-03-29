@@ -27,7 +27,7 @@ services:
       - /home:/home
     restart: always
 
-maria-db:
+  maria-db:
     image: jsurf/rpi-mariadb
     container_name: mariadb
     environment:
@@ -39,11 +39,15 @@ maria-db:
       - ../../../mysql-data:/var/lib/mysql
     ports:
       - 3306:3306
-    constraints: 
-      - node=RPI4
+    deploy:
+      placement:
+        constraints:
+          - node.hostname == RPI4
+      mode: replicated
+      replicas: 1
     restart: unless-stopped
     
-nginx-proxy:
+  nginx-proxy:
     image: jc21/nginx-proxy-manager
     container_name: nginx-proxy
     ports:
@@ -59,7 +63,11 @@ nginx-proxy:
       DB_MYSQL_USER: "npm"
       DB_MYSQL_PASSWORD: "npm"
       DB_MYSQL_NAME: "npm"
-    constraints: 
-      - node=RPI4
+    deploy:
+      placement:
+        constraints:
+          - node.hostname == RPI4
+      mode: replicated
+      replicas: 1
     depends_on:
       - maria-db
