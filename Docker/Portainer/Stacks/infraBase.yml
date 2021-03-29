@@ -11,7 +11,7 @@ services:
         - PROXIED=true
 
   samba:
-    image: dperson/samba
+    image: dperson/samba:rpi
     container_name: samba
     deploy:
       mode: global
@@ -26,3 +26,40 @@ services:
     volumes:
       - /home:/home
     restart: always
+
+maria-db:
+    image: jsurf/rpi-mariadb
+    container_name: mariadb
+    environment:
+      - MYSQL_ROOT_PASSWORD=AdMiNiStRaToR25082021
+      - MYSQL_DATABASE=npm
+      - MYSQL_USER=npm
+      - MYSQL_PASSWORD=npm
+    volumes:
+      - ../../../mysql-data:/var/lib/mysql
+    ports:
+      - 3306:3306
+    constraints: 
+      - node=RPI4
+    restart: unless-stopped
+    
+nginx-proxy:
+    image: jc21/nginx-proxy-manager
+    container_name: nginx-proxy
+    ports:
+      - 80:80
+      - 443:443
+      - 81:81
+    volumes:
+      - ../nginx-proxy/data:/data
+      - ../nginx-proxy/letsencrypt:/etc/letsencrypt
+    environment:
+      DB_MYSQL_HOST: "maria-db"
+      DB_MYSQL_PORT: 3306
+      DB_MYSQL_USER: "npm"
+      DB_MYSQL_PASSWORD: "npm"
+      DB_MYSQL_NAME: "npm"
+    constraints: 
+      - node=RPI4
+    depends_on:
+      - maria-db
