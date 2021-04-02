@@ -2,7 +2,7 @@ version: '3'
 services:
 
    node-red:
-    image: burnsys/nodered
+    image: burnsys/nodered:pi
     container_name: node-red
     environment:
        - TZ=America/Argentina/Buenos_Aires
@@ -13,6 +13,6 @@ services:
        - /dev/vchiq
     user: root:root
     volumes:
-       - ../nodered-data:/data
+       - /home/pi/HomeAutomation/Docker/nodered-data:/data
        - /opt/vc:/opt/vc:ro
     restart: unless-stopped
