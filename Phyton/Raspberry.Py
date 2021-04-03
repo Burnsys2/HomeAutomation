@@ -44,6 +44,14 @@ def on_message(client, userdata, message):
         if topics[2].upper() == "FAIL":
             print "FAIL"
             raise HaltException("We decided we want to halt the script")
+        if topics[2].upper() == "PSCOUNT":
+            psCount = os.popen("pgrep " + message.payload + " | wc -l").readline().replace('\r\n', '').rstrip("\r\n")
+            client.publish('MXQ/out/PSCOUNT/' + message.payload , psCount, 0)
+        if topics[2].upper() == "PSKILL":
+            os.popen("pkill -f '" + message.payload + "'")
+        if topics[2].upper() == "PSRUN":
+            os.popen(message.payload)
+
     except Exception as ex:
         print ex
         MustEnd = True
@@ -95,7 +103,8 @@ try:
  #       vcgencmd get_throttled
 #vcgencmd measure_volts
 
-        client.publish(Host + '/out/Temp', str(measure_temp()))
+#        client.publish(Host + '/out/Temp', str(measure_temp()))
+        client.publish(Host + '/out/Temp', str(os.popen("vcgencmd measure_temp").readline().replace("temp=","").replace("'C","")))
         client.publish(Host + '/out/Throttled', str(os.popen("vcgencmd get_throttled").readline()).replace("throttled=",""))
         client.publish(Host + '/out/Clock', str(os.popen("vcgencmd measure_clock arm").readline()).replace("frequency(48)=",""))
         client.publish(Host + '/out/Volts', str(os.popen("vcgencmd measure_volts").readline()).replace("volt=","").replace("V",""))
