@@ -4,6 +4,7 @@ import sys
 import paho.mqtt.client as mqtt
 import RPi.GPIO as GPIO
 import alsaaudio
+import socket
 
 class HaltException(Exception):
     pass
@@ -47,6 +48,7 @@ def on_connect(client, userdata, flags, rc):
 # Data capture and upload interval in seconds. Less interval will eventually hang the DHT22.
 INTERVAL=2
 global MustEnd
+global Hostname
 os.path.expanduser('~pi')
 sensor_data = {'temperature': 0, 'humidity': 0}
 print "Iniciando..."
@@ -54,7 +56,7 @@ next_reading = time.time()
 MustEnd = False
 try:
     client = mqtt.Client()
-
+    Hostname = socket.gethostname()
     client.connect("mqtt.burnsys.ddns.net", 1883, 60)
     client.reconnect_delay_set(2, 10)
     client.on_connect = on_connect
@@ -76,13 +78,13 @@ try:
 
     while True:
         # Sending humidity and temperature data to ThingsBoard
-        client.publish('RPI/out/Temp', measure_temp(), 0)
+        client.publish('Hostname + '/out/Temp', measure_temp(), 0)
         RAM_stats = getRAMinfo()
         RAM_total = round(int(RAM_stats[0]) / 1000,1)
-        client.publish('RPI/out/RAM/Total', round(int(RAM_stats[0]), 0))
-        client.publish('RPI/out/RAM/Used', round(int(RAM_stats[1]), 0))
-        client.publish('RPI/out/RAM/Free', round(int(RAM_stats[2]), 0))
-        client.publish('RPI/out/volume', str(audioDevice.getvolume()[0]))
+        client.publish(Hostname + '/out/RAM/Total', round(int(RAM_stats[0]), 0))
+        client.publish(Hostname + '/out/RAM/Used', round(int(RAM_stats[1]), 0))
+        client.publish(Hostname + '/out/RAM/Free', round(int(RAM_stats[2]), 0))
+        client.publish(Hostname + '/out/volume', str(audioDevice.getvolume()[0]))
         next_reading += INTERVAL
         sleep_time = next_reading-time.time()
         if sleep_time > 0:
