@@ -1,0 +1,139 @@
+2021-04-04 00:48:30.2007 Info Starting Jackett v0.17.838 
+2021-04-04 00:48:39.7169 Info Environment version: 5.0.4 (/app/Jackett/) 
+2021-04-04 00:48:39.7256 Info OS version: Unix 5.10.17.7 
+2021-04-04 00:48:39.7256 Info Jackett variant: CoreLinuxArm32 
+2021-04-04 00:48:39.7256 Info File /etc/issue: Ubuntu 18.04.5 LTS \n \l 
+2021-04-04 00:48:39.7256 Info Running in Docker: Yes (image build: v0.17.838-ls26) 
+2021-04-04 00:48:39.7318 Info ThreadPool MaxThreads: 32767 workerThreads, 1000 completionPortThreads 
+2021-04-04 00:48:39.7318 Info App config/log directory: /config/Jackett 
+2021-04-04 00:48:39.7318 Info Using proxy: Disabled 
+2021-04-04 00:48:39.7318 Info Using FlareSolverr: No 
+2021-04-04 00:48:39.7318 Error Jackett is running with root privileges. You should run Jackett as an unprivileged user. 
+2021-04-04 00:48:39.7461 Info Using HTTP Client: HttpWebClient2 
+2021-04-04 00:48:39.7682 Info Loading Native indexers ... 
+2021-04-04 00:48:40.6301 Info Loaded 96 Native indexers: abnormal, alpharatio, anidex, anidub, AniLibria, animebytes, Animedia, animetorrents, anthelion, avistaz, bakabt, bb, bitcityreloaded, bithdtv, bjshare, broadcasthenet, brokenstones, cgpeers, cinecalidad, cinemaz, darmowetorenty, dicmusic, digitalcore, divxtotal, elitetracker, epublibre, exoticaz, filelist, funfile, fuzer, gazellegames, gimmepeers, hdbitsapi, hdspace, hdtorrents, hebits, immortalseed, internetarchive, iptorrents, libble, lostfilm, magnetico, mejortorrent, milkie, morethantv, myanonamouse, ncore, nebulance, newpct, norbits, orpheus, partis, passthepopcorn, piratethenet, pixelhd, polishtracker, pornolab, pretome, privatehd, rarbg, redacted, retroflix, revolutiontt, rutracker, scenehd, scenetime, secretcinema, sharewoodapi, shazbat, ShizaProject, showrss, solidtorrents, speedapp, speedcd, subsplease, superbits, thepiratebay, toloka, torrentbytes, torrentday, torrentech, torrentheaven, torrentleech, torrentmafya, torrentnetwork, torrent-paradise-ml, torrentscsv, torrentseeds, torrentsyndikat, tvstore, tvvault, xspeeds, xthor, yts, zonaq, animetosho 
+2021-04-04 00:48:40.6479 Info Loading Cardigann indexers from: /config/cardigann/definitions/, /etc/xdg/cardigan/definitions/, /app/Jackett/Definitions 
+2021-04-04 00:48:52.1224 Info Loaded 447 Cardigann indexers: losslessclub, xbytesv2, pier720, baibako, lepornoinfo, catorrent, empornium, torrentoyunindir, brasiltracker, gtorrentpro, bigtorrent, cartoonchaos, uhdbits, keepfriends, booktracker, anaschcc, zelkaorg, netcosmo, estone, vsthouse, gigatorrents, torrentleech-pl, crnaberza, iv-torrents, acrossthetasman, theplace, lesaloon, hdturk, noname-clubl, audiobookbay, extratorrent-it, finvip, anime-free, firebit, hdroute, torrentproject2, hdtime, btetree, exkinoray, newstudiol, p2pbg, chdbits, focusx, mteamtp, totheglorycookie, turkseed, eztv, myspleen, pornotor, 1337x, hamsterstudio, freetorrent, bt4g, xxxtor, scenepalace, nyaa-pantsu, cpasbienclone, hdbits, torrent-pirat, yggtorrent, ptfiles, rus-media, lemonhd, blutopia, sportscult, bluebirdhd, ettv, cinemageddon, torrentland, gtorrent, casatorrent, hdu, itorrent, torrent-turk, mteamtp2fa, nntt, gay-torrentsorg, isohunt2, torrentfunk, parnuxi, proaudiotorrents, kinonavse100, ourbits, xiteme, magico, hdonly, desireleasers, sukebeinyaasi, puurhollands, 3dtorrents, speedmasterhd, btschool, linkomanija, finelite, puntotorrent, frozenlayer, hqsource, p2pelite, insanetracker, trackeros, gamestorrents, pornbits, u2, totallykids, sosulki, darktracker, divteam, aniRena, gay-torrents, ebooks-shares, torrent9clone, learnflakes, emtrek, carphunter, torrentsir, legacyhd, tokyotosho, limetorrents, esharenet, torrentqq, proporno, fouducinema, jptv, torrentlt, bithumen, beyond-hd, metaltracker, pttime, majomparade, hush, scenerush, yggcookie, twilight, nyaasi, danishbytes, newretro, bibliotik, 52pt, bit-titan, hdsky, madsrevolution, ydypt, bitru, classix, karagarga, casstudiotv, erzsebetpl, funkytorrents, kinozal, hdatmos, asylumshare, 4thd, nbtorrents, piratbitl, coastalcrew, pleasuredome, greekteam, diablotorrent, speedtorrentreloaded, btsow, polishsource, eniahd, pirateiro, totheglory, broadcity, teamos, tellytorrent, hdspain, oncesearch, byrutor, moviesdvdr, racingforme, gfxpeers, torrentdownloads, hdhome, btdb, nitro, beitai, tjupt, torrentslocal, ptmsg, pthome, aftershock, 3changtrai, crazyhd, torrent4you, torrenthr, tntfork, sdbits, pussytorrents, dariustracker, mactorrents, witchhunter, amigosshare, dragonworldreloaded, soulvoice, rptorrents, torrentwhiz, torrentbd, riperam, shellife, unlimitz, thegeeks, galeriens, trupornolabs, carpathians, lechaudron, magnet4you, mixtapetorrent, torrentparadise, empornium2fa, dimeadozen, genesismovement, btdigg, torrentz2k, femdomcult, twilightszoom, acgsou, bitspyder, hon3yhd, romanianmetaltorrents, mvgroupforum, redstartorrent, latinop2p, onejav, sktorrent-org, crazyspirits, rainbowtracker, feedurneed, tribalmixes, torrentsectorcrew, fantasticheaven, chilebt, film-paleis, theaudioscene, pornolive, wdt, muziekfabriek, vizuk, springsunday, lastfiles, glodls, concertos, torrentccf, torrentkitty, torrenting, cinemamovies, demonoid, rapidzona, microbit, sporthd, r3vwtf, 7torrents, torrent-explosiv, toros, hddolby, haidan, thefallingangels, ztracker, snowpt, netlab, gktorrent, portugas, oshenpt, asiancinema, cinematik, zooqle, hdchina, theempire, movietorrent, bigfangroup, thehorrorcharnel, extremlymtorrents, zamundanet, mesevilag, xwtclassics, girotorrent, skytorrents-to, mma-torrents, fanoin, ehentai, tapochek, anisource, xxxadulttorrent, dark-shadow, torlock, funreleases, pixelcove, dxp, trancetraffic, torrentmax, hdcenter, filebase, audionews, siambit, hdarea, kickasstorrents-to, idope, kinorun, libranet, potuk, prostylex, themixingbowl, marinetracker, turktorrent, xxxtorrents, thevault, newstudio, aither, mypornclub, sugoimusic, hdzone, dmhy, tlfbits, torrentv, ebookparadijs, btnext, arenabg, jpopsuki, rustorka, torrentgalaxy, torrentfactory, hd4fans, torrentz2, racing4everyone, trezzor, extremetorrents, mnv, datascene, bootytape, torrentview, pornforall, pwtorrents, generationfree, animeworld, selezen, Bittorrentfiles, torrent9, shareisland, hdtorrentsit, mononokebt, zetorrents, aussierules, ilcorsaroblu, desitorrents, teamhd, unionfansub, hellastz, 0daykiev, spiritofrevolution, theshow, montorrent, tekno3d, pctorrent, exttorrents, yourbittorrent, arabafenice, epizod, boxingtorrents, xwtorrents, rintor, Das-Unerwartete, pornorip, theleachzone, extremebits, sktorrent, sdkino, arabp2p, torrentsurf, sukebei-pantsu, gaytorrentru, cilipro, woot, 1ptbar, nethd, concen, hdhouse, tjangto, efectodoppler, hdbitscom, torrentdb, cpasbien, bwtorrents, ccfbits, hdme, beyond-hd-oneurl, rutor, noname-club, omgwtftrackr, pornleech, acidlounge, theshinning, yingk, erzsebet, greekdiamond, ttsweb, huntorrent, ptsbao, ilcorsaronero, bithorlo, mvgroupmain, hdc, purovicio, wihd, torrentdownload, theoccult, RockBox, animeclipse, linuxtracker, abtorrents, aidoruonline, underverse, sharewood, rintornet, shokweb, underversel, piratbit, hdolimpo, vsttorrents, deildu, rutracker-ru, ibit, thesceneplace, legittorrents, oxtorrent, sexypics, pornbay, acgrip, uniongang, peersfm, hdcity, tasmanit, tvchaosuk, backups, seedfile, immortuos, bitturk, borgzelle, uniondht, 2fast4you, hdforever, piratadigital, pterclub, extratorrent-cd, torrentproject, teracod, kickasstorrents-ws 
+2021-04-04 00:48:52.1224 Info Loaded 543 indexers in total 
+2021-04-04 00:48:52.1224 Info Adding aggregate indexer ('all' indexer) ... 
+2021-04-04 00:48:52.8927 Warn No XML encryptor configured. Key {c6518f08-b119-4e7f-a002-938917e779ea} may be persisted to storage in unencrypted form. 
+2021-04-04 00:48:52.8927 Warn No XML encryptor configured. Key {c6518f08-b119-4e7f-a002-938917e779ea} may be persisted to storage in unencrypted form. 
+2021-04-04 00:48:53.1680 Info Jackett startup finished in 25.247 s 
+2021-04-04 00:50:02.4439 Info Adding aggregate indexer ('all' indexer) ... 
+2021-04-04 00:50:03.0484 Info Restarting webhost due to configuration change 
+2021-04-04 00:50:03.0578 Info Restart of the web application host (not process) initiated 
+2021-04-04 00:50:03.2332 Info Jackett stopped 
+2021-04-04 00:50:03.3903 Info Environment version: 5.0.4 (/app/Jackett/) 
+2021-04-04 00:50:03.3903 Info OS version: Unix 5.10.17.7 
+2021-04-04 00:50:03.3927 Info Jackett variant: CoreLinuxArm32 
+2021-04-04 00:50:03.3927 Info File /etc/issue: Ubuntu 18.04.5 LTS \n \l 
+2021-04-04 00:50:03.3927 Info Running in Docker: Yes (image build: v0.17.838-ls26) 
+2021-04-04 00:50:03.3927 Info ThreadPool MaxThreads: 32767 workerThreads, 1000 completionPortThreads 
+2021-04-04 00:50:03.3927 Info App config/log directory: /config/Jackett 
+2021-04-04 00:50:03.3927 Info Using proxy: Disabled 
+2021-04-04 00:50:03.3927 Info Using FlareSolverr: No 
+2021-04-04 00:50:03.3927 Error Jackett is running with root privileges. You should run Jackett as an unprivileged user. 
+2021-04-04 00:50:03.4019 Info Using HTTP Client: HttpWebClient2 
+2021-04-04 00:50:03.4019 Info Loading Native indexers ... 
+2021-04-04 00:50:03.5424 Info Loaded 96 Native indexers: abnormal, alpharatio, anidex, anidub, AniLibria, animebytes, Animedia, animetorrents, anthelion, avistaz, bakabt, bb, bitcityreloaded, bithdtv, bjshare, broadcasthenet, brokenstones, cgpeers, cinecalidad, cinemaz, darmowetorenty, dicmusic, digitalcore, divxtotal, elitetracker, epublibre, exoticaz, filelist, funfile, fuzer, gazellegames, gimmepeers, hdbitsapi, hdspace, hdtorrents, hebits, immortalseed, internetarchive, iptorrents, libble, lostfilm, magnetico, mejortorrent, milkie, morethantv, myanonamouse, ncore, nebulance, newpct, norbits, orpheus, partis, passthepopcorn, piratethenet, pixelhd, polishtracker, pornolab, pretome, privatehd, rarbg, redacted, retroflix, revolutiontt, rutracker, scenehd, scenetime, secretcinema, sharewoodapi, shazbat, ShizaProject, showrss, solidtorrents, speedapp, speedcd, subsplease, superbits, thepiratebay, toloka, torrentbytes, torrentday, torrentech, torrentheaven, torrentleech, torrentmafya, torrentnetwork, torrent-paradise-ml, torrentscsv, torrentseeds, torrentsyndikat, tvstore, tvvault, xspeeds, xthor, yts, zonaq, animetosho 
+2021-04-04 00:50:03.5424 Info Loading Cardigann indexers from: /config/cardigann/definitions/, /etc/xdg/cardigan/definitions/, /app/Jackett/Definitions 
+2021-04-04 00:50:12.7751 Info Loaded 447 Cardigann indexers: losslessclub, xbytesv2, pier720, baibako, lepornoinfo, catorrent, empornium, torrentoyunindir, brasiltracker, gtorrentpro, bigtorrent, cartoonchaos, uhdbits, keepfriends, booktracker, anaschcc, zelkaorg, netcosmo, estone, vsthouse, gigatorrents, torrentleech-pl, crnaberza, iv-torrents, acrossthetasman, theplace, lesaloon, hdturk, noname-clubl, audiobookbay, extratorrent-it, finvip, anime-free, firebit, hdroute, torrentproject2, hdtime, btetree, exkinoray, newstudiol, p2pbg, chdbits, focusx, mteamtp, totheglorycookie, turkseed, eztv, myspleen, pornotor, 1337x, hamsterstudio, freetorrent, bt4g, xxxtor, scenepalace, nyaa-pantsu, cpasbienclone, hdbits, torrent-pirat, yggtorrent, ptfiles, rus-media, lemonhd, blutopia, sportscult, bluebirdhd, ettv, cinemageddon, torrentland, gtorrent, casatorrent, hdu, itorrent, torrent-turk, mteamtp2fa, nntt, gay-torrentsorg, isohunt2, torrentfunk, parnuxi, proaudiotorrents, kinonavse100, ourbits, xiteme, magico, hdonly, desireleasers, sukebeinyaasi, puurhollands, 3dtorrents, speedmasterhd, btschool, linkomanija, finelite, puntotorrent, frozenlayer, hqsource, p2pelite, insanetracker, trackeros, gamestorrents, pornbits, u2, totallykids, sosulki, darktracker, divteam, aniRena, gay-torrents, ebooks-shares, torrent9clone, learnflakes, emtrek, carphunter, torrentsir, legacyhd, tokyotosho, limetorrents, esharenet, torrentqq, proporno, fouducinema, jptv, torrentlt, bithumen, beyond-hd, metaltracker, pttime, majomparade, hush, scenerush, yggcookie, twilight, nyaasi, danishbytes, newretro, bibliotik, 52pt, bit-titan, hdsky, madsrevolution, ydypt, bitru, classix, karagarga, casstudiotv, erzsebetpl, funkytorrents, kinozal, hdatmos, asylumshare, 4thd, nbtorrents, piratbitl, coastalcrew, pleasuredome, greekteam, diablotorrent, speedtorrentreloaded, btsow, polishsource, eniahd, pirateiro, totheglory, broadcity, teamos, tellytorrent, hdspain, oncesearch, byrutor, moviesdvdr, racingforme, gfxpeers, torrentdownloads, hdhome, btdb, nitro, beitai, tjupt, torrentslocal, ptmsg, pthome, aftershock, 3changtrai, crazyhd, torrent4you, torrenthr, tntfork, sdbits, pussytorrents, dariustracker, mactorrents, witchhunter, amigosshare, dragonworldreloaded, soulvoice, rptorrents, torrentwhiz, torrentbd, riperam, shellife, unlimitz, thegeeks, galeriens, trupornolabs, carpathians, lechaudron, magnet4you, mixtapetorrent, torrentparadise, empornium2fa, dimeadozen, genesismovement, btdigg, torrentz2k, femdomcult, twilightszoom, acgsou, bitspyder, hon3yhd, romanianmetaltorrents, mvgroupforum, redstartorrent, latinop2p, onejav, sktorrent-org, crazyspirits, rainbowtracker, feedurneed, tribalmixes, torrentsectorcrew, fantasticheaven, chilebt, film-paleis, theaudioscene, pornolive, wdt, muziekfabriek, vizuk, springsunday, lastfiles, glodls, concertos, torrentccf, torrentkitty, torrenting, cinemamovies, demonoid, rapidzona, microbit, sporthd, r3vwtf, 7torrents, torrent-explosiv, toros, hddolby, haidan, thefallingangels, ztracker, snowpt, netlab, gktorrent, portugas, oshenpt, asiancinema, cinematik, zooqle, hdchina, theempire, movietorrent, bigfangroup, thehorrorcharnel, extremlymtorrents, zamundanet, mesevilag, xwtclassics, girotorrent, skytorrents-to, mma-torrents, fanoin, ehentai, tapochek, anisource, xxxadulttorrent, dark-shadow, torlock, funreleases, pixelcove, dxp, trancetraffic, torrentmax, hdcenter, filebase, audionews, siambit, hdarea, kickasstorrents-to, idope, kinorun, libranet, potuk, prostylex, themixingbowl, marinetracker, turktorrent, xxxtorrents, thevault, newstudio, aither, mypornclub, sugoimusic, hdzone, dmhy, tlfbits, torrentv, ebookparadijs, btnext, arenabg, jpopsuki, rustorka, torrentgalaxy, torrentfactory, hd4fans, torrentz2, racing4everyone, trezzor, extremetorrents, mnv, datascene, bootytape, torrentview, pornforall, pwtorrents, generationfree, animeworld, selezen, Bittorrentfiles, torrent9, shareisland, hdtorrentsit, mononokebt, zetorrents, aussierules, ilcorsaroblu, desitorrents, teamhd, unionfansub, hellastz, 0daykiev, spiritofrevolution, theshow, montorrent, tekno3d, pctorrent, exttorrents, yourbittorrent, arabafenice, epizod, boxingtorrents, xwtorrents, rintor, Das-Unerwartete, pornorip, theleachzone, extremebits, sktorrent, sdkino, arabp2p, torrentsurf, sukebei-pantsu, gaytorrentru, cilipro, woot, 1ptbar, nethd, concen, hdhouse, tjangto, efectodoppler, hdbitscom, torrentdb, cpasbien, bwtorrents, ccfbits, hdme, beyond-hd-oneurl, rutor, noname-club, omgwtftrackr, pornleech, acidlounge, theshinning, yingk, erzsebet, greekdiamond, ttsweb, huntorrent, ptsbao, ilcorsaronero, bithorlo, mvgroupmain, hdc, purovicio, wihd, torrentdownload, theoccult, RockBox, animeclipse, linuxtracker, abtorrents, aidoruonline, underverse, sharewood, rintornet, shokweb, underversel, piratbit, hdolimpo, vsttorrents, deildu, rutracker-ru, ibit, thesceneplace, legittorrents, oxtorrent, sexypics, pornbay, acgrip, uniongang, peersfm, hdcity, tasmanit, tvchaosuk, backups, seedfile, immortuos, bitturk, borgzelle, uniondht, 2fast4you, hdforever, piratadigital, pterclub, extratorrent-cd, torrentproject, teracod, kickasstorrents-ws 
+2021-04-04 00:50:12.7822 Info Loaded 543 indexers in total 
+2021-04-04 00:50:12.7822 Info Adding aggregate indexer ('all' indexer) ... 
+2021-04-04 00:50:12.9760 Info Jackett startup finished in 105.065 s 
+2021-04-04 00:58:27.2001 Info Test search in 1337x => Found 60 releases 
+2021-04-04 01:08:27.9205 Error Request for unknown indexer: YOURINDEXER 
+2021-04-04 01:08:27.9317 Error System.Exception: Unknown indexer: YOURINDEXER
+   at Jackett.Common.Services.IndexerManagerService.GetIndexer(String name) in /home/vsts/work/1/s/src/Jackett.Common/Services/IndexerManagerService.cs:line 281
+   at Jackett.Server.Controllers.RequiresConfiguredIndexer.OnActionExecuting(ActionExecutingContext context) in /home/vsts/work/1/s/src/Jackett.Server/Controllers/ResultsController.cs:line 82
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Jackett.Server.Middleware.CustomExceptionHandler.Invoke(HttpContext httpContext) in /home/vsts/work/1/s/src/Jackett.Server/Middleware/CustomExceptionHandler.cs:line 61 System.Exception: Unknown indexer: YOURINDEXER
+   at Jackett.Common.Services.IndexerManagerService.GetIndexer(String name) in /home/vsts/work/1/s/src/Jackett.Common/Services/IndexerManagerService.cs:line 281
+   at Jackett.Server.Controllers.RequiresConfiguredIndexer.OnActionExecuting(ActionExecutingContext context) in /home/vsts/work/1/s/src/Jackett.Server/Controllers/ResultsController.cs:line 82
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Jackett.Server.Middleware.CustomExceptionHandler.Invoke(HttpContext httpContext) in /home/vsts/work/1/s/src/Jackett.Server/Middleware/CustomExceptionHandler.cs:line 61
+2021-04-04 01:08:32.3389 Error Request for unknown indexer: YOURINDEXER 
+2021-04-04 01:08:32.3476 Error System.Exception: Unknown indexer: YOURINDEXER
+   at Jackett.Common.Services.IndexerManagerService.GetIndexer(String name) in /home/vsts/work/1/s/src/Jackett.Common/Services/IndexerManagerService.cs:line 281
+   at Jackett.Server.Controllers.RequiresConfiguredIndexer.OnActionExecuting(ActionExecutingContext context) in /home/vsts/work/1/s/src/Jackett.Server/Controllers/ResultsController.cs:line 82
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Jackett.Server.Middleware.CustomExceptionHandler.Invoke(HttpContext httpContext) in /home/vsts/work/1/s/src/Jackett.Server/Middleware/CustomExceptionHandler.cs:line 61 System.Exception: Unknown indexer: YOURINDEXER
+   at Jackett.Common.Services.IndexerManagerService.GetIndexer(String name) in /home/vsts/work/1/s/src/Jackett.Common/Services/IndexerManagerService.cs:line 281
+   at Jackett.Server.Controllers.RequiresConfiguredIndexer.OnActionExecuting(ActionExecutingContext context) in /home/vsts/work/1/s/src/Jackett.Server/Controllers/ResultsController.cs:line 82
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Jackett.Server.Middleware.CustomExceptionHandler.Invoke(HttpContext httpContext) in /home/vsts/work/1/s/src/Jackett.Server/Middleware/CustomExceptionHandler.cs:line 61
+2021-04-04 01:09:07.6232 Warn Some of the categories provided are unsupported in 1337x: 2020,2035,2050 
+2021-04-04 01:09:10.4912 Info Torznab search in 1337x => Found 20 releases 
+2021-04-04 01:11:01.7921 Warn Some of the categories provided are unsupported in 1337x: 2020,2035,2050 
+2021-04-04 01:11:01.7921 Info Torznab search in 1337x => Found 20 releases (from cache) 
+2021-04-04 01:12:44.8265 Warn Some of the categories provided are unsupported in 1337x: 2020,2035,2050 
+2021-04-04 01:12:47.4571 Info Torznab search in 1337x for Hereditary 2018 => Found 58 releases 
+2021-04-04 01:12:50.8406 Warn Some of the categories provided are unsupported in 1337x: 2020,2035,2050 
+2021-04-04 01:12:50.8430 Info Torznab search in 1337x for Hereditary 2018 => Found 58 releases (from cache) 
+2021-04-04 01:19:47.0629 Warn Some of the categories provided are unsupported in 1337x: 2020,2035,2050 
+2021-04-04 01:19:47.0629 Info Torznab search in 1337x => Found 20 releases (from cache) 
+2021-04-04 01:19:52.8642 Warn Some of the categories provided are unsupported in 1337x: 2020,2035,2050 
+2021-04-04 01:19:52.8642 Info Torznab search in 1337x => Found 20 releases (from cache) 
+2021-04-04 01:20:25.2701 Info Torznab search in 1337x => Found 17 releases 
+2021-04-04 01:20:28.8100 Info Torznab search in 1337x => Found 17 releases (from cache) 
+2021-04-04 01:21:33.3178 Info Torznab search in 1337x for Jinx The Life and Deaths of Robert Durst S01 => Found 0 releases 
+2021-04-04 01:21:53.3230 Warn Some of the categories provided are unsupported in 1337x: 2020,2035,2050 
+2021-04-04 01:21:55.9364 Info Torznab search in 1337x for Midsommar 2019 => Found 60 releases 
+2021-04-04 01:23:03.9725 Warn Some of the categories provided are unsupported in 1337x: 2020,2035,2050 
+2021-04-04 01:23:03.9725 Info Torznab search in 1337x => Found 20 releases (from cache) 
+2021-04-04 01:25:36.1024 Info Torznab search in 1337x => Found 17 releases (from cache) 
+2021-04-04 01:36:14.0576 Info Torznab search in 1337x for Jinx The Life and Deaths of Robert Durst S01 => Found 0 releases (from cache) 
+2021-04-04 01:36:41.7860 Info Torznab search in 1337x for Breaking Bad S01 => Found 19 releases 
+2021-04-04 01:36:48.2871 Info Torznab search in 1337x for Breaking Bad S02 => Found 11 releases 
+2021-04-04 01:36:54.1201 Info Torznab search in 1337x for Breaking Bad S03 => Found 17 releases 
+2021-04-04 01:37:00.0729 Info Torznab search in 1337x for Breaking Bad S04 => Found 26 releases 
+2021-04-04 01:37:22.0441 Info Torznab search in 1337x for Breaking Bad S05 => Found 48 releases 
+2021-04-04 01:38:20.0247 Info Torznab search in 1337x for Breaking Bad S05E03 => Found 7 releases 
+2021-04-04 01:39:11.2524 Error All categories provided are unsupported in Isohunt2: 5030,5040 
+2021-04-04 01:39:11.2524 Info Torznab search in Isohunt2 => Found 0 releases 
+2021-04-04 01:39:26.2667 Info Torznab search in Isohunt2 => Found 24 releases 
+2021-04-04 01:39:28.3771 Info Torznab search in Isohunt2 => Found 24 releases (from cache) 
+2021-04-04 01:39:41.1252 Info Torznab search in Isohunt2 for Breaking Bad S05E15 => Found 14 releases 
+2021-04-04 01:39:44.7468 Info Torznab search in 1337x for Breaking Bad S05E15 => Found 10 releases 
+2021-04-04 01:40:46.8766 Info Torznab search in Isohunt2 => Found 24 releases (from cache) 
+2021-04-04 01:40:48.8682 Info Torznab search in 1337x => Found 17 releases (from cache) 
