@@ -16,3 +16,7 @@ services:
        - /home/pi/HomeAutomation/Docker/nodered-data:/data
        - /opt/vc:/opt/vc:ro
     restart: unless-stopped
+    deploy:
+      placement:
+        constraints:
+          - "node.hostname==RPI4"
