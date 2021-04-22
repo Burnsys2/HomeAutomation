@@ -1,1 +1,9 @@
-{"HttpHeaders":{"User-Agent":"Docker-Client/19.03.13 (linux)","X-PortainerAgent-ManagerOperation":"1","X-PortainerAgent-PublicKey":"3059301306072a8648ce3d020106082a8648ce3d030107034200041a549aa3d3b93b17f7551720a0dbcb59e7483a7991562ed06e47a482e5d7f31ce37077bdec47bc99968061b6ec281664d7e2351c8cc8a0c9625de68a5b85061b","X-PortainerAgent-Signature":"AZQfhlDU+0xGzHhpkxGpgaCxD6vz9jMBQpfbBmbcwLZh960bKCgUA7LY3eXGWuNzxr5GpfFYolHBNOzWuRQZNg"},"auths":{}}
+{
+	"auths": {},
+	"HttpHeaders": {
+		"User-Agent": "Docker-Client/19.03.13 (linux)",
+		"X-PortainerAgent-ManagerOperation": "1",
+		"X-PortainerAgent-PublicKey": "3059301306072a8648ce3d020106082a8648ce3d030107034200041a549aa3d3b93b17f7551720a0dbcb59e7483a7991562ed06e47a482e5d7f31ce37077bdec47bc99968061b6ec281664d7e2351c8cc8a0c9625de68a5b85061b",
+		"X-PortainerAgent-Signature": "JBCJ43TrSRiwJAmHTXVua/LjFuir+UFAMUj1aTjK98AlLaLBq7jW+A0oywJ2ExcloF6jn3/rcVHam6pMhmLeRg"
+	}
+}

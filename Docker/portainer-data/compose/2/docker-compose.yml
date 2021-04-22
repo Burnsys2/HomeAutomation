@@ -9,6 +9,7 @@ services:
        - LD_LIBRARY_PATH=/opt/vc/lib
     ports:
        - 1880:1880
+       - 20911:20911/udp
     devices:
        - /dev/vchiq
     user: root:root

@@ -1,8 +1,9 @@
 {
     "node-red": {
         "name": "node-red",
-        "version": "1.2.9",
+        "version": "1.3.3",
         "local": false,
+        "user": false,
         "nodes": {
             "inject": {
                 "name": "inject",
@@ -11,6 +12,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red",
                 "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/common/20-inject.js"
             },
@@ -21,6 +23,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red",
                 "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/common/21-debug.js"
             },
@@ -31,6 +34,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red",
                 "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/common/24-complete.js"
             },
@@ -41,6 +45,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red",
                 "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/common/25-catch.js"
             },
@@ -51,6 +56,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red",
                 "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/common/25-status.js"
             },
@@ -62,6 +68,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red",
                 "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/common/60-link.js"
             },
@@ -72,6 +79,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red",
                 "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/common/90-comment.js"
             },
@@ -82,6 +90,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red",
                 "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/common/98-unknown.js"
             },
@@ -92,6 +101,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red",
                 "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/function/10-function.js"
             },
@@ -102,6 +112,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red",
                 "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/function/10-switch.js"
             },
@@ -112,6 +123,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red",
                 "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/function/15-change.js"
             },
@@ -122,6 +134,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red",
                 "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/function/16-range.js"
             },
@@ -132,6 +145,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red",
                 "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/function/80-template.js"
             },
@@ -142,6 +156,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red",
                 "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/function/89-delay.js"
             },
@@ -152,6 +167,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red",
                 "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/function/89-trigger.js"
             },
@@ -162,6 +178,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red",
                 "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/function/90-exec.js"
             },
@@ -172,6 +189,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red",
                 "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/network/05-tls.js"
             },
@@ -182,6 +200,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red",
                 "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/network/06-httpproxy.js"
             },
@@ -194,6 +213,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red",
                 "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/network/10-mqtt.js"
             },
@@ -205,6 +225,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red",
                 "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/network/21-httpin.js"
             },
@@ -215,6 +236,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red",
                 "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/network/21-httprequest.js"
             },
@@ -228,6 +250,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red",
                 "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/network/22-websocket.js"
             },
@@ -240,6 +263,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red",
                 "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/network/31-tcpin.js"
             },
@@ -251,6 +275,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red",
                 "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/network/32-udp.js"
             },
@@ -261,6 +286,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red",
                 "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/parsers/70-CSV.js"
             },
@@ -271,6 +297,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red",
                 "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/parsers/70-HTML.js"
             },
@@ -281,6 +308,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red",
                 "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/parsers/70-JSON.js"
             },
@@ -291,6 +319,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red",
                 "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/parsers/70-XML.js"
             },
@@ -301,6 +330,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red",
                 "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/parsers/70-YAML.js"
             },
@@ -312,6 +342,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red",
                 "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/sequence/17-split.js"
             },
@@ -322,6 +353,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red",
                 "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/sequence/18-sort.js"
             },
@@ -332,6 +364,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red",
                 "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/sequence/19-batch.js"
             },
@@ -343,6 +376,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red",
                 "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/storage/10-file.js"
             },
@@ -353,6 +387,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red",
                 "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/storage/23-watch.js"
             }
@@ -362,6 +397,7 @@
         "name": "node-red-contrib-play-audio",
         "version": "2.5.0",
         "local": false,
+        "user": false,
         "nodes": {
             "play-audio": {
                 "name": "play-audio",
@@ -370,6 +406,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-contrib-play-audio",
                 "file": "/usr/src/node-red/node_modules/node-red-contrib-play-audio/play-audio.js"
             }
@@ -379,6 +416,7 @@
         "name": "node-red-contrib-advanced-ping",
         "version": "1.2.0",
         "local": false,
+        "user": false,
         "nodes": {
             "file-function": {
                 "name": "file-function",
@@ -387,6 +425,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-contrib-advanced-ping",
                 "file": "/usr/src/node-red/node_modules/node-red-contrib-advanced-ping/advanced-ping/advanced-ping.js"
             }
@@ -396,6 +435,7 @@
         "name": "node-red-contrib-azure-blob-storage",
         "version": "0.4.0",
         "local": false,
+        "user": false,
         "nodes": {
             "Azure": {
                 "name": "Azure",
@@ -405,6 +445,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-contrib-azure-blob-storage",
                 "file": "/usr/src/node-red/node_modules/node-red-contrib-azure-blob-storage/azureblobstorage.js"
             }
@@ -414,6 +455,7 @@
         "name": "node-red-contrib-azure-sql",
         "version": "0.1.1",
         "local": false,
+        "user": false,
         "nodes": {
             "Azure": {
                 "name": "Azure",
@@ -422,6 +464,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-contrib-azure-sql",
                 "file": "/usr/src/node-red/node_modules/node-red-contrib-azure-sql/azuresql.js"
             }
@@ -429,8 +472,9 @@
     },
     "node-red-contrib-bigtimer": {
         "name": "node-red-contrib-bigtimer",
-        "version": "2.7.3",
+        "version": "2.7.5",
         "local": false,
+        "user": false,
         "nodes": {
             "bigtimer": {
                 "name": "bigtimer",
@@ -439,6 +483,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-contrib-bigtimer",
                 "file": "/usr/src/node-red/node_modules/node-red-contrib-bigtimer/bigtimer.js"
             }
@@ -448,6 +493,7 @@
         "name": "node-red-contrib-boolean-logic",
         "version": "0.0.3",
         "local": false,
+        "user": false,
         "nodes": {
             "BooleanLogic": {
                 "name": "BooleanLogic",
@@ -456,6 +502,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-contrib-boolean-logic",
                 "file": "/usr/src/node-red/node_modules/node-red-contrib-boolean-logic/boolean-logic/BooleanLogic.js"
             },
@@ -466,6 +513,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-contrib-boolean-logic",
                 "file": "/usr/src/node-red/node_modules/node-red-contrib-boolean-logic/boolean-logic/Invert.js"
             },
@@ -476,6 +524,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-contrib-boolean-logic",
                 "file": "/usr/src/node-red/node_modules/node-red-contrib-boolean-logic/boolean-logic/BDebug.js"
             }
@@ -485,6 +534,7 @@
         "name": "node-red-contrib-color-convert",
         "version": "0.0.8",
         "local": false,
+        "user": false,
         "nodes": {
             "color-convert": {
                 "name": "color-convert",
@@ -493,6 +543,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-contrib-color-convert",
                 "file": "/usr/src/node-red/node_modules/node-red-contrib-color-convert/color.js"
             }
@@ -502,6 +553,7 @@
         "name": "node-red-contrib-cpu",
         "version": "0.0.4",
         "local": false,
+        "user": false,
         "nodes": {
             "cpu": {
                 "name": "cpu",
@@ -510,6 +562,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-contrib-cpu",
                 "file": "/usr/src/node-red/node_modules/node-red-contrib-cpu/cpu.js"
             }
@@ -519,6 +572,7 @@
         "name": "node-red-contrib-dashboard-average-bars",
         "version": "0.0.6",
         "local": false,
+        "user": false,
         "nodes": {
             "average-bars": {
                 "name": "average-bars",
@@ -527,6 +581,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-contrib-dashboard-average-bars",
                 "file": "/usr/src/node-red/node_modules/node-red-contrib-dashboard-average-bars/average-bars.js"
             }
@@ -536,6 +591,7 @@
         "name": "node-red-contrib-dashboard-bar-chart-data",
         "version": "0.9.7",
         "local": false,
+        "user": false,
         "nodes": {
             "bar-chart-data": {
                 "name": "bar-chart-data",
@@ -544,6 +600,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-contrib-dashboard-bar-chart-data",
                 "file": "/usr/src/node-red/node_modules/node-red-contrib-dashboard-bar-chart-data/bar-chart-data.js"
             }
@@ -553,6 +610,7 @@
         "name": "node-red-contrib-dashboard-sum-bars",
         "version": "0.0.1",
         "local": false,
+        "user": false,
         "nodes": {
             "sum-bars": {
                 "name": "sum-bars",
@@ -561,6 +619,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-contrib-dashboard-sum-bars",
                 "file": "/usr/src/node-red/node_modules/node-red-contrib-dashboard-sum-bars/sum-bars.js"
             }
@@ -570,6 +629,7 @@
         "name": "node-red-contrib-googlehome-actions-v2",
         "version": "0.0.7",
         "local": false,
+        "user": false,
         "nodes": {
             "googlehome-controller": {
                 "name": "googlehome-controller",
@@ -578,6 +638,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-contrib-googlehome-actions-v2",
                 "file": "/usr/src/node-red/node_modules/node-red-contrib-googlehome-actions-v2/googlehome/googlehome-controller.js"
             },
@@ -588,6 +649,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-contrib-googlehome-actions-v2",
                 "file": "/usr/src/node-red/node_modules/node-red-contrib-googlehome-actions-v2/googlehome/googlehome-intent.js"
             },
@@ -598,6 +660,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-contrib-googlehome-actions-v2",
                 "file": "/usr/src/node-red/node_modules/node-red-contrib-googlehome-actions-v2/googlehome/googlehome-ask.js"
             },
@@ -608,6 +671,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-contrib-googlehome-actions-v2",
                 "file": "/usr/src/node-red/node_modules/node-red-contrib-googlehome-actions-v2/googlehome/googlehome-send.js"
             },
@@ -618,6 +682,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-contrib-googlehome-actions-v2",
                 "file": "/usr/src/node-red/node_modules/node-red-contrib-googlehome-actions-v2/googlehome/googlehome-message.js"
             }
@@ -627,6 +692,7 @@
         "name": "node-red-contrib-ibm-watson-iot",
         "version": "0.2.8",
         "local": false,
+        "user": false,
         "nodes": {
             "wiotp": {
                 "name": "wiotp",
@@ -637,6 +703,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-contrib-ibm-watson-iot",
                 "file": "/usr/src/node-red/node_modules/node-red-contrib-ibm-watson-iot/application/wiotp.js"
             }
@@ -644,8 +711,9 @@
     },
     "node-red-contrib-influxdb": {
         "name": "node-red-contrib-influxdb",
-        "version": "0.5.4",
+        "version": "0.6.0",
         "local": false,
+        "user": false,
         "nodes": {
             "influxdb": {
                 "name": "influxdb",
@@ -657,6 +725,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-contrib-influxdb",
                 "file": "/usr/src/node-red/node_modules/node-red-contrib-influxdb/influxdb.js"
             }
@@ -666,6 +735,7 @@
         "name": "node-red-contrib-message-counter",
         "version": "1.0.1",
         "local": false,
+        "user": false,
         "nodes": {
             "message-counter": {
                 "name": "message-counter",
@@ -674,6 +744,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-contrib-message-counter",
                 "file": "/usr/src/node-red/node_modules/node-red-contrib-message-counter/message-counter/message-counter.js"
             }
@@ -683,6 +754,7 @@
         "name": "node-red-contrib-msg-resend",
         "version": "1.0.0",
         "local": false,
+        "user": false,
         "nodes": {
             "msg-resend": {
                 "name": "msg-resend",
@@ -691,6 +763,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-contrib-msg-resend",
                 "file": "/usr/src/node-red/node_modules/node-red-contrib-msg-resend/msg_resend.js"
             }
@@ -700,6 +773,7 @@
         "name": "node-red-contrib-mssql-plus",
         "version": "0.6.4",
         "local": false,
+        "user": false,
         "nodes": {
             "mssql": {
                 "name": "mssql",
@@ -709,6 +783,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-contrib-mssql-plus",
                 "file": "/usr/src/node-red/node_modules/node-red-contrib-mssql-plus/src/mssql.js"
             }
@@ -718,6 +793,7 @@
         "name": "node-red-contrib-mssql-ps",
         "version": "1.2.5",
         "local": false,
+        "user": false,
         "nodes": {
             "node-red-contrib-mssql-ps": {
                 "name": "node-red-contrib-mssql-ps",
@@ -726,6 +802,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-contrib-mssql-ps",
                 "file": "/usr/src/node-red/node_modules/node-red-contrib-mssql-ps/mssql-ps/mssql-ps.js"
             },
@@ -736,6 +813,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-contrib-mssql-ps",
                 "file": "/usr/src/node-red/node_modules/node-red-contrib-mssql-ps/mssql-ps/mssql-ps-serverconf.js"
             }
@@ -745,6 +823,7 @@
         "name": "node-red-contrib-net-ping",
         "version": "1.0.0",
         "local": false,
+        "user": false,
         "nodes": {
             "net-ping": {
                 "name": "net-ping",
@@ -753,6 +832,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-contrib-net-ping",
                 "file": "/usr/src/node-red/node_modules/node-red-contrib-net-ping/net-ping/net-ping.js"
             }
@@ -762,6 +842,7 @@
         "name": "node-red-contrib-nora",
         "version": "0.0.34",
         "local": false,
+        "user": false,
         "nodes": {
             "nora-blinds": {
                 "name": "nora-blinds",
@@ -770,6 +851,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-contrib-nora",
                 "file": "/usr/src/node-red/node_modules/node-red-contrib-nora/build/nodes/nora-blinds.js"
             },
@@ -780,6 +862,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-contrib-nora",
                 "file": "/usr/src/node-red/node_modules/node-red-contrib-nora/build/nodes/nora-config.js"
             },
@@ -790,6 +873,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-contrib-nora",
                 "file": "/usr/src/node-red/node_modules/node-red-contrib-nora/build/nodes/nora-scene.js"
             },
@@ -800,6 +884,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-contrib-nora",
                 "file": "/usr/src/node-red/node_modules/node-red-contrib-nora/build/nodes/nora-speaker.js"
             },
@@ -810,6 +895,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-contrib-nora",
                 "file": "/usr/src/node-red/node_modules/node-red-contrib-nora/build/nodes/nora-switch.js"
             },
@@ -820,6 +906,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-contrib-nora",
                 "file": "/usr/src/node-red/node_modules/node-red-contrib-nora/build/nodes/nora-thermostat.js"
             },
@@ -830,6 +917,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-contrib-nora",
                 "file": "/usr/src/node-red/node_modules/node-red-contrib-nora/build/nodes/nora-outlet.js"
             },
@@ -840,6 +928,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-contrib-nora",
                 "file": "/usr/src/node-red/node_modules/node-red-contrib-nora/build/nodes/nora-light.js"
             },
@@ -850,6 +939,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-contrib-nora",
                 "file": "/usr/src/node-red/node_modules/node-red-contrib-nora/build/nodes/nora-garage.js"
             },
@@ -860,6 +950,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-contrib-nora",
                 "file": "/usr/src/node-red/node_modules/node-red-contrib-nora/build/nodes/nora-lock.js"
             }
@@ -869,6 +960,7 @@
         "name": "node-red-contrib-openhab-v2",
         "version": "2.0.3",
         "local": false,
+        "user": false,
         "nodes": {
             "openhab-v2-controller": {
                 "name": "openhab-v2-controller",
@@ -877,6 +969,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-contrib-openhab-v2",
                 "file": "/usr/src/node-red/node_modules/node-red-contrib-openhab-v2/nodes/openhab-v2-controller.js"
             },
@@ -887,6 +980,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-contrib-openhab-v2",
                 "file": "/usr/src/node-red/node_modules/node-red-contrib-openhab-v2/nodes/openhab-v2-in.js"
             },
@@ -897,6 +991,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-contrib-openhab-v2",
                 "file": "/usr/src/node-red/node_modules/node-red-contrib-openhab-v2/nodes/openhab-v2-out.js"
             },
@@ -907,6 +1002,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-contrib-openhab-v2",
                 "file": "/usr/src/node-red/node_modules/node-red-contrib-openhab-v2/nodes/openhab-v2-get.js"
             },
@@ -917,6 +1013,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-contrib-openhab-v2",
                 "file": "/usr/src/node-red/node_modules/node-red-contrib-openhab-v2/nodes/openhab-v2-trigger.js"
             }
@@ -926,6 +1023,7 @@
         "name": "node-red-contrib-aggregator",
         "version": "2.0.0",
         "local": false,
+        "user": false,
         "nodes": {
             "aggregator": {
                 "name": "aggregator",
@@ -934,6 +1032,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-contrib-aggregator",
                 "file": "/usr/src/node-red/node_modules/node-red-contrib-aggregator/aggregator/aggregator.js"
             }
@@ -943,6 +1042,7 @@
         "name": "node-red-contrib-plex",
         "version": "0.0.1",
         "local": false,
+        "user": false,
         "nodes": {
             "controller": {
                 "name": "controller",
@@ -951,6 +1051,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-contrib-plex",
                 "file": "/usr/src/node-red/node_modules/node-red-contrib-plex/plex/controller.js"
             },
@@ -961,6 +1062,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-contrib-plex",
                 "file": "/usr/src/node-red/node_modules/node-red-contrib-plex/plex/currentlyplaying.js"
             },
@@ -971,6 +1073,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-contrib-plex",
                 "file": "/usr/src/node-red/node_modules/node-red-contrib-plex/plex/state.js"
             }
@@ -980,6 +1083,7 @@
         "name": "node-red-contrib-plex-ws",
         "version": "0.2.4",
         "local": false,
+        "user": false,
         "nodes": {
             "server": {
                 "name": "server",
@@ -988,6 +1092,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-contrib-plex-ws",
                 "file": "/usr/src/node-red/node_modules/node-red-contrib-plex-ws/nodes/server.js"
             },
@@ -998,6 +1103,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-contrib-plex-ws",
                 "file": "/usr/src/node-red/node_modules/node-red-contrib-plex-ws/nodes/notification.js"
             },
@@ -1008,6 +1114,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-contrib-plex-ws",
                 "file": "/usr/src/node-red/node_modules/node-red-contrib-plex-ws/nodes/playing.js"
             }
@@ -1017,6 +1124,7 @@
         "name": "node-red-contrib-redis",
         "version": "1.3.9",
         "local": false,
+        "user": false,
         "nodes": {
             "redis": {
                 "name": "redis",
@@ -1030,6 +1138,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-contrib-redis",
                 "file": "/usr/src/node-red/node_modules/node-red-contrib-redis/redis.js"
             }
@@ -1037,8 +1146,9 @@
     },
     "node-red-contrib-telegrambot-home": {
         "name": "node-red-contrib-telegrambot-home",
-        "version": "0.5.2",
+        "version": "0.6.0",
         "local": false,
+        "user": false,
         "nodes": {
             "bot": {
                 "name": "bot",
@@ -1047,6 +1157,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-contrib-telegrambot-home",
                 "file": "/usr/src/node-red/node_modules/node-red-contrib-telegrambot-home/nodes/bot-config/bot-config.js"
             },
@@ -1057,6 +1168,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-contrib-telegrambot-home",
                 "file": "/usr/src/node-red/node_modules/node-red-contrib-telegrambot-home/nodes/command/command.js"
             },
@@ -1067,6 +1179,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-contrib-telegrambot-home",
                 "file": "/usr/src/node-red/node_modules/node-red-contrib-telegrambot-home/nodes/switch/switch.js"
             },
@@ -1077,6 +1190,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-contrib-telegrambot-home",
                 "file": "/usr/src/node-red/node_modules/node-red-contrib-telegrambot-home/nodes/notify/notify.js"
             },
@@ -1087,6 +1201,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-contrib-telegrambot-home",
                 "file": "/usr/src/node-red/node_modules/node-red-contrib-telegrambot-home/nodes/payload/payload.js"
             }
@@ -1096,6 +1211,7 @@
         "name": "node-red-contrib-ui-led",
         "version": "0.4.9",
         "local": false,
+        "user": false,
         "nodes": {
             "ui_led": {
                 "name": "ui_led",
@@ -1104,6 +1220,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-contrib-ui-led",
                 "file": "/usr/src/node-red/node_modules/node-red-contrib-ui-led/dist/nodes/ui_led/ui_led.js"
             }
@@ -1113,6 +1230,7 @@
         "name": "node-red-contrib-ui-level",
         "version": "0.1.40",
         "local": false,
+        "user": false,
         "nodes": {
             "ui-level": {
                 "name": "ui-level",
@@ -1121,6 +1239,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-contrib-ui-level",
                 "file": "/usr/src/node-red/node_modules/node-red-contrib-ui-level/ui-level.js"
             }
@@ -1130,6 +1249,7 @@
         "name": "node-red-contrib-ui-state-trail",
         "version": "0.3.1",
         "local": false,
+        "user": false,
         "nodes": {
             "ui-state-trail": {
                 "name": "ui-state-trail",
@@ -1138,6 +1258,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-contrib-ui-state-trail",
                 "file": "/usr/src/node-red/node_modules/node-red-contrib-ui-state-trail/ui-state-trail.js"
             }
@@ -1147,6 +1268,7 @@
         "name": "node-red-contrib-vcgencmd",
         "version": "1.0.3",
         "local": false,
+        "user": false,
         "nodes": {
             "vcgencmd": {
                 "name": "vcgencmd",
@@ -1155,6 +1277,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-contrib-vcgencmd",
                 "file": "/usr/src/node-red/node_modules/node-red-contrib-vcgencmd/vcgencmd.js"
             }
@@ -1164,6 +1287,7 @@
         "name": "node-red-contrib-whatsapp-cmb",
         "version": "1.0.2",
         "local": false,
+        "user": false,
         "nodes": {
             "whatsapp": {
                 "name": "whatsapp",
@@ -1173,6 +1297,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-contrib-whatsapp-cmb",
                 "file": "/usr/src/node-red/node_modules/node-red-contrib-whatsapp-cmb/nodes/whatsapp.js"
             }
@@ -1182,6 +1307,7 @@
         "name": "node-red-dashboard",
         "version": "2.28.2",
         "local": false,
+        "user": false,
         "nodes": {
             "ui_base": {
                 "name": "ui_base",
@@ -1190,6 +1316,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-dashboard",
                 "file": "/usr/src/node-red/node_modules/node-red-dashboard/nodes/ui_base.js"
             },
@@ -1200,6 +1327,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-dashboard",
                 "file": "/usr/src/node-red/node_modules/node-red-dashboard/nodes/ui_button.js"
             },
@@ -1210,6 +1338,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-dashboard",
                 "file": "/usr/src/node-red/node_modules/node-red-dashboard/nodes/ui_dropdown.js"
             },
@@ -1220,6 +1349,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-dashboard",
                 "file": "/usr/src/node-red/node_modules/node-red-dashboard/nodes/ui_switch.js"
             },
@@ -1230,6 +1360,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-dashboard",
                 "file": "/usr/src/node-red/node_modules/node-red-dashboard/nodes/ui_slider.js"
             },
@@ -1240,6 +1371,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-dashboard",
                 "file": "/usr/src/node-red/node_modules/node-red-dashboard/nodes/ui_numeric.js"
             },
@@ -1250,6 +1382,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-dashboard",
                 "file": "/usr/src/node-red/node_modules/node-red-dashboard/nodes/ui_text_input.js"
             },
@@ -1260,6 +1393,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-dashboard",
                 "file": "/usr/src/node-red/node_modules/node-red-dashboard/nodes/ui_date_picker.js"
             },
@@ -1270,6 +1404,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-dashboard",
                 "file": "/usr/src/node-red/node_modules/node-red-dashboard/nodes/ui_colour_picker.js"
             },
@@ -1280,6 +1415,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-dashboard",
                 "file": "/usr/src/node-red/node_modules/node-red-dashboard/nodes/ui_form.js"
             },
@@ -1290,6 +1426,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-dashboard",
                 "file": "/usr/src/node-red/node_modules/node-red-dashboard/nodes/ui_text.js"
             },
@@ -1300,6 +1437,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-dashboard",
                 "file": "/usr/src/node-red/node_modules/node-red-dashboard/nodes/ui_gauge.js"
             },
@@ -1310,6 +1448,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-dashboard",
                 "file": "/usr/src/node-red/node_modules/node-red-dashboard/nodes/ui_chart.js"
             },
@@ -1320,6 +1459,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-dashboard",
                 "file": "/usr/src/node-red/node_modules/node-red-dashboard/nodes/ui_audio.js"
             },
@@ -1330,6 +1470,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-dashboard",
                 "file": "/usr/src/node-red/node_modules/node-red-dashboard/nodes/ui_toast.js"
             },
@@ -1340,6 +1481,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-dashboard",
                 "file": "/usr/src/node-red/node_modules/node-red-dashboard/nodes/ui_ui_control.js"
             },
@@ -1350,6 +1492,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-dashboard",
                 "file": "/usr/src/node-red/node_modules/node-red-dashboard/nodes/ui_template.js"
             },
@@ -1360,6 +1503,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-dashboard",
                 "file": "/usr/src/node-red/node_modules/node-red-dashboard/nodes/ui_link.js"
             },
@@ -1370,6 +1514,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-dashboard",
                 "file": "/usr/src/node-red/node_modules/node-red-dashboard/nodes/ui_tab.js"
             },
@@ -1380,6 +1525,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-dashboard",
                 "file": "/usr/src/node-red/node_modules/node-red-dashboard/nodes/ui_group.js"
             },
@@ -1390,6 +1536,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-dashboard",
                 "file": "/usr/src/node-red/node_modules/node-red-dashboard/nodes/ui_spacer.js"
             }
@@ -1399,6 +1546,7 @@
         "name": "node-red-node-discord",
         "version": "2.2.0",
         "local": false,
+        "user": false,
         "nodes": {
             "connect": {
                 "name": "connect",
@@ -1407,6 +1555,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-node-discord",
                 "file": "/usr/src/node-red/node_modules/node-red-node-discord/dist/nodes/connect.js"
             },
@@ -1417,6 +1566,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-node-discord",
                 "file": "/usr/src/node-red/node_modules/node-red-node-discord/dist/nodes/get-messages.js"
             },
@@ -1427,6 +1577,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-node-discord",
                 "file": "/usr/src/node-red/node_modules/node-red-node-discord/dist/nodes/get-emoji-reactions.js"
             },
@@ -1437,6 +1588,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-node-discord",
                 "file": "/usr/src/node-red/node_modules/node-red-node-discord/dist/nodes/send-messages.js"
             },
@@ -1447,6 +1599,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-node-discord",
                 "file": "/usr/src/node-red/node_modules/node-red-node-discord/dist/nodes/members-monitoring.js"
             }
@@ -1456,6 +1609,7 @@
         "name": "node-red-node-ledborg",
         "version": "0.0.22",
         "local": false,
+        "user": false,
         "nodes": {
             "ledborg": {
                 "name": "ledborg",
@@ -1464,6 +1618,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-node-ledborg",
                 "file": "/usr/src/node-red/node_modules/node-red-node-ledborg/78-ledborg.js"
             }
@@ -1473,6 +1628,7 @@
         "name": "node-red-node-pi-gpio",
         "version": "1.2.3",
         "local": false,
+        "user": false,
         "nodes": {
             "rpi-gpio": {
                 "name": "rpi-gpio",
@@ -1484,6 +1640,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-node-pi-gpio",
                 "file": "/usr/src/node-red/node_modules/node-red-node-pi-gpio/36-rpi-gpio.js"
             }
@@ -1491,8 +1648,9 @@
     },
     "node-red-node-pi-gpiod": {
         "name": "node-red-node-pi-gpiod",
-        "version": "0.3.0",
+        "version": "0.4.0",
         "local": false,
+        "user": false,
         "nodes": {
             "pi-gpiod": {
                 "name": "pi-gpiod",
@@ -1502,6 +1660,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-node-pi-gpiod",
                 "file": "/usr/src/node-red/node_modules/node-red-node-pi-gpiod/pi-gpiod.js"
             }
@@ -1509,8 +1668,9 @@
     },
     "node-red-node-ping": {
         "name": "node-red-node-ping",
-        "version": "0.3.0",
+        "version": "0.3.1",
         "local": false,
+        "user": false,
         "nodes": {
             "ping": {
                 "name": "ping",
@@ -1519,6 +1679,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-node-ping",
                 "file": "/usr/src/node-red/node_modules/node-red-node-ping/88-ping.js"
             }
@@ -1528,6 +1689,7 @@
         "name": "node-red-node-random",
         "version": "0.4.0",
         "local": false,
+        "user": false,
         "nodes": {
             "random": {
                 "name": "random",
@@ -1536,6 +1698,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-node-random",
                 "file": "/usr/src/node-red/node_modules/node-red-node-random/random.js"
             }
@@ -1543,8 +1706,9 @@
     },
     "node-red-node-rbe": {
         "name": "node-red-node-rbe",
-        "version": "0.4.0",
+        "version": "0.5.0",
         "local": false,
+        "user": false,
         "nodes": {
             "rbe": {
                 "name": "rbe",
@@ -1553,6 +1717,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-node-rbe",
                 "file": "/usr/src/node-red/node_modules/node-red-node-rbe/rbe.js"
             }
@@ -1562,6 +1727,7 @@
         "name": "node-red-node-serialport",
         "version": "0.13.0",
         "local": false,
+        "user": false,
         "nodes": {
             "serialport": {
                 "name": "serialport",
@@ -1573,6 +1739,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-node-serialport",
                 "file": "/usr/src/node-red/node_modules/node-red-node-serialport/25-serial.js"
             }
@@ -1582,6 +1749,7 @@
         "name": "node-red-node-smooth",
         "version": "0.1.2",
         "local": false,
+        "user": false,
         "nodes": {
             "smooth": {
                 "name": "smooth",
@@ -1590,6 +1758,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-node-smooth",
                 "file": "/usr/src/node-red/node_modules/node-red-node-smooth/17-smooth.js"
             }
@@ -1597,8 +1766,9 @@
     },
     "node-red-node-tail": {
         "name": "node-red-node-tail",
-        "version": "0.2.0",
+        "version": "0.3.1",
         "local": false,
+        "user": false,
         "nodes": {
             "tail": {
                 "name": "tail",
@@ -1607,6 +1777,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-node-tail",
                 "file": "/usr/src/node-red/node_modules/node-red-node-tail/28-tail.js"
             }
@@ -1616,6 +1787,7 @@
         "name": "node-red-node-wol",
         "version": "0.1.0",
         "local": false,
+        "user": false,
         "nodes": {
             "wol": {
                 "name": "wol",
@@ -1624,6 +1796,7 @@
                 ],
                 "enabled": true,
                 "local": false,
+                "user": false,
                 "module": "node-red-node-wol",
                 "file": "/usr/src/node-red/node_modules/node-red-node-wol/39-wol.js"
             }
