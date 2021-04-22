@@ -1,19 +1,5 @@
 version: '3'
 services:
-
-  db:
-    image: jsurf/rpi-mariadb
-    environment:
-      - MYSQL_ROOT_PASSWORD=Jst4kix741
-      - MYSQL_DATABASE=npm
-      - MYSQL_USER=npm
-      - MYSQL_PASSWORD=npm
-    volumes:
-      - /home/pi/HomeAutomation/Docker/mysql-data:/var/lib/mysql
-    ports:
-      - 3306:3306
-    restart: unless-stopped
-
   nginx-proxy:
     image: jc21/nginx-proxy-manager:2.8.0
     ports:
@@ -24,11 +10,7 @@ services:
       - /home/pi/HomeAutomation/Docker/nginx-proxy/data:/data
       - /home/pi/HomeAutomation/Docker/nginx-proxy/letsencrypt:/etc/letsencrypt
     environment:
-      DB_MYSQL_HOST: "db"
-      DB_MYSQL_PORT: 3306
-      DB_MYSQL_USER: "npm"
-      DB_MYSQL_PASSWORD: "npm"
-      DB_MYSQL_NAME: "npm"
+      DB_SQLITE_FILE: "/data/database.sqlite"
     restart: unless-stopped
 
 
