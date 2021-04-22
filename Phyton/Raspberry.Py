@@ -85,6 +85,7 @@ try:
     bus = SMBus(1)
     bmp280 = BMP280(i2c_dev=bus)
     client.loop_start()
+
     #sudo apt-get install python-alsaaudio
     audioDevice = alsaaudio.Mixer("Headphone") #
 
