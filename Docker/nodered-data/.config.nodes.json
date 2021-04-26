@@ -1801,5 +1801,244 @@
                 "file": "/usr/src/node-red/node_modules/node-red-node-wol/39-wol.js"
             }
         }
+    },
+    "node-red-contrib-aws": {
+        "name": "node-red-contrib-aws",
+        "version": "0.7.0",
+        "local": true,
+        "user": true,
+        "nodes": {
+            "AWS EC2": {
+                "name": "AWS EC2",
+                "types": [
+                    "AWS EC2"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-aws",
+                "file": "/data/node_modules/node-red-contrib-aws/EC2.js"
+            },
+            "AWS Kinesis": {
+                "name": "AWS Kinesis",
+                "types": [
+                    "AWS Kinesis"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-aws",
+                "file": "/data/node_modules/node-red-contrib-aws/Kinesis.js"
+            },
+            "AWS Lambda": {
+                "name": "AWS Lambda",
+                "types": [
+                    "AWS Lambda"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-aws",
+                "file": "/data/node_modules/node-red-contrib-aws/Lambda.js"
+            },
+            "AWS S3": {
+                "name": "AWS S3",
+                "types": [
+                    "AWS S3"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-aws",
+                "file": "/data/node_modules/node-red-contrib-aws/S3.js"
+            },
+            "AWS DynamoDB": {
+                "name": "AWS DynamoDB",
+                "types": [
+                    "AWS DynamoDB"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-aws",
+                "file": "/data/node_modules/node-red-contrib-aws/DynamoDB.js"
+            },
+            "AWS DynamoDB Converter": {
+                "name": "AWS DynamoDB Converter",
+                "types": [
+                    "AWS DynamoDB Converter"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-aws",
+                "file": "/data/node_modules/node-red-contrib-aws/DynamoDBConvert.js"
+            },
+            "AWS SNS": {
+                "name": "AWS SNS",
+                "types": [
+                    "AWS SNS"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-aws",
+                "file": "/data/node_modules/node-red-contrib-aws/SNS.js"
+            },
+            "AWS SQS": {
+                "name": "AWS SQS",
+                "types": [
+                    "AWS SQS"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-aws",
+                "file": "/data/node_modules/node-red-contrib-aws/SQS.js"
+            },
+            "AWS RDS": {
+                "name": "AWS RDS",
+                "types": [
+                    "AWS RDS"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-aws",
+                "file": "/data/node_modules/node-red-contrib-aws/RDS.js"
+            },
+            "AWS Firehose": {
+                "name": "AWS Firehose",
+                "types": [
+                    "AWS Firehose"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-aws",
+                "file": "/data/node_modules/node-red-contrib-aws/Firehose.js"
+            },
+            "AWS Iot": {
+                "name": "AWS Iot",
+                "types": [
+                    "AWS Iot"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-aws",
+                "file": "/data/node_modules/node-red-contrib-aws/Iot.js"
+            },
+            "AWS IotData": {
+                "name": "AWS IotData",
+                "types": [
+                    "AWS IotData"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-aws",
+                "file": "/data/node_modules/node-red-contrib-aws/IotData.js"
+            },
+            "AWS KMS": {
+                "name": "AWS KMS",
+                "types": [
+                    "AWS KMS"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-aws",
+                "file": "/data/node_modules/node-red-contrib-aws/KMS.js"
+            },
+            "AWS ES": {
+                "name": "AWS ES",
+                "types": [
+                    "AWS ES"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-aws",
+                "file": "/data/node_modules/node-red-contrib-aws/ES.js"
+            },
+            "AWS Tagging": {
+                "name": "AWS Tagging",
+                "types": [
+                    "AWS ResourceGroupsTaggingAPI"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-aws",
+                "file": "/data/node_modules/node-red-contrib-aws/ResourceGroupsTaggingAPI.js"
+            },
+            "Rekognition": {
+                "name": "Rekognition",
+                "types": [
+                    "AWS Rekognition"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-aws",
+                "file": "/data/node_modules/node-red-contrib-aws/Rekognition.js"
+            },
+            "Polly": {
+                "name": "Polly",
+                "types": [
+                    "AWS Polly"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-aws",
+                "file": "/data/node_modules/node-red-contrib-aws/Polly.js"
+            },
+            "AWS ECS": {
+                "name": "AWS ECS",
+                "types": [
+                    "AWS ECS"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-aws",
+                "file": "/data/node_modules/node-red-contrib-aws/ECS.js"
+            },
+            "AWS Redshift": {
+                "name": "AWS Redshift",
+                "types": [
+                    "AWS Redshift"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-aws",
+                "file": "/data/node_modules/node-red-contrib-aws/Redshift.js"
+            },
+            "AWS Route53": {
+                "name": "AWS Route53",
+                "types": [
+                    "AWS Route53"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-aws",
+                "file": "/data/node_modules/node-red-contrib-aws/Route53.js"
+            },
+            "amazon config": {
+                "name": "amazon config",
+                "types": [
+                    "amazon config"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-aws",
+                "file": "/data/node_modules/node-red-contrib-aws/config.js"
+            }
+        }
     }
 }

@@ -14,7 +14,7 @@ services:
        - /dev/vchiq
     user: root:root
     volumes:
-       - /home/pi/HomeAutomation/Docker/nodered-data:/data
+       - /mnt/swarmData/nodered-data:/data
        - /opt/vc:/opt/vc:ro
     restart: unless-stopped
     deploy:
