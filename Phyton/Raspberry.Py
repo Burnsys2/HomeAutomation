@@ -5,6 +5,8 @@ import paho.mqtt.client as mqtt
 import RPi.GPIO as GPIO
 import alsaaudio
 from bmp280 import BMP280
+import psutil
+
 import socket
 
 class HaltException(Exception):
@@ -68,7 +70,7 @@ print "Iniciando..."
 next_reading = time.time() 
 MustEnd = False
 
-try:
+try: 
     Host =socket.gethostname()
     print(Host)
     client = mqtt.Client()
@@ -90,9 +92,16 @@ try:
     audioDevice = alsaaudio.Mixer("Headphone") #
 
     while True:
+        next_reading += INTERVAL
+
+        sleep_time = next_reading-time.time()
+        if sleep_time > 0:
+            time.sleep(sleep_time)
+        
         # Sending humidity and temperature data to ThingsBoard
         RAM_stats = getRAMinfo()
         RAM_total = round(int(RAM_stats[0]) / 1000,1)
+        client.publish(Host + '/out/CPU', psutil.cpu_percent())
         client.publish(Host + '/out/RAM/Total', round(int(RAM_stats[0]), 0))
         client.publish(Host + '/out/RAM/Used', round(int(RAM_stats[1]), 0))
         client.publish(Host + '/out/RAM/Free', round(int(RAM_stats[2]), 0))
@@ -120,11 +129,7 @@ try:
             pass
     
     
-        next_reading += INTERVAL
 
-        sleep_time = next_reading-time.time()
-        if sleep_time > 0:
-            time.sleep(sleep_time)
         if MustEnd == True:
             sys.exit(os.EX_SOFTWARE) 
             
