@@ -1,0 +1,85 @@
+{
+    "file": 2,
+    "format": 1
+}{
+    "base": "/",
+    "cert": "ssl/daemon.cert",
+    "default_daemon": "",
+    "enabled_plugins": [],
+    "first_login": false,
+    "https": false,
+    "interface": "0.0.0.0",
+    "language": "",
+    "pkey": "ssl/daemon.pkey",
+    "port": 8112,
+    "pwd_salt": "4bbe3f708c418337637534a6cb1ad4a3e86fb37c",
+    "pwd_sha1": "0d353ebaf5ed681ab32c98ad3a3c7cd209482817",
+    "session_timeout": 3600,
+    "sessions": {
+        "40cdb16c2c013e420d08bcb47239be9c16cee5921fbb5e691814805310187a88": {
+            "expires": 1617651602.0,
+            "level": 10,
+            "login": "admin"
+        },
+        "69f3b8917c3f6e4ec8c6a418ff8eeeb822867bc6f2f8eefe0a4d14a9f5d090ec": {
+            "expires": 1617659324.0,
+            "level": 10,
+            "login": "admin"
+        },
+        "82017e315a2a44e18ec26e7a1d97df9aeea1941d0920798ca1499655897fc53d": {
+            "expires": 1617651826.0,
+            "level": 10,
+            "login": "admin"
+        },
+        "8eaf7bb1e8b0a7fd27f03547a7f09d1a2bbf9ee19200093f0bcc8378c80f5dc6": {
+            "expires": 1617650877.0,
+            "level": 10,
+            "login": "admin"
+        },
+        "a114a093cfda8311a3c9bcea89b7cc570af4c55942dd7de9b0a06d6fd1a33c3c": {
+            "expires": 1617658445.0,
+            "level": 10,
+            "login": "admin"
+        },
+        "ba7eef16ae51c7c481e89c780dc917137fd9a04e7ebe4d232f5e1b1c1bcd403b": {
+            "expires": 1617671976.0,
+            "level": 10,
+            "login": "admin"
+        },
+        "bf07490dc4d34a1d4d087b17867f0836567ef8af79d91ab396f8b235ca625d50": {
+            "expires": 1617651826.0,
+            "level": 10,
+            "login": "admin"
+        },
+        "d5de0e26ce26589511776e1728c419384d2021c0af1a816c4c887b992e109d8d": {
+            "expires": 1617671979.0,
+            "level": 10,
+            "login": "admin"
+        },
+        "da266f3b57b6d7ef60072e97d878745011f1a2a23f0e428bc23ddf406e8b1352": {
+            "expires": 1617658611.0,
+            "level": 10,
+            "login": "admin"
+        },
+        "dacd6e3b6aa02205aaf84ba163eed52a5051259f02d0ab6f475b87eec84b6c55": {
+            "expires": 1617659196.0,
+            "level": 10,
+            "login": "admin"
+        },
+        "daed53be7064875bdb4e5766a8f7e66e0a2c69c46f7b3845d467d581e41b5712": {
+            "expires": 1617658910.0,
+            "level": 10,
+            "login": "admin"
+        },
+        "fe07aa9703e48c13ca91f8568f7aef8f71c07d5edde32f774df16e0a3145bcb6": {
+            "expires": 1617651817.0,
+            "level": 10,
+            "login": "admin"
+        }
+    },
+    "show_session_speed": false,
+    "show_sidebar": true,
+    "sidebar_multiple_filters": true,
+    "sidebar_show_zero": false,
+    "theme": "gray"
+}

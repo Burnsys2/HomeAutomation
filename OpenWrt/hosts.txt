@@ -1,0 +1,24 @@
+
+127.0.0.1 localhost
+127.0.0.1 localhost
+192.168.2.1     burnsys.ddns.net
+192.168.2.1     mqtt.burnsys.ddns.net
+192.168.2.5     pi.burnsys.ddns.net
+192.168.2.5     influx.burnsys.ddns.net
+192.168.2.5     grafana.burnsys.ddns.net
+192.168.2.6     mxq.burnsys.ddns.net
+192.168.2.5     pihole4.burnsys.net.ar
+192.168.2.5     pihole3.burnsys.net.ar
+192.168.2.5     pihole6.burnsys.net.ar
+192.168.2.5     portainer.burnsys.net.ar
+192.168.2.5     nginx.burnsys.net.ar
+192.168.2.5     inflfux.burnsys.net.ar
+192.168.2.5     grafana.burnsys.net.ar
+192.168.2.1     openwrt.burnsys.net.ar
+192.168.2.1     mqtt.burnsys.net.ar
+192.168.2.5     nodered.burnsys.net.ar
+
+::1     localhost ip6-localhost ip6-loopback
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+

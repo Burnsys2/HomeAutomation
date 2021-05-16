@@ -1,0 +1,24 @@
+version: '3'
+services:
+  nginx-proxy:
+    image: jc21/nginx-proxy-manager:2.8.0
+    ports:
+      - 80:80
+      - 81:81
+      - 443:443
+    volumes:
+      - /home/pi/HomeAutomation/Docker/nginx-proxy/data:/data
+      - /home/pi/HomeAutomation/Docker/nginx-proxy/letsencrypt:/etc/letsencrypt
+    environment:
+      DB_SQLITE_FILE: "/data/database.sqlite"
+    restart: unless-stopped
+
+
+networks:
+  lan:
+    driver: macvlan
+    driver_opts:
+      parent: eth0
+    ipam:
+      config:
+        - subnet: "192.168.2.0/24"
