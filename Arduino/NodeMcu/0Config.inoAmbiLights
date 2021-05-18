@@ -12,6 +12,7 @@ const byte IrRecPin = 0;//2;
 
 //RF433  //		
 //interrupts pins: 2, 3, 18, 19, 20, 21	
+const bool BMP280Present = true;
 const int Serialbps = 115200;
 const byte rf433InPin = -1; //2
 const byte rf433OutPin = -1;

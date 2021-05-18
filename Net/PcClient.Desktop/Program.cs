@@ -40,7 +40,7 @@ namespace PcClient.Desktop
             {
                 try
                 {
-                    client = new MQTTClient("192.168.2.1", 1883);
+                    client = new MQTTClient("mqtt.burnsys.net.ar", 1883);
 
                     // hook up the MessageReceived event with a handler
                     client.MessageReceived += (topic, qos, payload) =>
