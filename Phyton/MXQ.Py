@@ -88,6 +88,11 @@ try:
     client.loop_start()
 
     while True:
+        next_reading += INTERVAL
+        sleep_time = next_reading-time.time()
+        if sleep_time > 0:
+            time.sleep(sleep_time)
+        
         # Sending humidity and temperature data to ThingsBoard
         client.publish('MXQ/out/Temp', measure_temp(), 0)
         RAM_stats = getRAMinfo()
@@ -96,10 +101,7 @@ try:
         client.publish('MXQ/out/RAM/Total', round(int(RAM_stats[0]), 0))
         client.publish('MXQ/out/RAM/Used', round(int(RAM_stats[1]), 0))
         client.publish('MXQ/out/RAM/Free', round(int(RAM_stats[2]), 0))
-        next_reading += INTERVAL
-        sleep_time = next_reading-time.time()
-        if sleep_time > 0:
-            time.sleep(sleep_time)
+
         if MustEnd == True:
             sys.exit(os.EX_SOFTWARE) 
         if NodeRunning == False:
