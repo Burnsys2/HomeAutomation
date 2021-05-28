@@ -71,6 +71,18 @@ void sendMqttf(String topic, String value, bool retained)
 	topicFinal.toCharArray(buffert, 50);
 	mqttClient.publish(buffert, buffer, retained);
 }
+
+void sendMqttfPrec(String topic, float value, bool retained)
+{
+
+	if (!mqttClient.connected()) return;
+	char buffert[50];
+    char buffer[10];
+    dtostrf(value, 0, 2, buffer);
+	String topicFinal = globalTopic + "/" + sector + "/out/" + topic;	
+	topicFinal.toCharArray(buffert,50);
+    mqttClient.publish(buffert, buffer,retained);
+}
 void reportIp()
 {
 	IPAddress ip = WiFi.localIP();

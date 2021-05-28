@@ -32,6 +32,7 @@ extern char* __brkval;
 #include <DHT.h>
 #include <ArduinoOTA.h>
 #include <SimpleTimer.h>
+#include "Adafruit_BMP280.h"
 
 //#include <IRsend.h>
 
@@ -90,6 +91,7 @@ void setup() {
 	SetupWsStrips();
 	setupIR();
 //	setupPushButtons();
+	SetupBMP();
 	setupEthernet();
 	SetupSensores();
 	setupButtonsRelays();
@@ -104,6 +106,7 @@ void TSensoresLentos()
 	BlinkLedStatus = Send;
 	sendMqttf("LastSeen", 1, false);
   	InformarBotonesYRelays();
+	ProcesarBMP();
   }
 	// reportIp();
 	//ProcesarSensores();
