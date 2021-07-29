@@ -36,7 +36,7 @@ def on_message(client, userdata, message):
             raise HaltException("We decided we want to halt the script")
         if topics[2].upper() == "PSCOUNT":
             psCount = os.popen("pgrep " + message.payload + " | wc -l").readline().replace('\r\n', '').rstrip("\r\n")
-            client.publish('MXQ/out/PSCOUNT/' + message.payload , psCount, 0)
+            client.publish(Host + '/out/PSCOUNT/' + message.payload , psCount, 0)
         if topics[2].upper() == "PSKILL":
             os.popen("pkill -f '" + message.payload + "'")
         if topics[2].upper() == "PSRUN":
@@ -78,7 +78,8 @@ try:
 
     #sudo apt-get install python-alsaaudio
     audioDevice = alsaaudio.Mixer("Headphone") #
-
+    client.publish(Host + '/out/START',1)
+ 
     while True:
         next_reading += INTERVAL
 
@@ -97,9 +98,9 @@ try:
         if os.path.exists('/mnt/hdd/mountok.txt'):
             client.publish(Host + '/out/HDD/Ok', 1, 0)
             hdd = psutil.disk_usage('/mnt/hdd')
-            client.publish(Host + '/out/HDDCameras/Free',str(hdd.free / (2**30)) , 0)
+            client.publish(Host + '/out/HDD/Free',str(hdd.free / (2**30)) , 0)
         else:
-            client.publish(Host + '/out/HDDCameras/Ok', 0, 0)
+            client.publish(Host + '/out/HDD/Ok', 0, 0)
 
 
 #vcgencmd measure_clock arm
