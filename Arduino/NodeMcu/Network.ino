@@ -30,15 +30,15 @@ void Reconnect()
 {
 	//disable watchdog
 	if (mqttClient.connected()) return;
-	WiFi.begin(ssid, password);
+	char buffers[25];
+	sector.toCharArray(buffers, 25);
 
+	WiFi.begin(ssid, password);
+	WiFi.hostname(buffers);
 	while (WiFi.status() != WL_CONNECTED) {
 		delay(500);
 		Serial.print(".");
 	}
-
-	char buffers[50];
-	sector.toCharArray(buffers, 50);
 
 	ArduinoOTA.setHostname(buffers);
 	ArduinoOTA.begin();
@@ -89,6 +89,14 @@ void reportIp()
 
 	sendMqttf("IP", String(ip[0]) + String(".") + String(ip[1]) + String(".") + String(ip[2]) + String(".") + String(ip[3]), true);
 }
+
+void reportRSSI()
+{
+	long rssi = WiFi.RSSI();
+	sendMqttf("RSSI", rssi, false);
+}
+
+
 //void sendMqttfAsBool(String topic, float value, bool retained)
 //{
 //	String valueTmp = "false";

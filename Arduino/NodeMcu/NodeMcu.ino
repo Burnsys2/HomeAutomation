@@ -31,8 +31,8 @@ extern char* __brkval;
 #include <SimpleTimer.h>
 #include <DHT.h>
 #include <ArduinoOTA.h>
-#include <SimpleTimer.h>
 #include "Adafruit_BMP280.h"
+#include <SimpleTimer.h>
 
 //#include <IRsend.h>
 
@@ -107,6 +107,7 @@ void TSensoresLentos()
 	sendMqttf("LastSeen", 1, false);
   	InformarBotonesYRelays();
 	ProcesarBMP();
+	reportRSSI();
   }
 	// reportIp();
 	//ProcesarSensores();
