@@ -13,18 +13,6 @@ class HaltException(Exception):
     pass
 
 
-
-
-def measure_temp():
-        temp = os.popen("vcgencmd measure_temp").readline()
-        return (temp.replace("temp=","").replace("'C",""))
-
-def measure_temp():
-        temp = os.popen("vcgencmd measure_temp").readline()
-
-
-
-
 def getRAMinfo():
     p = os.popen('free')
     i = 0
@@ -106,6 +94,12 @@ try:
         client.publish(Host + '/out/RAM/Used', round(int(RAM_stats[1]), 0))
         client.publish(Host + '/out/RAM/Free', round(int(RAM_stats[2]), 0))
         client.publish(Host + '/out/volume', str(audioDevice.getvolume()[0]))
+        if os.path.exists('/mnt/hdd/mountok.txt'):
+            client.publish(Host + '/out/HDD/Ok', 1, 0)
+            hdd = psutil.disk_usage('/mnt/hdd')
+            client.publish(Host + '/out/HDDCameras/Free',str(hdd.free / (2**30)) , 0)
+        else:
+            client.publish(Host + '/out/HDDCameras/Ok', 0, 0)
 
 
 #vcgencmd measure_clock arm
