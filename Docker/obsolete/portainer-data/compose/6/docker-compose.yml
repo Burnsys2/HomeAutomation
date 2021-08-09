@@ -1,0 +1,99 @@
+version: '3'
+services:
+
+    radarr:
+      image: linuxserver/radarr:latest
+      container_name: radarr
+      depends_on:
+          - nzbget
+      volumes:
+          - /home/pi/HomeAutomation/Docker/radarr-data:/config
+          - /mnt/3tb/Downloads/Media:/downloads
+          - /mnt/3tb/videos:/movies
+      environment:
+          - PUID=0
+          - PGID=0
+          - TZ=America/Argentina/Buenos_Aires
+      ports:
+          - 7878:7878
+      deploy:
+        placement:
+          constraints:
+            - "node.hostname==RPI3"
+
+    sonarr:
+      image: linuxserver/sonarr:latest
+      container_name: sonarr
+      depends_on:
+          - nzbget
+      volumes:
+          - /home/pi/HomeAutomation/Docker/sonarr-data:/config
+          - /mnt/3tb/Downloads/Media:/downloads
+          - /mnt/3tb/videos/Series:/tv
+      environment:
+          - PUID=0
+          - PGID=0
+          - TZ=America/Argentina/Buenos_Aires
+      ports:
+          - 8989:8989
+      deploy:
+         placement:
+           constraints:
+             - "node.hostname==RPI3"
+             
+    jackett:
+      image: ghcr.io/linuxserver/jackett
+      container_name: jackett
+      environment:
+        - PUID=0
+        - PGID=0
+        - TZ=America/Argentina/Buenos_Aires
+        - AUTO_UPDATE=true 
+      volumes:
+        - /home/pi/HomeAutomation/Docker/jackett-data:/config
+        - /mnt/3tb/Downloads/TorrentBlackHole:/downloads
+      ports:
+        - 9117:9117
+      restart: unless-stopped
+      deploy:
+        placement:
+          constraints:
+            - "node.hostname==RPI3"
+            
+    deluge:
+      image: ghcr.io/linuxserver/deluge
+      container_name: deluge
+      environment:
+        - PUID=0
+        - PGID=0
+        - TZ=America/Argentina/Buenos_Aires
+      volumes:
+        - /home/pi/HomeAutomation/Docker/deluge-data:/config
+        - /mnt/3tb/Downloads:/downloads
+      ports:
+        - 8112:8112
+        - 6881:6881
+        - 6881:6881/udp
+        - 58846:58846
+      restart: unless-stopped      
+      deploy:
+        placement:
+          constraints:
+            - "node.hostname==RPI4"
+            
+    transmission:
+      image: ghcr.io/linuxserver/transmission
+      container_name: transmission
+      environment:
+        - PUID=1000
+        - PGID=1000
+        - TZ=America/Argentina/Buenos_Aires
+      volumes:
+        - /home/pi/HomeAutomation/Docker/transmission-data:/config
+        - /mnt/3tb/Downloads/transmission:/downloads
+        - /mnt/3tb/Downloads/TorrentBlackHole:/watch
+      ports:
+        - 9091:9091
+        - 51413:51413
+        - 51413:51413/udp
+      restart: unless-stopped
