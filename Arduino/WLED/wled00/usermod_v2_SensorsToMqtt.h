@@ -5,12 +5,12 @@
 #include <Wire.h>
 #include <Adafruit_Sensor.h>
 #include <Adafruit_BMP280.h>
-//#include <Adafruit_CCS811.h>
-//#include <Adafruit_Si7021.h>
+#include <Adafruit_CCS811.h>
+#include <Adafruit_Si7021.h>
 
 Adafruit_BMP280 bmp;
-//Adafruit_Si7021 si7021;
-//Adafruit_CCS811 ccs811;
+Adafruit_Si7021 si7021;
+Adafruit_CCS811 ccs811;
 
 #ifdef ARDUINO_ARCH_ESP32 //ESP32 boards
 uint8_t SCL_PIN = 22;
@@ -35,31 +35,27 @@ private:
   String mqttTvocTopic = "";
   String mqttEco2Topic = "";
   String mqttIaqTopic = "";
+  String mqttIPTopic = "";
   unsigned int SensorTvoc = 0;
   unsigned int SensorEco2 = 0;
   unsigned long nextMeasure = 0;
 
   void _initialize()
   {
-    Serial.println("Initializing sensors.. 3");
+    Serial.println("Initializing sensors.. 444");
     initialized = bmp.begin();
     Serial.println(initialized);
     Serial.println(bmp.readTemperature());
-    float presion; 
-    presion = bmp.readPressure()/100;
-    Serial.println(presion);
-
-    if (presion > 0) initialized = 1;
-
+    
     bmp.setSampling(Adafruit_BMP280::MODE_NORMAL,      /* Operating Mode. */
                     Adafruit_BMP280::SAMPLING_X16,     /* Temp. oversampling */
                     Adafruit_BMP280::SAMPLING_X16,     /* Pressure oversampling */
                     Adafruit_BMP280::FILTER_X16,       /* Filtering. */
                     Adafruit_BMP280::STANDBY_MS_2000); /* Refresh values every 20 seconds */
 
-  //  initialized &= si7021.begin();
-   // initialized &= ccs811.begin();
-  //  ccs811.setDriveMode(CCS811_DRIVE_MODE_10SEC); /* Refresh values every 10s */
+    initialized &= si7021.begin();
+    initialized &= ccs811.begin();
+    ccs811.setDriveMode(CCS811_DRIVE_MODE_10SEC); /* Refresh values every 10s */
     Serial.print(initialized);
   }
 
@@ -67,19 +63,20 @@ private:
   {
     mqttTemperatureTopic = String(mqttDeviceTopic) + "/temperature";
     mqttPressureTopic = String(mqttDeviceTopic) + "/pressure";
- /*   mqttHumidityTopic = String(mqttDeviceTopic) + "/humidity";
+    mqttHumidityTopic = String(mqttDeviceTopic) + "/humidity";
     mqttTvocTopic = String(mqttDeviceTopic) + "/tvoc";
     mqttEco2Topic = String(mqttDeviceTopic) + "/eco2";
     mqttIaqTopic = String(mqttDeviceTopic) + "/iaq";
-    //String t = String("homeassistant/sensor/") + mqttClientID + "/temperature/config";
-/*
+    mqttIPTopic = String(mqttDeviceTopic) + "/ip";
+
+    String t = String("homeassistant/sensor/") + mqttClientID + "/temperature/config";
+
     _createMqttSensor("temperature", mqttTemperatureTopic, "temperature", "°C");
     _createMqttSensor("pressure", mqttPressureTopic, "pressure", "hPa");
     _createMqttSensor("humidity", mqttHumidityTopic, "humidity", "%");
     _createMqttSensor("tvoc", mqttTvocTopic, "", "ppb");
     _createMqttSensor("eco2", mqttEco2Topic, "", "ppm");
     _createMqttSensor("iaq", mqttIaqTopic, "", "");
-  */
   }
 
   void _createMqttSensor(const String &name, const String &topic, const String &deviceClass, const String &unitOfMeasurement)
@@ -115,9 +112,8 @@ private:
   void _updateSensorData()
   {
     SensorTemperature = bmp.readTemperature();
-    SensorPressure = (bmp.readPressure() / 100.0F);
-/*
     SensorHumidity = si7021.readHumidity();
+    SensorPressure = (bmp.readPressure() / 100.0F);
     ccs811.setEnvironmentalData(SensorHumidity, SensorTemperature);
     ccs811.readData();
     SensorTvoc = ccs811.getTVOC();
@@ -127,7 +123,6 @@ private:
     Serial.printf("%f c, %f humidity, %f hPA, %u tvoc, %u Eco2, %s iaq\n",
                   SensorTemperature, SensorHumidity, SensorPressure,
                   SensorTvoc, SensorEco2, SensorIaq);
-  */
   }
 
   /**
@@ -270,6 +265,8 @@ public:
         {
           _mqttInitialize();
           mqttInitialized = true;
+          IPAddress ip = WiFi.localIP();
+          mqtt->publish(mqttIPTopic.c_str(), 0, true, (String(ip[0]) + String(".") + String(ip[1]) + String(".") + String(ip[2]) + String(".") + String(ip[3])).c_str());
         }
 
         // Update sensor data
@@ -278,14 +275,13 @@ public:
         // Create string populated with user defined device topic from the UI,
         // and the read temperature, humidity and pressure.
         // Then publish to MQTT server.
+        mqtt->publish(mqttIPTopic.c_str(), 0, true, String(SensorTemperature).c_str());
         mqtt->publish(mqttTemperatureTopic.c_str(), 0, true, String(SensorTemperature).c_str());
         mqtt->publish(mqttPressureTopic.c_str(), 0, true, String(SensorPressure).c_str());
-/*
         mqtt->publish(mqttHumidityTopic.c_str(), 0, true, String(SensorHumidity).c_str());
-        mqtt->publish(mqttTvocTopic.c_str(), 0, true, String(SensorTvoc).c_str());
-        mqtt->publish(mqttEco2Topic.c_str(), 0, true, String(SensorEco2).c_str());
-        mqtt->publish(mqttIaqTopic.c_str(), 0, true, String(SensorIaq).c_str());
-*/
+//        mqtt->publish(mqttTvocTopic.c_str(), 0, true, String(SensorTvoc).c_str());
+ //       mqtt->publish(mqttEco2Topic.c_str(), 0, true, String(SensorEco2).c_str());
+  //      mqtt->publish(mqttIaqTopic.c_str(), 0, true, String(SensorIaq).c_str());
       }
       else
       {
