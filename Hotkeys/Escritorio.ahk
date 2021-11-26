@@ -14,7 +14,7 @@ return
 
 NodeRed:
 	whr := ComObjCreate("WinHttp.WinHttpRequest.5.1")
-	whr.Open("GET","http://nodered.burnsys.net.ar:1880/hotkeys/escritorio/" . A_ThisHotkey, true)
+	whr.Open("GET","http://nodered.burnsys.net.ar/hotkeys/escritorio/" . A_ThisHotkey, true)
 	whr.Send()
 	whr.WaitForResponse()
 
