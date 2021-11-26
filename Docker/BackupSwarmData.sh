@@ -1,2 +1,2 @@
 #!/bin/bash
-cp /mnt/swarmData /mnt/hdd/Backup/Automatico -r
+cp /mnt/swarmData /mnt/hdd/Backup/Automatico -r -v
