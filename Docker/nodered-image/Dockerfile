@@ -1,4 +1,4 @@
-FROM nodered/node-red:latest
+FROM nodered/node-red:2.1.3
 
 # Copy package.json to the WORKDIR so npm builds all
 # of your added nodes modules for Node-RED
@@ -60,3 +60,6 @@ RUN npm install node-red-contrib-telegrambot-home
 RUN npm install node-red-contrib-whatsapp-cmb
 RUN npm install node-red-contrib-azure-blob-storage
 RUN npm install node-red-node-pi-gpiod
+RUN npm install node-red-contrib-dockerode
+RUN npm install node-red-debugger
+

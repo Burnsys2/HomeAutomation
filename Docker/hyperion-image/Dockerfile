@@ -16,7 +16,7 @@ RUN install_packages \
 	libcec4 \
 	libusb-1.0-0
 
-ENV RELEASE 2.0.0-alpha.10/Hyperion-2.0.0-alpha.10-Linux-armv7l
+ENV RELEASE 2.0.12/Hyperion-2.0.12-Linux-armv7l
             
 RUN curl -fsSL https://github.com/hyperion-project/hyperion.ng/releases/download/${RELEASE}.deb > /tmp/hyperion.deb && dpkg -i /tmp/hyperion.deb && rm -f /tmp/hyperion.deb
                
