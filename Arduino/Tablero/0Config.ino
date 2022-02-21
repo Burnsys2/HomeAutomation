@@ -1,3 +1,4 @@
+//sudo chmod a+rw /dev/ttyACM0
 byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0x02 };
 IPAddress ip(192, 168, 2, 42);
 IPAddress mqtt_server(192, 168, 2, 1);
@@ -10,7 +11,7 @@ const byte IrRecPin = 0; //  CUALQUIER PIN;
 
 //interrupts pins: 0, 1, 2,  3,  4,  5	
 //interrupts pins: 2, 3, 21, 20, 19, 18
-const byte rf433InPin = 2; //2+++++++++++++++++++++++++++++
+const byte rf433InPin = 21; //2+++++++++++++++++++++++++++++
 const byte rf433OutPin = 20;
 
 //RGB LEDS
@@ -26,11 +27,12 @@ const byte WSLedStatus = 0;
 //RGB LEDS
 const byte WSStrips[][2] =
 {
-	  {11,14},
-	  {12,57},   //techo
-	  {13,11},   //central
-	  {8,14},
-	  {7,3}      //tablero
+//	  {11,14},
+//	  {12,57},   //techo
+//	  {13,11},   //central
+//	  {8,14},
+	  {7,5}, //tablero
+	  {11,3}  //escritorio
 };
 
 //PIN , TYPE (11 = DHT11, 22= DHT22)
@@ -53,7 +55,7 @@ const byte analogInsArray[] = {3,5} ;
 const byte analogInsOnlineArray[] = {};
 
 
-const byte buttonArray[] = {49,47,45,43,41,39,37,35,33,31,29,27,17} ;
+const byte buttonArray[] = {49,47,45,43,41,39,37,35,33,31,29,17} ;
 const byte PushbuttonArray[] = {31,37,27,29} ;
 const byte RelaysArray[] = {22,24,26,28,30,32,34,36,38,40,42,44,46,48,4,5};
 const byte RelaysInvertedArray[] = {40,5} ;

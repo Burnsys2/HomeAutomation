@@ -11,10 +11,6 @@ void setupRF()
 			Serial.print(F("R RF433 ON "));
 			Serial.println(digitalPinToInterrupt(rf433InPin));
 		}
-		if (rf433OutPin >= 1) {
-	//		mySwitch433.enableTransmit(rf433OutPin);
-		//	pinMode(rf433OutPin, OUTPUT);
-		}
 	}
 }
 
