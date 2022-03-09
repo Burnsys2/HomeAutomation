@@ -127,12 +127,12 @@ void reportIp()
 
 void callback(char* topic, byte* payload, unsigned int length) {
     
-    Serial.print(" - Message arrived [");
+    /*Serial.print(" - Message arrived [");
     Serial.print(millis());
     Serial.print(topic);
     Serial.print("] ");
     Serial.println("");
-    
+    */
  //  	setLedAction(ReceiveAction);
 	//BlinkLedStatus = ReceiveAction;
  	String topico = getValue(topic,'/',3);

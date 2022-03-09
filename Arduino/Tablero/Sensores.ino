@@ -4,6 +4,7 @@ const byte analogInsArraySize = sizeof(analogInsArray)/sizeof(analogInsArray[0])
 const byte analogInsOnlineArraySize = sizeof(analogInsOnlineArray)/sizeof(analogInsOnlineArray[0]);
 long analogInsValue[analogInsArraySize];
 long analogInsMaxValue[analogInsArraySize];
+long analogInsMinValue[analogInsArraySize];
 int analogInsOnlineValue[analogInsOnlineArraySize];
 int analogInsOnlineEMA_S[analogInsOnlineArraySize];
 float analogInsOnlineEMA_A[analogInsOnlineArraySize];
@@ -18,6 +19,7 @@ void SetupSensores()
 		analogInsValue[index]= 0;
 		analogInsMaxValue[index]= 0;
 		analogInsSamples[index]= 0;
+		analogInsMinValue[index]= 1024;
 	}
 
 	for (byte index = 0; index < analogInsOnlineArraySize; index++) 
@@ -41,6 +43,12 @@ void ProcesarSensores()
 		{
 			analogInsMaxValue[index] = valor;
 		}
+		if (analogInsMinValue[index] > valor)
+		{
+			analogInsMinValue[index] = valor;
+		}
+
+	//	analogInsTotalValue[index] += valor
 	}
 	
 	for (byte index = 0; index < analogInsOnlineArraySize; index++) 
@@ -81,12 +89,14 @@ void InformarSensores()
 		{
 			sendMqttf(strSensores + "/Analog/" + String(analogInsArray[index]) ,analogInsValue[index] / analogInsSamples[index],true);
 			sendMqttf(strSensores + "/Analog/Max/" + String(analogInsArray[index]) ,analogInsMaxValue[index] ,true);
-	//		sendMqttf("Sensores/Analog/Samples/" + String(analogInsArray[index]) ,analogInsSamples[index],true);
-	//		sendMqttf("Sensores/Analog/Total/" + String(analogInsArray[index]) ,analogInsValue[index],true);
+//			sendMqttf("Sensores/Analog/Samples/" + String(analogInsArray[index]) ,analogInsSamples[index],true);
+	//		sendMqttf("Sensores/Analog/Min/" + String(analogInsArray[index]) ,analogInsMinValue[index],true);
+			//sendMqttf("Sensores/Analog/Avg/" + String(analogInsArray[index]) ,analogInsValue[index],true);
 		}
 		analogInsValue[index] = 0;
 		analogInsSamples[index] = 0;
 		analogInsMaxValue[index] = 0;
+		analogInsMinValue[index] = 1024;
 	}
 	
 	for (byte index = 0; index < analogInsOnlineArraySize; index++) 

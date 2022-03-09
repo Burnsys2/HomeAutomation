@@ -13,6 +13,8 @@ void SetupWsStrips()
         WsStripeMode[index] = AnimationStatic;
         switch (Pin)
         { //PIN 10 NO ANDA
+		case 6:
+			WScontrollers[index] = &FastLED.addLeds<WS2812B, 6, BRG>(leds[index], cntleds); break;
 		case 7:
 			WScontrollers[index] = &FastLED.addLeds<WS2812B, 7, BRG>(leds[index], cntleds); break;
 		case 8:
