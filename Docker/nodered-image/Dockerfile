@@ -1,4 +1,4 @@
-FROM nodered/node-red:2.1.3
+FROM nodered/node-red:2.2.2
 
 # Copy package.json to the WORKDIR so npm builds all
 # of your added nodes modules for Node-RED
@@ -62,4 +62,7 @@ RUN npm install node-red-contrib-azure-blob-storage
 RUN npm install node-red-node-pi-gpiod
 RUN npm install node-red-contrib-dockerode
 RUN npm install node-red-debugger
-
+RUN npm install node-red-contrib-home-assistant-websocket
+RUN npm install node-red-contrib-home-assistant-llat
+RUN npm install node-red-contrib-mopidy
+RUN npm install node-red-contrib-mpd
