@@ -74,6 +74,7 @@ void Reconnect()
 	String Topicrelays = globalTopic + "/" + sector + "/in/#";
 	char buffert[30];
 	Topicrelays.toCharArray(buffert,30);
+	mqttClient.setBufferSize(1024);
 	mqttClient.connect(buffert);
 	mqttClient.subscribe(buffert);
 	Serial.print(millis());
