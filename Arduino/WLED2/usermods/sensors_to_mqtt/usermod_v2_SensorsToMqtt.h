@@ -41,16 +41,16 @@ private:
 
   void _initialize()
   {
-    initialized = bmp.begin(BMP280_ADDRESS_ALT);
+    initialized = bmp.begin();
     bmp.setSampling(Adafruit_BMP280::MODE_NORMAL,      /* Operating Mode. */
                     Adafruit_BMP280::SAMPLING_X16,     /* Temp. oversampling */
                     Adafruit_BMP280::SAMPLING_X16,     /* Pressure oversampling */
                     Adafruit_BMP280::FILTER_X16,       /* Filtering. */
                     Adafruit_BMP280::STANDBY_MS_2000); /* Refresh values every 20 seconds */
 
-    initialized &= si7021.begin();
-    initialized &= ccs811.begin();
-    ccs811.setDriveMode(CCS811_DRIVE_MODE_10SEC); /* Refresh values every 10s */
+  //  initialized &= si7021.begin();
+   // initialized &= ccs811.begin();
+   // ccs811.setDriveMode(CCS811_DRIVE_MODE_10SEC); /* Refresh values every 10s */
     Serial.print(initialized);
   }
 
@@ -226,9 +226,9 @@ private:
 public:
   void setup()
   {
-    Serial.println("Starting!");
-    Wire.begin(SDA_PIN, SCL_PIN);
-    Serial.println("Initializing sensors.. ");
+    Serial.println("Starting3!");
+//    Wire.begin(SDA_PIN, SCL_PIN);
+    Serial.println("Initializing sensors2.. ");
     _initialize();
   }
 
