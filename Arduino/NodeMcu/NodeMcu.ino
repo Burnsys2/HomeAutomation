@@ -33,7 +33,8 @@ extern char* __brkval;
 #include <ArduinoOTA.h>
 #include "Adafruit_BMP280.h"
 #include <SimpleTimer.h>
-
+#include <RFControl.h>
+#include <RCSwitch.h>
 //#include <IRsend.h>
 
 //#define NUM_LEDS 60

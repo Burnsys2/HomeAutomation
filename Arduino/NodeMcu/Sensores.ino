@@ -37,7 +37,7 @@ void SetupSensores()
 
 void ProcesarSensores()
 {
-	if (abs(millis() - analogInsOnlineLastRead)< analogInsOnlineMilis) return;
+	if (abs(int(millis() - analogInsOnlineLastRead))< analogInsOnlineMilis) return;
 	analogInsOnlineLastRead = millis();
 
 	for (byte index = 0; index < analogInsArraySize; index++) 
@@ -59,8 +59,8 @@ void ProcesarSensores()
 		analogInsOnlineEMA_S[index] = (analogInsOnlineEMA_A[index] * analogR) + ((1-analogInsOnlineEMA_A[index])*analogInsOnlineEMA_S[index]);
 		analogR = analogInsOnlineEMA_S[index];
 		if (analogInsOnlineEMA_S[index] == analogInsOnlineValue[index]) {continue;}
-		if (abs(analogInsOnlineValue[index] - analogR) < analogInsOnlineMaxDev && analogR != 0 && analogR < 1023) {continue;}
-		if (abs(millis() - analogInsOnlineLastReport[index]) < analogInsOnlineMilis) {continue;}
+		if (abs(int(analogInsOnlineValue[index] - analogR)) < analogInsOnlineMaxDev && analogR != 0 && analogR < 1023) {continue;}
+		if (abs(int(millis() - analogInsOnlineLastReport[index])) < analogInsOnlineMilis) {continue;}
 	
 		sendMqttf(strSensores + "/Analog/" + String(analogInsOnlineArray[index]) ,analogR,true);
 		analogInsOnlineValue[index] = analogR;
@@ -90,7 +90,7 @@ void ProcesarComandoSensores(String topic, String valor)
 void InformarSensores()
 {
 
-	if (abs(millis() - analogInsReportLastMilis)< analogInsReportMilis) return;
+	if (abs(int(millis() - analogInsReportLastMilis))< analogInsReportMilis) return;
 	analogInsReportLastMilis = millis();
 
 	for (byte index = 0; index < analogInsArraySize; index++) 
