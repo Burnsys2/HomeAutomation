@@ -32,7 +32,10 @@ const byte WSStrips[][2] =
 {
     
 };
-
+const byte EncodersPins[][2] =
+{
+	{}
+};
 const byte analogInsArray[] = {};
 const byte analogInsOnlineArray[] = {};
 const bool BMP280Present = false;

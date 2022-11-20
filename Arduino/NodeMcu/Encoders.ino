@@ -6,7 +6,7 @@ int EncMin[EncodersSize];
 bool EncLoop[EncodersSize];
 void SetupEncoders()
 {
-	//Serial.println("Encoders");
+	Serial.println("Encoders");
 	for (byte index = 0; index < EncodersSize; index++) {
 		Encoders[index] = new Encoder(EncodersPins[index][0], EncodersPins[index][1]);
    		pinMode(EncodersPins[index][0], INPUT);	
@@ -71,7 +71,7 @@ void ProcesarComandoEncloders(String topic, String valor)
 		Encoder *Enc = Encoders[nro];
 		LastEncPosition[nro] = valor.toInt();
 		Enc->write(valor.toInt());
-		sendMqttf("Encoder/" + String(nro) + "/value", valor, true);
+	//	sendMqttf("Encoder/" + String(nro) + "/value", valor, true);
 	}
 	if (Command == F("MIN")) EncMin[nro] = valor.toInt();
 	if (Command == F("MAX")) EncMax[nro] = valor.toInt();

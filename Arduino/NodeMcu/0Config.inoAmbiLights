@@ -25,6 +25,11 @@ const byte RelaysInvertedArray[] = {};
 const byte RelaysManualMap[][2] =
 {
 };
+const byte EncodersPins[][2] =
+{
+	{}
+};
+
 const byte buttonIgnoreNoiseFilterArray[] = {};
 //RGB LEDS
 const byte RGBLeds[][3] =

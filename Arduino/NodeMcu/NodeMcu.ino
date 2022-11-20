@@ -12,6 +12,8 @@
 #define INTERRUPT_THRESHOLD 1
 //#define FASTLED_INTERNAL
 #include "FastLED.h"
+#define ENCODER_DO_NOT_USE_INTERRUPTS
+#include <Encoder.h>
 FASTLED_USING_NAMESPACE
 #include <IRremoteESP8266.h>
 #include "OneButton.h"
@@ -89,11 +91,13 @@ void setup() {
 
 	Serial.begin(115200);
 	while (!Serial) {}
+	
 	SetupWsStrips();
 	setupIR();
 //	setupPushButtons();
 	SetupBMP();
 	setupEthernet();
+	SetupEncoders();
 	SetupSensores();
 	setupButtonsRelays();
 	//tSensores.setInterval(5000, TSensoresLentos);
@@ -130,6 +134,7 @@ void loop()
 	}
 	//ProcesarRed();
 	DetectarBotones();
+	ProcesarEncoders();
 	ProcesarSensores();
 //	ProcesarPushButtons();
 	

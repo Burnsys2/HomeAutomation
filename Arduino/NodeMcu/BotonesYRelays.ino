@@ -14,7 +14,7 @@ const byte RelaysInvertedArraySize = sizeof(RelaysInvertedArray)/sizeof(RelaysIn
 	
 void setupButtonsRelays()
 {
-	//Serial.println(F("setupButtonsRelays"));
+	Serial.println(F("setupButtonsRelays"));
 
 	for (byte index = 0; index < buttonArraySize; index++) {
    		 pinMode(buttonArray[index], INPUT);	
