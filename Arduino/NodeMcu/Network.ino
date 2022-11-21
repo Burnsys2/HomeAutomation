@@ -157,6 +157,10 @@ void callback(char* topic, byte* payload, unsigned int length) {
 	{
 		ProcesarComandoRelays(topic,valor);
 	}
+	if (topico == F("ENCODER"))
+	{
+		ProcesarComandoEncloders(topic, valor);
+	}
 	/*
 	if (topico == F("LEDSRGB"))
 	{

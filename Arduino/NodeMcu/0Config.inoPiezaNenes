@@ -29,7 +29,10 @@ const byte buttonIgnoreNoiseFilterArray[] = {};
 const byte RGBLeds[][3] =
 {
 };
-
+const byte EncodersPins[][2] =
+{
+	{}
+};
 //ws LEDS: Pins, CntLeds MISMO PIN QUE EL INDICADO
 const byte WSStrips[][2] =
 {
