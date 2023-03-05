@@ -1,0 +1,10 @@
+{
+    "vsmqtt.brokerProfiles": [
+        {
+            "name": "Openwrt",
+            "host": "mqtt.burnsys.net.ar",
+            "port": 1883,
+            "clientId": "vsmqtt_client"
+        }
+    ]
+}
