@@ -35,7 +35,7 @@ const byte WSStrips[][2] =
 
 const byte EncodersPins[][2] =
 {
-	{10,9}
+	{13,15}
 };
 const byte analogInsArray[] = {};
 const byte analogInsOnlineArray[] = {};
@@ -47,9 +47,6 @@ const byte analogInsOnlineArray[] = {};
 // D4 = 2; ,Luz Pasillo 2
 // D5 = 14; PD 
 // D6 = 12; PD PIR
-
-
-
 // D7 = 13;
 // D8 = 15;
 // D9 = 3;
