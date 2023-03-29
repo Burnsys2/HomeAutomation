@@ -13,7 +13,7 @@
 //#define FASTLED_INTERNAL
 #include "FastLED.h"
 #define ENCODER_DO_NOT_USE_INTERRUPTS
-#include <Encoder.h>
+#include <AiEsp32RotaryEncoder.h>
 FASTLED_USING_NAMESPACE
 #include <IRremoteESP8266.h>
 #include "OneButton.h"
@@ -94,7 +94,7 @@ void setup() {
 	
 	SetupWsStrips();
 	setupIR();
-//	setupPushButtons();
+	setupPushButtons();
 	SetupBMP();
 	setupEthernet();
 	SetupEncoders();
@@ -110,6 +110,7 @@ void TSensoresLentos()
 
 	BlinkLedStatus = Send;
 	sendMqttf("LastSeen", 1, false);
+
   	InformarBotonesYRelays();
 	ProcesarBMP();
 	reportRSSI();
@@ -132,12 +133,11 @@ void loop()
 	{
 		CurentLedStatus = Ok;
 	}
-	//ProcesarRed();
+	ProcesarRed();
 	DetectarBotones();
-	ProcesarEncoders();
 	ProcesarSensores();
-//	ProcesarPushButtons();
-	
+	ProcesarPushButtons();
+	ProcesarEncoders();	
 	ProcesarWsStrip();
 	TSensoresLentos();
 }

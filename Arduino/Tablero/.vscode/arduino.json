@@ -2,7 +2,7 @@
     "programmer": "ArduinoISP",
     "board": "arduino:avr:mega",
     "configuration": "cpu=atmega2560",
-    "port": "/dev/ttyACM0",
+    "port": "/dev/ttyUSB0",
     "sketch": "Tablero.ino",
     "output": "../Out"
 }

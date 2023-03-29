@@ -14,7 +14,8 @@
 			"vector": "cpp",
 			"initializer_list": "cpp",
 			"*.inopiezanenes": "cpp",
-			"cstddef": "cpp"
+			"cstddef": "cpp",
+			"random": "cpp"
 		}
 	}
 }

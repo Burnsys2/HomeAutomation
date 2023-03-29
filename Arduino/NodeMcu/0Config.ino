@@ -15,8 +15,8 @@ const byte rf433InPin = -1; //2
 const byte rf433OutPin = -1;
 const byte rf315InPin = -1; //3
 const byte rf315OutPin = -1;//7;
-const byte buttonArray[] = {16,14,12,1,3};
-const byte RelaysArray[] = {5,2};
+const byte buttonArray[] = {};
+const byte RelaysArray[] = {2};
 const byte RelaysInvertedArray[] = {};
 const byte RelaysManualMap[][2] =
 {
@@ -30,25 +30,26 @@ const byte RGBLeds[][3] =
 //ws LEDS: Pins, CntLeds MISMO PIN QUE EL INDICADO
 const byte WSStrips[][2] =
 {
-    {0,3} //57
+    {5,5} //57
 };
 
-const byte EncodersPins[][2] =
+const byte EncodersPins[][3] =
 {
-	{13,15}
+	{12,14,13}
 };
 const byte analogInsArray[] = {};
 const byte analogInsOnlineArray[] = {};
-
-// D0 = 16;
-// D1 = 5; (Bornera) Leds
-// D2 = 4; PD (Bornera) Tecla
-// D3 = 0;  Luz Pasillo 1
-// D4 = 2; ,Luz Pasillo 2
-// D5 = 14; PD 
-// D6 = 12; PD PIR
-// D7 = 13;
+const byte PushbuttonArray[] = {13,3,4,16} ;
+const byte PushbuttonInvertedArray[] = {13} ;
+// D0 = 16; Tecla 1
+// D1 = 5;  Leds
+// D2 = 4;  Tecla 2
+// D3 = 0;  
+// D4 = 2;  Relay 1
+// D5 = 14; ENCODER 
+// D6 = 12; ENCODER
+// D7 = 13; BOTON ENCODER
 // D8 = 15;
-// D9 = 3;
+// D9 = 3;  Tecla 3
 // D10 = 1;
 //
