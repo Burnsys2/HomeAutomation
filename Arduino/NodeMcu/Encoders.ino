@@ -9,7 +9,6 @@ void IRAM_ATTR readEncoderISR()
 {
  	for (byte index = 0; index < EncodersSize; index++) 
 	{
-//		AiEsp32RotaryEncoder *Enc = Encoders[index];
 		Encoders[index]->readEncoder_ISR();
 	}
 }
@@ -19,8 +18,6 @@ void SetupEncoders()
 	for (byte index = 0; index < EncodersSize; index++) 
 	{
 		Encoders[index] = new AiEsp32RotaryEncoder(EncodersPins[index][0], EncodersPins[index][1],EncodersPins[index][2],-1,1);
-//   		pinMode(EncodersPins[index][0], INPUT);	
- //  		pinMode(EncodersPins[index][1], INPUT);	
 
 		Encoders[index]->begin();
 		Encoders[index]->setup(readEncoderISR);
@@ -48,46 +45,7 @@ void ProcesarEncoders()
 			sendMqttf("Encoder/" + String(index) + "/value", NewValue, true);
 
 		}
-/*
-
-		if (NewValue == LastEncPosition[index]) continue;
-		if (NewValue > LastEncPosition[index]) 	NewValue = LastEncPosition[index] + 1;
-		if (NewValue < LastEncPosition[index]) 	NewValue = LastEncPosition[index] - 1;
-
-		if (NewValue > EncMax[index])
-		{
-			if (EncLoop[index] == true)
-				NewValue = EncMin[index] + NewValue - LastEncPosition[index];
-			else
-				NewValue = EncMax[index];
-		}
-		if (NewValue < EncMin[index])
-		{
-			if (EncLoop[index] == true)
-				NewValue = EncMax[index] - NewValue - LastEncPosition[index];
-			else
-				NewValue = EncMin[index];
-		}
-		Enc->write(NewValue);
-	//	Serial.println("-");
-		if (NewValue > LastEncPosition[index]) 	sendMqttf("Encoder/" + String(index), "+", false);
-		if (NewValue < LastEncPosition[index])	sendMqttf("Encoder/" + String(index) , "-", false);
-		sendMqttf("Encoder/" + String(index) + "/value", NewValue, true);
-		LastEncPosition[index] = NewValue;
-*/
 	}
-}
-
-void ReportEncoders()
-{
-	/*
-	for (byte index = 0; index < EncodersSize; index++) {
-		int NewValue = 0;
-		AiEsp32RotaryEncoder *Enc = Encoders[index];
-		NewValue = Enc->read();
-		sendMqttf("Encoder/" + String(index) + "/value", NewValue, true);
-	}
-	*/
 }
 void ProcesarComandoEncloders(String topic, String valor)
 {
@@ -104,7 +62,6 @@ void ProcesarComandoEncloders(String topic, String valor)
 	if (Command == F("MIN")) EncMin[nro] = valor.toInt();
 	if (Command == F("MAX")) EncMax[nro] = valor.toInt();
 	if (Command == F("LOOP")) EncLoop [nro] = valor.toInt();
-	if (Command == F("REPORT")) ReportEncoders();
 	
 	Encoders[nro]->setBoundaries(EncMin[nro], EncMax[nro], EncLoop[nro]); //minValue, maxValue, circleValues true|false (when max go to min and vice versa)
 	if (Command == F("ACCELL")) 

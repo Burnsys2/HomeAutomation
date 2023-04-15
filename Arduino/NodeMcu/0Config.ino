@@ -16,7 +16,7 @@ const byte rf433OutPin = -1;
 const byte rf315InPin = -1; //3
 const byte rf315OutPin = -1;//7;
 const byte buttonArray[] = {};
-const byte RelaysArray[] = {2};
+const byte RelaysArray[] = {0,2};
 const byte RelaysInvertedArray[] = {};
 const byte RelaysManualMap[][2] =
 {
@@ -39,12 +39,12 @@ const byte EncodersPins[][3] =
 };
 const byte analogInsArray[] = {};
 const byte analogInsOnlineArray[] = {};
-const byte PushbuttonArray[] = {13,3,4,16} ;
+ byte PushbuttonArray[] = {13,3,4,16} ;
 const byte PushbuttonInvertedArray[] = {13} ;
 // D0 = 16; Tecla 1
 // D1 = 5;  Leds
 // D2 = 4;  Tecla 2
-// D3 = 0;  
+// D3 = 0;  Relay Timbre
 // D4 = 2;  Relay 1
 // D5 = 14; ENCODER 
 // D6 = 12; ENCODER
