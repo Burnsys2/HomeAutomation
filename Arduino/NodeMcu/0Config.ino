@@ -15,6 +15,7 @@ const byte rf433InPin = -1; //2
 const byte rf433OutPin = -1;
 const byte rf315InPin = -1; //3
 const byte rf315OutPin = -1;//7;
+const byte WDTPin = 1;//7;
 const byte buttonArray[] = {};
 const byte RelaysArray[] = {0,2};
 const byte RelaysInvertedArray[] = {};
@@ -51,5 +52,5 @@ const byte PushbuttonInvertedArray[] = {13} ;
 // D7 = 13; BOTON ENCODER
 // D8 = 15;
 // D9 = 3;  Tecla 3
-// D10 = 1;
+// D10 = 1; wdt
 //

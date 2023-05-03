@@ -140,4 +140,5 @@ void loop()
 	ProcesarEncoders();	
 	ProcesarWsStrip();
 	TSensoresLentos();
+	ProcesarWDT();
 }

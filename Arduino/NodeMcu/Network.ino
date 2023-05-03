@@ -136,48 +136,22 @@ void callback(char* topic, byte* payload, unsigned int length) {
 		return;
 	}
 
-
 	String valor = array_to_string(payload,length);
 	valor.toUpperCase();
-//	delete[] payload;
 	if (topico == F("WSSTRIP"))
-	{
 		ProcesarComandoWSLedsStrip(topic,valor);
-	}
 	if (topico == F("RESET"))
-	{
 		resetFunc();  //call reset
-	}
 	if (topico == F("SOFTRESET"))
-	{
 		ESP.reset();
-	}
-	
 	if (topico == F("RELAY"))
-	{
 		ProcesarComandoRelays(topic,valor);
-	}
 	if (topico == F("ENCODER"))
-	{
 		ProcesarComandoEncloders(topic, valor);
-	}
-	/*
-	if (topico == F("LEDSRGB"))
-	{
-		ProcesarComandoLedsRgb(topic,valor);
-	}
-	if (topico == F("RF433") || topico == F("RF315"))
-	{
-		ProcesarComandoRF(topic,valor);
-	}
-
-*/
+	if (topico == F("WDT"))
+		ProcesarComandoWDT(topic,valor);
 	if (topico == F("PING"))
-	{
 		sendMqttf(F("PONG") ,1 ,false);
-	}
 	if (topico == F("SENSORES"))
-	{
 		ProcesarComandoSensores(topic,valor);
-	}
 }
