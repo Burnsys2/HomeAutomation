@@ -1,9 +1,30 @@
-int wdtTime = 2333;
-
-
+int wdtInterval = 4000;
+int wdtInterval2 = 200;
+long previousMillisWDT = 0;
+bool wdtSending = false;
+bool wdtEnabled = true;
 void ProcesarWDT()
 {
+	if (WDTPin == -1) return;
+	if (!wdtEnabled) return;
+  	unsigned long currentMillis = millis();
+	if (!wdtSending)
+	{
+		if(currentMillis - previousMillisWDT < wdtInterval) return;
+		pinMode(WDTPin, OUTPUT);
+		digitalWrite(WDTPin,LOW);
+		wdtSending = true;
+		sendMqttf("WDT","Heartbeat",false);
 
+	}
+	else
+	{
+		if(currentMillis - previousMillisWDT < wdtInterval2) return;
+  		digitalWrite(WDTPin, HIGH);
+  		pinMode(WDTPin, INPUT);
+		wdtSending = false;
+	}
+	previousMillisWDT = currentMillis;   
 }
 void ProcesarComandoWDT(String topic, String valor)
 {
@@ -11,20 +32,8 @@ void ProcesarComandoWDT(String topic, String valor)
 	byte nro = getValue(topic, '/', 4).toInt();
 	String Command = getValue(topic, '/', 5);
 
-	if (Command == F("TIME"))
-	{
-		LastEncPosition[nro] = valor.toInt();
-		Encoders[nro]->reset(valor.toInt());
-		sendMqttf("Encoder/" + String(nro) + "/value", valor, true);
-	}
-	if (Command == F("STOP")) EncMin[nro] = valor.toInt();
-	if (Command == F("START")) EncMax[nro] = valor.toInt();
-	if (Command == F("LOOP")) EncLoop [nro] = valor.toInt();
+	if (Command == F("INTERVAL"))  wdtInterval = valor.toInt();
+	if (Command == F("STOP")) wdtEnabled = false;
+	if (Command == F("START")) wdtEnabled = true;
 	
-	Encoders[nro]->setBoundaries(EncMin[nro], EncMax[nro], EncLoop[nro]); //minValue, maxValue, circleValues true|false (when max go to min and vice versa)
-	if (Command == F("ACCELL")) 
-	{
-    	Encoders[nro]->setAcceleration(valor.toInt());
-
-	}
 }
