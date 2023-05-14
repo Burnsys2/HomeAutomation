@@ -50,6 +50,7 @@ void ProcesarEncoders()
 void ProcesarComandoEncloders(String topic, String valor)
 {
 
+	if (EncodersSize == 0) return;
 	byte nro = getValue(topic, '/', 4).toInt();
 	String Command = getValue(topic, '/', 5);
 

@@ -12,7 +12,7 @@ void ProcesarWDT()
 	{
 		if(currentMillis - previousMillisWDT < wdtInterval) return;
 		pinMode(WDTPin, OUTPUT);
-		digitalWrite(WDTPin,LOW);
+		digitalWrite(WDTPin,HIGH);
 		wdtSending = true;
 		sendMqttf("WDT","Heartbeat",false);
 
@@ -20,7 +20,7 @@ void ProcesarWDT()
 	else
 	{
 		if(currentMillis - previousMillisWDT < wdtInterval2) return;
-  		digitalWrite(WDTPin, HIGH);
+  		digitalWrite(WDTPin, LOW);
   		pinMode(WDTPin, INPUT);
 		wdtSending = false;
 	}
