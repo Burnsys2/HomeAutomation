@@ -1,4 +1,5 @@
-//IPAddress ip(192, 168, 2, 41);
+//sudo chmod a+rw /dev/ttyUSB0
+    //IPAddress ip(192, 168, 2, 41);
 const String globalTopic = "NodeMcu";
 const String sector = "Cocina";
 const char* ssid = "Casa"; // Rellena con el nombre de tu red WiFi
@@ -15,7 +16,7 @@ const byte rf433InPin = -1; //2
 const byte rf433OutPin = -1;
 const byte rf315InPin = -1; //3
 const byte rf315OutPin = -1;//7;
-const byte WDTPin = 1;//7;
+const byte WDTPin = 15;//7;
 const byte buttonArray[] = {};
 const byte RelaysArray[] = {0,2};
 const byte RelaysInvertedArray[] = {};
@@ -50,7 +51,7 @@ const byte PushbuttonInvertedArray[] = {13} ;
 // D5 = 14; ENCODER 
 // D6 = 12; ENCODER
 // D7 = 13; BOTON ENCODER
-// D8 = 15;
+// D8 = 15; wdt
 // D9 = 3;  Tecla 3
-// D10 = 1; wdt
+// D10 = 1;   (No se puede Pull down)
 //
