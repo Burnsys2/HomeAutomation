@@ -47,7 +47,7 @@
         },
         {
             "name": "Arduino",
-            "compilerPath": "/home/lolo/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/2.5.0-4-b40a506/bin/xtensa-lx106-elf-g++",
+            "compilerPath": "C:\\Users\\Living\\AppData\\Local\\Arduino15\\packages\\esp8266\\tools\\xtensa-lx106-elf-gcc\\2.5.0-4-b40a506\\bin\\xtensa-lx106-elf-g++",
             "compilerArgs": [
                 "-U__STRICT_ANSI__",
                 "-w",
@@ -90,7 +90,7 @@
                 "/home/lolo/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/2.5.0-4-b40a506/xtensa-lx106-elf/include"
             ],
             "forcedInclude": [
-                "/home/lolo/.arduino15/packages/esp8266/hardware/esp8266/2.7.4/cores/esp8266/Arduino.h"
+                "C:\\Users\\Living\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\2.7.4\\cores\\esp8266\\Arduino.h"
             ],
             "cStandard": "c11",
             "cppStandard": "c++11",
