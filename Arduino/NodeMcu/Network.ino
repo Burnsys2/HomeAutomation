@@ -154,4 +154,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
 		sendMqttf(F("PONG") ,1 ,false);
 	if (topico == F("SENSORES"))
 		ProcesarComandoSensores(topic,valor);
+	if (topico == F("BUTTONS"))
+		ProcesarComandoButtons(topic,valor);
+
 }

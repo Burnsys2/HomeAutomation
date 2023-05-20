@@ -62,6 +62,7 @@
                 "/home/lolo/.arduino15/packages/esp8266/hardware/esp8266/2.7.4/tools/sdk/include",
                 "/home/lolo/.arduino15/packages/esp8266/hardware/esp8266/2.7.4/tools/sdk/lwip2/include",
                 "/home/lolo/.arduino15/packages/esp8266/hardware/esp8266/2.7.4/tools/sdk/libc/xtensa-lx106-elf/include",
+                "/home/lolo/HomeAutomation/Arduino/Out/core",
                 "/home/lolo/.arduino15/packages/esp8266/hardware/esp8266/2.7.4/cores/esp8266",
                 "/home/lolo/.arduino15/packages/esp8266/hardware/esp8266/2.7.4/variants/generic",
                 "/home/lolo/Arduino/libraries/FastLED-master",
